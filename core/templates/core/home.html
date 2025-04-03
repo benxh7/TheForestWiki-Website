@@ -49,11 +49,27 @@
         <div id="stars4"></div>
     </div>
     
-    <!-- Encabezado (Usamos Bootstrap para la responsividad) -->
-    <header class="header-estilo">
+    <!-- Selector de imagenes -->
+    <div class="slider-wrapper">
+        <div class="slider">
+            <div class="slider">
+                <img id="slide-1" src="{% static 'core/img/home/img-2.png' %}" alt="Imagen 1" class="slider-image">
+                <img id="slide-2" src="{% static 'core/img/home/img-1.png' %}" alt="Imagen 2" class="slider-image">
+                <img id="slide-3" src="{% static 'core/img/home/img-2.png' %}" alt="Imagen 3" class="slider-image">
+            </div>
+        </div>
+
+        <div class="dots">
+            <a href="#slide-1"></a>
+            <a href="#slide-2"></a>
+            <a href="#slide-3"></a>
+        </div>
+    </div>
+
+    <!--<header class="header-estilo">
         <img src="{% static 'core/img/home/img-3.jpg' %}" alt="Imgenes" class="header-img img-fluid">
         <h2 class="mensaje-dinamico"></h2>
-    </header>
+    </header>-->
 
     <!-- Contenido principal -->
     <div class="body-content container py-5 py-md-50">

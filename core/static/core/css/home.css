@@ -157,6 +157,76 @@ body.modal-open {
     transform: scale3d(1, 1, 1);
 }
 
+/*
+=====================================
+ Image Slider (Carrusel de imagenes)
+=====================================
+*/
+
+.slider-wrapper {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    height: 500px;
+}
+
+.slider-image {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid gold; /* Opcional, si deseas mantener el estilo */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2), 0 2px 20px rgba(0, 0, 0, 0.25);
+}
+
+.slider {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border: 5px solid gold; /* Opcional, si deseas mantener el estilo */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2), 0 2px 20px rgba(0, 0, 0, 0.25);
+}
+
+.slider::-webkit-scrollbar {
+    display: none;
+}
+
+.slide {
+    scroll-snap-align: start;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.dots {
+    position: absolute;
+    bottom: 25px; /* Ajusta según lo necesites */
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 15px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dots a {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: 0.75;
+    transition: opacity 250ms ease;
+    cursor: pointer;
+}
+
+.dots a:hover {
+    opacity: 1;
+}
+
 /* 
 ======================================
  Diseño del encabezado de cada pagina 
@@ -173,7 +243,7 @@ body.modal-open {
 
 
 
-/* Imagen de fondo */
+/* Imagen de fondo
 .header-img {
     position: absolute;
     top: 100px;
@@ -183,7 +253,7 @@ body.modal-open {
     transform: translateX(-50%);
     object-fit: cover;
     z-index: 0;
-}
+}*/
 
 .titulo-img {
     position: absolute;
@@ -239,7 +309,7 @@ body.modal-open {
     color: white;
     padding: 10px;
     text-align: center;
-    margin-top: 500px;
+    margin-top: 650px;
     flex: 1;
 }
 
@@ -338,12 +408,6 @@ body.modal-open {
         opacity: 0;
     }
 }
-
-/* --------------------------------
-    Cambio de diseño al abrir la
-    pagina con un dispositvo movil
-    tablet o un computador
-   -------------------------------- */
 
 /*
 =======================================================
