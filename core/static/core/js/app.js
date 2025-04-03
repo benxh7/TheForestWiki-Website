@@ -1,18 +1,23 @@
 const slides = document.querySelectorAll('.slide');
 const dots = document.querySelectorAll('.dot');
 let currentSlide = 0;
-const slideInterval = 5000; // 5 segundos
+const slideInterval = 15000; // 15 segundos
+let autoSlide;
 
 function showSlide(index) {
-    // Actializamos los slides del slider
+    // Actualizamos cada slide
     slides.forEach((slide, i) => {
         slide.classList.toggle('active', i === index);
     });
-    // Actualizamos los botones del slider
+    // Actualizamos los botones (dots)
     dots.forEach((dot, i) => {
         dot.classList.toggle('active', i === index);
     });
     currentSlide = index;
+    
+    // Reiniciamos el temporizador del slider
+    clearInterval(autoSlide);
+    autoSlide = setInterval(nextSlide, slideInterval);
 }
 
 function nextSlide() {
@@ -25,30 +30,26 @@ function prevSlide() {
     showSlide(prevIndex);
 }
 
-// slider automatico
-let autoSlide = setInterval(nextSlide, slideInterval);
+// Inicializamos el slider y el temporizador automático
+showSlide(currentSlide);
+autoSlide = setInterval(nextSlide, slideInterval);
 
-// Permite cambiar de slide al hacer clic en algun boton
+// Cambio de slide al hacer clic en los puntos (dots)
 dots.forEach(dot => {
     dot.addEventListener('click', () => {
-        clearInterval(autoSlide); // Opcional: reinicia el intervalo al cambiar manualmente
-        showSlide(parseInt(dot.getAttribute('data-index')));
-        autoSlide = setInterval(nextSlide, slideInterval);
+        const index = parseInt(dot.getAttribute('data-index'));
+        showSlide(index);
     });
 });
 
-// Navegacion con flechas
+// Navegación con flechas
 const prevButton = document.querySelector('.prev');
 const nextButton = document.querySelector('.next');
 
 prevButton.addEventListener('click', () => {
-    clearInterval(autoSlide);
     prevSlide();
-    autoSlide = setInterval(nextSlide, slideInterval);
 });
 
 nextButton.addEventListener('click', () => {
-    clearInterval(autoSlide);
     nextSlide();
-    autoSlide = setInterval(nextSlide, slideInterval);
 });

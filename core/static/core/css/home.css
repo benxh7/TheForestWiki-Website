@@ -162,6 +162,7 @@ body.modal-open {
 =====================================
 */
 
+/* Estilo del slider */
 .slider-wrapper {
     position: absolute;
     top: 100px;
@@ -179,13 +180,65 @@ body.modal-open {
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2), 0 2px 20px rgba(0, 0, 0, 0.25);
 }
 
-/* Contenedor del slider */
+/* Contenedor de imagenes */
+.slider-images {
+    display: flex;
+    height: 100%;
+    overflow-x: auto; /* Permite el desplazamiento horizontal */
+    scroll-behavior: smooth; /* Hace que el desplazamiento sea muy suave */
+    scroll-snap-type: x mandatory; /* Habilita el efecto de "snap" al desplazarse */
+    -ms-overflow-style: none;  /* Para Internet Explorer y Edge */
+    scrollbar-width: none;  /* Para Firefox */
+}
+
+/* Oculta la barra de desplazamiento en navegadores modernos */
+.slider-images::-webkit-scrollbar {
+    display: none;
+}
+
+/* Estilo de las imagenes dentro del slider */
+.slider-images img {
+    flex: 0 0 100%; /* Cada imagen ocupa el 100% del contenedor */
+    scroll-snap-align: center; /* Alinea la imagen al centro al hacer scroll */
+    transition: transform 0.5s ease; /* Transición suave al desplazarse */
+}
+
+/* Al hacer hover sobre la imagen se aplica un efecto de zoom */
+.slider-images img:hover {
+    transform: scale(1.05); /* Aumenta el tamaño de la imagen al pasar el mouse */
+}
+
+/* Estilo del contenedor del slider */
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Estilo del slider */
+.slider-wrapper {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    height: 500px;
+    display: block;
+}
+
+/* Estilo de la imagen */
+.slider-image {
+    width: 50%;
+    height: 100%;
+    object-fit: cover; /* Mantiene la proporción de la imagen */
+}
+
+/* Elimina o comenta los background-color en .slider y .slide */
 .slider {
     position: relative;
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-color: #000; /* Fondo negro */
 }
 
 .slider::-webkit-scrollbar {
@@ -199,7 +252,6 @@ body.modal-open {
     height: 100%;
     opacity: 0;
     transition: opacity 1s ease-in-out;
-    background-color: #000; /* Fondo negro */
 }
 
 /* Slide visible */
@@ -218,7 +270,7 @@ body.modal-open {
     justify-content: space-between;
     transform: translateY(-50%);
     z-index: 5; /* Asegura que queden encima de las imágenes */
-    padding: 0 10px; /* Espacio en los bordes laterales */
+    padding: 0 350px; /* Espacio en los bordes laterales */
 }
 
 /* Estilo general de cada flecha */
@@ -226,8 +278,12 @@ body.modal-open {
     cursor: pointer;
     color: #fff;
     background-color: rgba(0, 0, 0, 0.3);
-    padding: 8px 12px;
-    border-radius: 50%;
+    width: 40px;          /* Ancho fijo */
+    height: 40px;         /* Alto fijo */
+    display: flex;        /* Para centrar el contenido */
+    align-items: center;  
+    justify-content: center;
+    border-radius: 10px;  /* Bordes redondeados, pero no totalmente redondos */
     font-size: 1.5rem;
     transition: background-color 0.3s ease;
 }
@@ -377,6 +433,7 @@ body.modal-open {
 }
 
 .footer-brand {
+    font-family: 'Arial', sans-serif;
     color: gold;
     font-size: 1.5rem;
     font-weight: 600;
