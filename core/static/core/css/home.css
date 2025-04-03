@@ -53,11 +53,10 @@ body.modal-open {
     width: 33px;
     height: 4px;
     margin-bottom: 5px;
-    background: #ac03d6;  /* Color original de las barras */
+    background: gold;  /* Color original de las barras */
     border-radius: 3px;
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
-                opacity 0.55s ease,
-                background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+                opacity 0.55s ease, background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
     transform-origin: 4px 0px;
 }
 
@@ -92,7 +91,7 @@ body.modal-open {
     z-index: 100;
     background: rgb(15, 15, 15);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 15px 0;
+    padding: 25px 0;
 }
 
 /* Reglas base: para móviles (menú hamburguesa) */
@@ -101,8 +100,8 @@ body.modal-open {
     top: -100%;
     left: 0;
     width: 100%;
-    background: linear-gradient(to right bottom, rgba(235, 83, 202, 0.7), rgba(141, 6, 231, 0.7));
-    padding: 5.5px 0;
+    background: linear-gradient(to right bottom, rgba(255, 187, 0, 0.7), rgb(255, 208, 0));
+    padding: 3px 0;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -176,54 +175,91 @@ body.modal-open {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    border: 1px solid gold; /* Opcional, si deseas mantener el estilo */
+    border: 2px solid gold; /* Opcional, si deseas mantener el estilo */
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2), 0 2px 20px rgba(0, 0, 0, 0.25);
 }
 
+/* Contenedor del slider */
 .slider {
+    position: relative;
     width: 100%;
     height: 100%;
     overflow: hidden;
-    border: 5px solid gold; /* Opcional, si deseas mantener el estilo */
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2), 0 2px 20px rgba(0, 0, 0, 0.25);
+    background-color: #000; /* Fondo negro */
 }
 
 .slider::-webkit-scrollbar {
     display: none;
 }
 
+/* Cada slide se posiciona de forma absoluta para superponerse */
 .slide {
-    scroll-snap-align: start;
+    position: absolute;
     width: 100%;
     height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    background-color: #000; /* Fondo negro */
 }
 
+/* Slide visible */
+.slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* Contenedor de flechas */
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    /* Distribuir flechas a los lados opuestos */
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 5; /* Asegura que queden encima de las imágenes */
+    padding: 0 10px; /* Espacio en los bordes laterales */
+}
+
+/* Estilo general de cada flecha */
+.slider-nav span {
+    cursor: pointer;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 8px 12px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover */
+.slider-nav span:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Estilos para los puntos de navegación */
 .dots {
     position: absolute;
-    bottom: 25px; /* Ajusta según lo necesites */
+    bottom: 25px;
     left: 50%;
     transform: translateX(-50%);
-    gap: 15px;
-    z-index: 1;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    gap: 15px;
+    z-index: 10;
 }
-
-.dots a {
+  
+.dot {
     width: 8px;
     height: 8px;
-    border-radius: 50%;
     background-color: #fff;
+    border-radius: 50%;
     opacity: 0.75;
-    transition: opacity 250ms ease;
     cursor: pointer;
+    transition: opacity 250ms ease;
 }
-
-.dots a:hover {
+  
+.dot.active,
+.dot:hover {
     opacity: 1;
 }
 
@@ -309,7 +345,7 @@ body.modal-open {
     color: white;
     padding: 10px;
     text-align: center;
-    margin-top: 650px;
+    margin-top: 550px;
     flex: 1;
 }
 
@@ -472,17 +508,40 @@ body.modal-open {
 
 /* Ajustes para pantallas tablet y moviles grandes */
 @media (max-width: 420px) {
-    /* Corrección de título e imagen en dispositivos móviles */
-    .header-estilo h2 {
-        font-size: 100%; /* Puedes probar con 90% o 0.9em si necesitas reducirlo más */
-        z-index: 2;
-        text-shadow: 1px 1px 2px rgba(184, 226, 250, 0.856);
-        position: relative;
+    .slider-wrapper {
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 95%;
+        height: 250px;
     }
-  
-    .titulo-img {
-        width: 70%; /* O 80%, según prefieras */
-        max-width: 300px; /* Evita que se haga demasiado grande */
-        top: 50px; /* Ajusta la posición vertical si quieres que baje/suba */
+    
+    .slider-image {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border: 2px solid gold; /* Opcional, si deseas mantener el estilo */
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2), 0 2px 20px rgba(0, 0, 0, 0.25);
+    }
+    
+    /* Contenedor del slider */
+    .slider {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: #000; /* Fondo negro */
+    }
+
+    /* Contenido principal del body de la pagina */
+    .body-content {
+        display: block !important;
+        order: initial !important;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        margin-top: 350px;
+        flex: 1;
     }
 }
