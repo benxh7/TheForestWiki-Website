@@ -34,9 +34,9 @@
             <!-- Lista de navegación -->
             <ul class="nav-list d-flex align-items-center">
                 <li class="menu"><a href="#">Inicio</a></li>
-                <li class="menu"><a href="paginas/categorias.html">Categorías</a></li>
+                <li class="menu"><a href="{% url 'error_404' %}">Categorías</a></li>
                 <li class="menu">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#accountModal">Cuenta</a>
+                    <a href="{% url 'error_404' %}" data-bs-toggle="modal" data-bs-target="#accountModal">Cuenta</a>
                 </li>
             </ul>
         </div>
@@ -171,8 +171,8 @@
                 <div class="col-md-6 d-flex justify-content-center justify-content-md-end">
                     <ul class="footer-links">
                         <li><a href="#">Inicio</a></li>
-                        <li><a href="categorias.html">Categorías</a></li>
-                        <li><a href="#">Contacto</a></li>
+                        <li><a href="{% url 'error_404' %}">Categorías</a></li>
+                        <li><a href="{% url 'error_404' %}">Contacto</a></li>
                     </ul>
                 </div>
             </div>

@@ -10,7 +10,7 @@ html, body {
     margin: 0;
     padding: 0;
     text-align: center;
-    min-height: 210vh;
+    min-height: 100vh;
     overflow-x: hidden; /* Evita el que la pagina no aumente su tamaño horizontalmente */
     display: flex;
     flex-direction: column;
@@ -403,13 +403,13 @@ body.modal-open {
     color: white;
     padding: 10px;
     text-align: center;
-    margin-top: 150px;
+    margin-top: 70px;
     flex: 1;
 }
 
 /* Estilo para los titulos */
 .body-content h1 {
-    font-size: 2.5em;
+    font-size: 3.0em;
     margin: 20px 0;
     line-height: 1.5; /* Ajusta este valor según lo necesites */
 }
@@ -423,7 +423,7 @@ body.modal-open {
 
 
 /* Diseño del boton para comprar el juego */
-.btn-buy {
+.btn-back {
     background-color: rgba(128, 128, 128, 0.7); /* Gris con transparencia */
     color: #fff;
     padding: 10px 20px;
@@ -435,9 +435,15 @@ body.modal-open {
     transition: background-color 0.3s ease;
 }
 
-.btn-buy:hover {
-    background-color: rgba(128, 128, 128, 1); /* Gris sólido al hacer hover */
+.btn-back {
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
+  
+.btn-back:hover {
+    transform: scale(1.05);
+    background-color: rgb(83, 83, 83); /* O el color que desees para el hover */
+}
+
 
 /*
 ==================================
