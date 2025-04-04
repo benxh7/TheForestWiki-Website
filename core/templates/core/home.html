@@ -47,15 +47,15 @@
         <div class="slider-wrapper position-relative">
             <div class="slider animate-up">
                 <div class="slide">
-                    <img src="{% static 'core/img/home/img-3.jpg' %}" alt="Imagen 1"
+                    <img src="{% static 'core/img/home/slice/img-3.jpg' %}" alt="Imagen 1"
                         class="slider-image img-fluid w-75">
                 </div>
                 <div class="slide">
-                    <img src="{% static 'core/img/home/img-1.png' %}" alt="Imagen 1"
+                    <img src="{% static 'core/img/home/slice/img-1.png' %}" alt="Imagen 1"
                         class="slider-image img-fluid w-75">
                 </div>
                 <div class="slide">
-                    <img src="{% static 'core/img/home/img-2.jpg' %}" alt="Imagen 2"
+                    <img src="{% static 'core/img/home/slice/img-2.jpg' %}" alt="Imagen 2"
                         class="slider-image img-fluid w-75">
                 </div>
             </div>
@@ -82,13 +82,12 @@
 
     <!-- Contenido principal -->
     <div class="body-content container py-5 py-md-50">
-        <h1 class="animate-up">The Forest Wiki</h1>
+        <!--<h1 class="animate-up">The Forest Wiki</h1>-->
+        <img src="{% static 'core/img/home/site-logo.png' %}" alt="Img Logo" class="animate-breathing img-fluid w-1">
         <h2 class="animate-up">
-            ¿Te gusta The Forest? Pues estás en la página correcta. Aquí encontrarás todo lo que necesitas saber sobre
-            el
-            juego, desde guías y trucos hasta información sobre los personajes y la historia. ¡Explora y descubre todo
-            lo que
-            necesitas!
+            ¿Te gusta The Forest? Pues estás en la página correcta. Aquí en The Forest Wiki encontrarás todo lo que necesitas 
+            saber sobre el juego, desde guías y trucos hasta información sobre los personajes y la historia. 
+            ¡Explora y descubre todo lo que necesitas!
         </h2>
         <a href="https://store.steampowered.com/app/242760/The_Forest/" class="btn-buy animate-up">Comprar Juego</a>
     </div>
@@ -102,33 +101,50 @@
         <div class="row align-items-center category-box box mb-4">
             <!-- Imagen a la izquierda -->
             <div class="col-md-4">
-                <img src="{% static 'core/img/categories/categoria1.jpg' %}" alt="Categoría 1"
-                    class="img-fluid rounded">
+                <img src="{% static 'core/img/home/categories/animals-logo.png' %}" alt="Categoría Animales" 
+                    class="animate-up img-fluid rounded w-75">
             </div>
             <!-- Texto a la derecha -->
             <div class="col-md-8">
-                <h3>Categoría 1</h3>
+                <h3>Animales</h3>
                 <p>
-                    Aquí puedes incluir una descripción detallada de la categoría, guías, trucos y otros detalles
-                    relevantes.
+                    La península de El Bosque está habitada por una gran variedad de animales. 
+                    Estos animales se convierten en una parte esencial de la supervivencia del jugador, 
+                    ya que algunos pueden ser cazados para obtener alimento, piel u otros materiales de artesanía.
                 </p>
-                <a href="categoria1.html" class="btn btn-primary">Ver más</a>
+                <a href="categoria1.html" class="btn btn-primary">Leer más</a>
             </div>
         </div>
 
         <!-- Caja de Categoría 2 -->
         <div class="row align-items-center category-box box mb-4">
             <div class="col-md-4">
-                <img src="{% static 'core/img/categories/categoria2.jpg' %}" alt="Categoría 2"
-                    class="img-fluid rounded">
+                <img src="{% static 'core/img/home/categories/map-logo.png' %}" alt="Categoría Mapa"
+                class="animate-up img-fluid rounded w-75">
             </div>
             <div class="col-md-8">
-                <h3>Categoría 2</h3>
+                <h3>Mapa</h3>
                 <p>
-                    Descripción de la categoría 2. Puedes incluir información relevante y enlaces a secciones más
-                    detalladas.
+                    El Mapa es una herramienta que ayuda al jugador a navegar tanto por 
+                    encima como por debajo del suelo en El Bosque. Comienza en blanco y se rellena a mano al explorar.
                 </p>
-                <a href="categoria2.html" class="btn btn-primary">Ver más</a>
+                <a href="categoria2.html" class="btn btn-primary">Leer más</a>
+            </div>
+        </div>
+
+        <!-- Caja de Categoría 3 -->
+        <div class="row align-items-center category-box box mb-4">
+            <div class="col-md-4">
+                <img src="{% static 'core/img/home/categories/cannibals-logo.png' %}" alt="Categoría Enemigos"
+                class="animate-up img-fluid rounded w-75">
+            </div>
+            <div class="col-md-8">
+                <h3>Enemigos</h3>
+                <p>
+                    El Bosque no es un lugar seguro, en el habitan criaturas hostiles que intentarán acabar contigo 
+                    y que te obligarán a defenderte. Armate lo mejor para enfrentar a los caníbales y mutantes.  
+                </p>
+                <a href="categoria2.html" class="btn btn-primary">Leer más</a>
             </div>
         </div>
     </div>
@@ -143,7 +159,7 @@
                         <span>The Forest Wiki</span>
                     </div>
                     <p class="footer-text">
-                        Descubriendo los mejores videojuegos desde 2025.
+                        Recopilando información esencial desde 2025.
                     </p>
                     <div class="social-links">
                         <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
