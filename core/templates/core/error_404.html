@@ -35,16 +35,14 @@
             <ul class="nav-list d-flex align-items-center">
                 <li class="menu"><a href="{% url 'home' %}">Inicio</a></li>
                 <li class="menu"><a href="{% url 'error_404' %}">Categorías</a></li>
-                <li class="menu">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#accountModal">Cuenta</a>
-                </li>
+                <li class="menu"><a href="{% url 'error_404' %}">Mi Cuenta</a></li>
+                <li class="menu"><a href="{% url 'login' %}">Iniciar Sesión</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Contenido principal -->
     <div class="body-content container py-5 py-md-50">
-        <!--<h1 class="animate-up">The Forest Wiki</h1>-->
         <img src="{% static 'core/img/home/site-logo.png' %}" alt="Img Logo" class="animate-breathing img-fluid w-1">
         <div class="container text-center py-5">
             <h1>404 - Página no encontrada</h1>

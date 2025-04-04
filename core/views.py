@@ -7,3 +7,7 @@ def home(request):
 # Vista para manejar el error 404
 def error_404(request):
     return render(request, 'core/error_404.html')
+
+# Vista para la página de iniciar sesión
+def login(request):
+    return render(request, 'core/login.html')

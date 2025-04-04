@@ -126,15 +126,16 @@ body.modal-open {
 /* Reglas base: para móviles (menú hamburguesa) */
 .navbar ul {
     position: fixed;
-    top: -100%;
-    left: 0;
-    width: 100%;
-    background: linear-gradient(to right bottom, rgba(255, 187, 0, 0.7), rgb(255, 208, 0));
-    padding: 3px 0;
+    top: 0;
+    left: -100%; /* Fuera de la pantalla */
+    width: 250px; /* Ancho fijo, ajústalo según tus necesidades */
+    height: 100%; /* Ocupa la altura completa */
+    background: linear-gradient(to bottom, rgba(255,187,0,0.7), rgb(255,208,0));
+    padding: 20px 0;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    transition: top 0.3s ease;
+    flex-direction: column; /* Los ítems se apilan verticalmente */
+    justify-content: flex-start;
+    transition: left 0.3s ease;
     margin: 0;
     list-style: none;
 }
@@ -145,7 +146,7 @@ body.modal-open {
 
 /* Cuando el checkbox esta marcado desplaza el menu a la vista dandole un efecto como de desplazamiento */
 .menu-toggle:checked ~ ul {
-    top: 0;
+    left: 0;
 }
 
 /* Estilos para los subvinculos dentro del menu (se aplican a todas las opciones) */
@@ -185,216 +186,27 @@ body.modal-open {
     transform: scale3d(1, 1, 1);
 }
 
-/*
-=====================================
- Image Slider (Carrusel de imagenes)
-=====================================
-*/
-
-/* Estilo del slider */
-/* .slider-wrapper {
-    position: absolute;
-    top: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 95%;
-    height: 500px;
-} */
-
-.slider-image {
-    width: 500%;
-    height: 100%;
-    overflow: hidden;
-    border: 2px solid gold; /* Opcional, si deseas mantener el estilo */
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2), 0 2px 20px rgba(0, 0, 0, 0.25);
-}
-
-/* Contenedor de imagenes */
-.slider-images {
-    display: flex;
-    height: 100%;
-    overflow-x: auto; /* Permite el desplazamiento horizontal */
-    scroll-behavior: smooth; /* Hace que el desplazamiento sea muy suave */
-    scroll-snap-type: x mandatory; /* Habilita el efecto de "snap" al desplazarse */
-    -ms-overflow-style: none;  /* Para Internet Explorer y Edge */
-    scrollbar-width: none;  /* Para Firefox */
-}
-
-/* Oculta la barra de desplazamiento en navegadores modernos */
-.slider-images::-webkit-scrollbar {
-    display: none;
-}
-
-/* Estilo de las imagenes dentro del slider */
-.slider-images img {
-    flex: 0 0 100%; /* Cada imagen ocupa el 100% del contenedor */
-    scroll-snap-align: center; /* Alinea la imagen al centro al hacer scroll */
-    transition: transform 0.5s ease; /* Transición suave al desplazarse */
-}
-
-/* Al hacer hover sobre la imagen se aplica un efecto de zoom */
-.slider-images img:hover {
-    transform: scale(1.05); /* Aumenta el tamaño de la imagen al pasar el mouse */
-}
-
-/* Estilo del contenedor del slider */
-.slider-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-/* Estilo del slider */
-.slider-wrapper {
-    position: absolute;
-    top: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 95%;
-    height: 500px;
-    display: block;
-}
-
-/* Estilo de la imagen */
-.slider-image {
-    width: 50%;
-    height: 100%;
-    object-fit: cover; /* Mantiene la proporción de la imagen */
-}
-
-/* Elimina o comenta los background-color en .slider y .slide */
-.slider {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-.slider::-webkit-scrollbar {
-    display: none;
-}
-
-/* Cada slide se posiciona de forma absoluta para superponerse */
-.slide {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-/* Slide visible */
-.slide.active {
-    opacity: 1;
-    z-index: 1;
-}
-
-/* Contenedor de flechas */
-.slider-nav {
-    position: absolute;
-    top: 45%;
-    width: 100%;
-    /* Distribuir flechas a los lados opuestos */
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
-    z-index: 5; /* Asegura que queden encima de las imágenes */
-    padding: 0 50px; /* Espacio en los bordes laterales */
-}
-
-/* Estilo general de cada flecha */
-.slider-nav span {
-    cursor: pointer;
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.3);
-    width: 40px;          /* Ancho fijo */
-    height: 40px;         /* Alto fijo */
-    display: flex;        /* Para centrar el contenido */
-    align-items: center;  
-    justify-content: center;
-    border-radius: 10px;  /* Bordes redondeados, pero no totalmente redondos */
-    font-size: 1.5rem;
-    transition: background-color 0.3s ease;
-}
-
-/* Hover */
-.slider-nav span:hover {
-    background-color: rgba(0, 0, 0, 0.6);
-}
-
-.dots {
-    position: absolute;
-    bottom: 25px;
-    width: 100%; /* Ocupa todo el ancho */
-    display: flex;
-    justify-content: center; /* Centra los puntos */
-    gap: 15px;
-    z-index: 10;
-}
-  
-.dot {
-    width: 8px;
-    height: 8px;
-    background-color: #fff;
-    border-radius: 50%;
-    opacity: 0.75;
-    cursor: pointer;
-    transition: opacity 250ms ease;
-}
-  
-.dot.active,
-.dot:hover {
-    opacity: 1;
-}
-
-/* 
-======================================
- Diseño del encabezado de cada pagina 
-======================================
-*/
-
-/* Estilo del encabezado */
-.header-estilo {
-    position: relative;
-    padding: 100px;
-    text-align: center;
-    margin-top: 0; /* Se ajusta segun la altura de la navbar */
-}
-
-.titulo-img {
-    position: absolute;
-    top: 30px; /* Asegúrate de especificar la unidad */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 300px;
-    height: auto;
-    object-fit: contain; /* Muestra la imagen completa sin recortar */
-    z-index: 1;
-}
-
-/* Aseguramos que el texto o contenido se muestre por encima del overlay */
-.header-estilo h2 { 
-    margin: 5px 0;   
-    top: 190px; 
-    z-index: 2;
-    color: rgb(17, 161, 245);
-    text-shadow: 1px 1px 2px rgba(184, 226, 250, 0.856);
-    font-weight: 450;
-    font-size: 130%;
-    position: relative;
-}
-
-/* Estilos para el titulo */
-.titulo-principal {
-    color: #7703946e;
-    font-size: 500%;
-}
-
 /* 
 ================================
  Diseño del cuerpo de la pagina
 ================================
 */
+
+.animate-breathing {
+    animation: breathing 3s ease-in-out infinite;
+  }
+  
+  @keyframes breathing {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+}
 
 /* Contenido principal del body de la pagina */
 .body-content {
@@ -442,88 +254,6 @@ body.modal-open {
 .btn-back:hover {
     transform: scale(1.05);
     background-color: rgb(83, 83, 83); /* O el color que desees para el hover */
-}
-
-
-/*
-==================================
- Cajas de categorias de la pagina
-==================================
-*/
-
-.animate-breathing {
-    animation: breathing 3s ease-in-out infinite;
-  }
-  
-  @keyframes breathing {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.05);
-    }
-    100% {
-      transform: scale(1);
-    }
-}
-
-.category-box {
-    max-width: 1000px; /* Ancho máximo deseado */
-    margin-left: auto;
-    margin-right: auto;
-    padding: 10px;
-    background-color: #242424;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    transform-origin: center center;
-    transition: transform 0.3s ease;
-    will-change: transform;
-}
-
-.category-box:hover.box {
-    transform: scale(1.02);
-    /* Intenta quitar !important para evitar conflictos */
-}
-
-.category-box h3 {
-    color: #fff; /* Color del texto */
-    font-size: 1.5em; /* Tamaño del texto */
-    margin-bottom: 20px; /* Espacio entre el título y el contenido */
-}
-
-.category-box p {
-    color: #ccc; /* Color del texto */
-    font-size: 1.0em; /* Tamaño del texto */
-    margin-bottom: 20px; /* Espacio entre el párrafo y el contenido */
-}
-
-.box {
-    transform: translate(200%);
-    transition: transform 0.6s ease-in-out;
-}
-
-.box:nth-of-type(even) {
-    transform: translateX(-200%);
-    transition: transform 0.6s ease-in-out;
-}
-
-.box.show {
-    transform: translateX(0);
-}
-
-.btn.btn-primary {
-    background-color: #007bff; /* Color de fondo del botón */
-    color: white; /* Color del texto */
-    padding: 10px 20px; /* Espaciado interno */
-    border: none; /* Sin borde */
-    border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer; /* Cambia el cursor al pasar por encima */
-    font-size: 1rem; /* Tamaño de fuente */
-    transition: background-color 0.3s ease; /* Transición suave al cambiar el color de fondo */
-}
-
-.btn.btn-primary:hover {
-    background-color: #0056b3; /* Color de fondo al pasar el mouse */
 }
 
 /* 
@@ -691,60 +421,6 @@ body.modal-open {
 
 /* Ajustes para pantallas tablet y moviles grandes */
 @media (max-width: 420px) {
-    .slider-wrapper {
-        position: absolute;
-        top: 60px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 95%;
-        height: 250px;
-    }
-    
-    /* Achicamos la imagen interna y la centramos */
-    .slider-image {
-        width: 150%; /* La imagen ocupará solo el 60% del ancho del contenedor */
-        height: auto; /* Mantiene la proporción original */
-        display: block; /* Para poder centrarla */
-        margin: 15 auto; /* Centrado horizontal */
-        border: 2px solid gold; /* Opcional, si deseas mantener el estilo */
-        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2), 0 2px 20px rgba(0, 0, 0, 0.25);
-    }
-
-    /* El resto de tus estilos permanecen igual */
-    .slider {
-        position: center;
-        width: 130%;
-        height: 130%;
-        overflow: hidden;
-    }
-
-    .slider::-webkit-scrollbar {
-        display: none;
-    }
-
-    .slide {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        transition: opacity 1s ease-in-out;
-    }
-
-    .slide.active {
-        opacity: 1;
-        z-index: 1;
-    }
-
-    .dots {
-        position: absolute;
-        bottom: 30px;
-        width: 100%; /* Ocupa todo el ancho */
-        display: flex;
-        justify-content: center; /* Centra los puntos */
-        gap: 15px;
-        z-index: 10;
-    }
-
     .body-content {
         display: block !important;
         order: initial !important;
@@ -753,5 +429,19 @@ body.modal-open {
         text-align: center;
         margin-top: 50px;
         flex: 1;
+    }
+
+    /* Estilo para los titulos */
+    .body-content h1 {
+        font-size: 2.0em;
+        margin: 20px 0;
+        line-height: 1.5; /* Ajusta este valor según lo necesites */
+    }
+
+    /* Estilo para los subtitulos */
+    .body-content h2 {
+        font-size: 1.0em;
+        margin: 20px 0;
+        line-height: 1.4; /* Ajusta este valor según lo necesites */
     }
 }

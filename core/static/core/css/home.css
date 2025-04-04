@@ -126,15 +126,16 @@ body.modal-open {
 /* Reglas base: para móviles (menú hamburguesa) */
 .navbar ul {
     position: fixed;
-    top: -100%;
-    left: 0;
-    width: 100%;
-    background: linear-gradient(to right bottom, rgba(255, 187, 0, 0.7), rgb(255, 208, 0));
-    padding: 3px 0;
+    top: 0;
+    left: -100%; /* Fuera de la pantalla */
+    width: 250px; /* Ancho fijo, ajústalo según tus necesidades */
+    height: 100%; /* Ocupa la altura completa */
+    background: linear-gradient(to bottom, rgba(255,187,0,0.7), rgb(255,208,0));
+    padding: 20px 0;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    transition: top 0.3s ease;
+    flex-direction: column; /* Los ítems se apilan verticalmente */
+    justify-content: flex-start;
+    transition: left 0.3s ease;
     margin: 0;
     list-style: none;
 }
@@ -145,7 +146,7 @@ body.modal-open {
 
 /* Cuando el checkbox esta marcado desplaza el menu a la vista dandole un efecto como de desplazamiento */
 .menu-toggle:checked ~ ul {
-    top: 0;
+    left: 0;
 }
 
 /* Estilos para los subvinculos dentro del menu (se aplican a todas las opciones) */
@@ -190,16 +191,6 @@ body.modal-open {
  Image Slider (Carrusel de imagenes)
 =====================================
 */
-
-/* Estilo del slider */
-/* .slider-wrapper {
-    position: absolute;
-    top: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 95%;
-    height: 500px;
-} */
 
 .slider-image {
     width: 500%;
@@ -345,49 +336,6 @@ body.modal-open {
 .dot.active,
 .dot:hover {
     opacity: 1;
-}
-
-/* 
-======================================
- Diseño del encabezado de cada pagina 
-======================================
-*/
-
-/* Estilo del encabezado */
-.header-estilo {
-    position: relative;
-    padding: 100px;
-    text-align: center;
-    margin-top: 0; /* Se ajusta segun la altura de la navbar */
-}
-
-.titulo-img {
-    position: absolute;
-    top: 30px; /* Asegúrate de especificar la unidad */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 300px;
-    height: auto;
-    object-fit: contain; /* Muestra la imagen completa sin recortar */
-    z-index: 1;
-}
-
-/* Aseguramos que el texto o contenido se muestre por encima del overlay */
-.header-estilo h2 { 
-    margin: 5px 0;   
-    top: 190px; 
-    z-index: 2;
-    color: rgb(17, 161, 245);
-    text-shadow: 1px 1px 2px rgba(184, 226, 250, 0.856);
-    font-weight: 450;
-    font-size: 130%;
-    position: relative;
-}
-
-/* Estilos para el titulo */
-.titulo-principal {
-    color: #7703946e;
-    font-size: 500%;
 }
 
 /* 
