@@ -42,38 +42,36 @@
         </div>
     </nav>
 
-    <!-- Efecto de estrellas para el fondo -->
-    <div class="bg-animation">
-        <div id="stars"></div>
-        <div id="stars2"></div>
-        <div id="stars3"></div>
-        <div id="stars4"></div>
-    </div>
-
     <!-- Selector de imagenes -->
-    <div class="slider-wrapper">
-        <div class="slider">
-            <div class="slide">
-                <img src="{% static 'core/img/home/img-3.jpg' %}" alt="Imagen 1" class="slider-image">
+    <div class="container my-15">
+        <div class="slider-wrapper position-relative">
+            <div class="slider animate-up">
+                <div class="slide">
+                    <img src="{% static 'core/img/home/img-3.jpg' %}" alt="Imagen 1"
+                        class="slider-image img-fluid w-75">
+                </div>
+                <div class="slide">
+                    <img src="{% static 'core/img/home/img-1.png' %}" alt="Imagen 1"
+                        class="slider-image img-fluid w-75">
+                </div>
+                <div class="slide">
+                    <img src="{% static 'core/img/home/img-2.jpg' %}" alt="Imagen 2"
+                        class="slider-image img-fluid w-75">
+                </div>
             </div>
-            <div class="slide">
-                <img src="{% static 'core/img/home/img-1.png' %}" alt="Imagen 1" class="slider-image">
-            </div>
-            <div class="slide">
-                <img src="{% static 'core/img/home/img-2.jpg' %}" alt="Imagen 2" class="slider-image">
-            </div>
-        </div>
 
-        <!-- Flechas para cambiar de imagen -->
-        <div class="slider-nav">
-            <span class="prev">&#10094;</span>
-            <span class="next">&#10095;</span>
-        </div>
-        <!-- Puntos/botones para cambiar de imagen -->
-        <div class="dots">
-            <span class="dot active" data-index="0"></span>
-            <span class="dot" data-index="1"></span>
-            <span class="dot" data-index="2"></span>
+            <!-- Flechas para cambiar de imagen -->
+            <div class="slider-nav animate-up d-none d-md-flex">
+                <span class="prev">&#10094;</span>
+                <span class="next">&#10095;</span>
+            </div>
+
+            <!-- Puntos/botones para cambiar de imagen -->
+            <div class="dots animate-up d-flex justify-content-center">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
+                <span class="dot" data-index="2"></span>
+            </div>
         </div>
     </div>
 
@@ -84,14 +82,55 @@
 
     <!-- Contenido principal -->
     <div class="body-content container py-5 py-md-50">
-        <h1>Contenido</h1>
-        <!--<h2>
-            Search Gaming es una plataforma diseñada para los amantes de los videojuegos.<br>
-            Aquí encontrarás una amplia variedad de categorías, incluyendo terror, acción,<br>
-            supervivencia, fantasía y simulación.<br><br>
-            Para descubrir el juego perfecto para ti, simplemente navega a la sección<br>
-            de categorías en la parte inferior y selecciona la que más te interese.
-        </h2>-->
+        <h1 class="animate-up">The Forest Wiki</h1>
+        <h2 class="animate-up">
+            ¿Te gusta The Forest? Pues estás en la página correcta. Aquí encontrarás todo lo que necesitas saber sobre
+            el
+            juego, desde guías y trucos hasta información sobre los personajes y la historia. ¡Explora y descubre todo
+            lo que
+            necesitas!
+        </h2>
+        <a href="https://store.steampowered.com/app/242760/The_Forest/" class="btn-buy animate-up">Comprar Juego</a>
+    </div>
+
+    <!-- Categorias con contenido -->
+    <div class="container my-5">
+        <div class="body-content container py-3 py-md-50">
+            <h1 class="animate-up">Contenido de The Forest</h1>
+        </div>
+        <!-- Caja de Categoría 1 -->
+        <div class="row align-items-center category-box box mb-4">
+            <!-- Imagen a la izquierda -->
+            <div class="col-md-4">
+                <img src="{% static 'core/img/categories/categoria1.jpg' %}" alt="Categoría 1"
+                    class="img-fluid rounded">
+            </div>
+            <!-- Texto a la derecha -->
+            <div class="col-md-8">
+                <h3>Categoría 1</h3>
+                <p>
+                    Aquí puedes incluir una descripción detallada de la categoría, guías, trucos y otros detalles
+                    relevantes.
+                </p>
+                <a href="categoria1.html" class="btn btn-primary">Ver más</a>
+            </div>
+        </div>
+
+        <!-- Caja de Categoría 2 -->
+        <div class="row align-items-center category-box box mb-4">
+            <div class="col-md-4">
+                <img src="{% static 'core/img/categories/categoria2.jpg' %}" alt="Categoría 2"
+                    class="img-fluid rounded">
+            </div>
+            <div class="col-md-8">
+                <h3>Categoría 2</h3>
+                <p>
+                    Descripción de la categoría 2. Puedes incluir información relevante y enlaces a secciones más
+                    detalladas.
+                </p>
+                <a href="categoria2.html" class="btn btn-primary">Ver más</a>
+            </div>
+        </div>
     </div>
 
     <!-- Pie de página (Usamos Bootstrap para la responsividad) -->
@@ -132,6 +171,7 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="{% static 'core/js/app.js' %}"></script>
+    <script src="{% static 'core/js/scroll.js' %}"></script>
     <!--<script src="scripts/auth.js"></script>-->
 
 </body>

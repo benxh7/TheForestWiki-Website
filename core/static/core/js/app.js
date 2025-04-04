@@ -14,7 +14,7 @@ function showSlide(index) {
         dot.classList.toggle('active', i === index);
     });
     currentSlide = index;
-    
+
     // Reiniciamos el temporizador del slider
     clearInterval(autoSlide);
     autoSlide = setInterval(nextSlide, slideInterval);
