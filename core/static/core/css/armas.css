@@ -3,204 +3,106 @@
     align-items: center;
     justify-content: center;
     padding-top: 10px;
- }
+}
+
+#titulo {
+    color: #ffc400;
+    border: 3px dimgray solid;
+    border-radius: 100px;
+    background-color: black ;
+    margin-top: 20px;
+    margin-left: 20%;
+    margin-right: 20%;
+	margin-bottom: 20px;
+    font-family: Georgia;
+    text-align: center;
+}
+
+#fondo{
+   background-color: black;  
+   background-image: url(imagenes/Fondos/Fondo3.jpg); 
+   background-position: top;
+   background-attachment: fixed;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+#caja_bienvenida{
+   background-color: black;
+   margin: auto;
+   margin-top: 20px;
+   border: 3px dimgray solid;
+   border-radius: 5px;   
+   text-align: center; 
+   padding-top: 20px;
+   padding-bottom: 20px;
+   padding-left: 20px;
+   padding-right: 20px;
+   opacity: 0.85;
+   
+}
+
+.fondo-tabla{
+   background-color: black;
+   opacity: 8px;
+}
+
+
+.margin-tabla{
+   margin-top: 20px;
+}
+
+.tamannio-letra{
+   width: 100px;
+   height: 100px;
+}
+
+#bordertabla{
+   border-radius: 5px;
+}
+
+#casillad{
+   width: 400px;
+}
+
+.colorl{
+   color: #ffc400;
+   font-family: georgia;
+}
+
+.separar-arriba{
+	padding-top: 25px;
+}
+
 
 .center1{
     text-align: center;
 }
- 
- #fondo1{
-    background-color: black;  
-    background-position: top;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
- }
- 
- #titulo1 {
-    color: #ffc400;
-    border: 3px dimgray solid;
-    border-radius: 100px;
-    background-color: black;
-    margin-top: 70px;
-    margin-left: 20%;
-    margin-right: 20%;
-    font-family: "Montserrat", sans-serif;
-    align-items: center;
+
+.center-titulo{
+   text-align: center;
+   align-items: center;
 }
- 
-   #caja_descAnimales{
-    background-color: black;
-    margin: auto;
-    margin-top: 3%;
-    border: 5px dimgray solid;
-    border-radius: 5px;
-    text-align: center; 
-    padding-top: 20px;
-    opacity: 0.85;
-    margin-bottom: 20px;
-    padding-bottom: 2%;
- }
- 
- 
- .color2{
-    color: #ffc400 ;
-    font-family: "Montserrat", sans-serif;
- }
- 
- .letra{
-    font-family: "Montserrat", sans-serif;
- }
- 
- #tamannioimagenanimales1{
-    width: 200px;
-    height: 200px;
- }
- 
- #bordertabla1{
-    border-radius: 5px;
- }
- 
- 
- 
- 
- 
- table{
-    margin-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: black;
-    border-radius: 4px;
-    opacity: 0.85;
-    padding-right: auto;
- }
- 
- td,th{
-    border: 2px solid gray;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
- }
- 
- #bordertabla{
-    border-radius: 5px;
- }
- 
- #casillad{
-    width: 500px;
- }
- 
- .colorl{
-    color: #ffc400 ;
-    font-family: "Montserrat", sans-serif;
- }
- 
- 
- .center{
-    display: flex;
-    align-items: center;
-    justify-content: center;
- }
- 
- 
- :root {
-   --rojo: #ffc400 ;
-   --fondo: #1414148c;
- }
- 
- * {
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
- }
- 
- body {
-   background: var(--fondo);
-   font-family: "Montserrat", sans-serif;
- }
- 
- 
- 
- /* -- fin ajustes 1 -- */
- 
- 
- 
- /*--header*/
- .contenedor {
-     width: 90%;
-     margin: auto;
- }
- 
- 
- 
- 
- 
- 
- /* -- fin header -- */
- 
- 
- 
- * {box-sizing:border-box}
- 
- /* Slideshow container */
- 
- 
- 
- .container-slider{
-    width: 90%;
-    max-width: 900px;
-    margin: auto;
-    overflow: hidden;
-    box-shadow: 0 0 0 10px #1414148c, 0 15px 50px;
-    margin-top: 50px;
- }
- 
- .slider__img{
-    display: block;
-    width: 100%;
-    height: 150%;
-    object-fit: cover;
- }
- 
- .slider{
-    display: flex;
-    width: 400%;
-    height: 400px;
-    margin-left: -200%;
- }
- 
- .slider__section{
-    width: 100%;
- }
- 
- .slider__btn{
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.7);
-    top: 50%;
-    transform: translateY(-50%);
-    font-weight: bold;
-    font-family: "Montserrat", sans-serif;
-    text-align: center;
-    border-radius: 50%;
-    cursor: pointer;
- 
- }
- 
- .slider__btn:hover{
-    background: #fff;
- }
- 
- 
- .slider__btn--right{
-    right: 10px;
- }
- .slider__btn--left{
-    left: 10px;
- }
- 
+
+.imagen{
+   
+   width: 110px;
+   height: 110px;
+}
+
+.letra{
+   font-family: cursive;
+}
+
+#separar-arriba{
+	padding-top: 10px;
+}
+
+.B{
+	margin-left: auto;
+	margin-right: auto;
+}
+
 /* 
 ================================
  Diseño del footer de la pagina 
@@ -271,28 +173,42 @@
     padding-top: 20px;
     border-top: 1px solid rgba(63, 63, 63, 0.466);
 }
- 
- 
- /* --- Letras y Nav --- */
- 
- header {
-    font-family: "Montserrat", sans-serif;
-     color: var(--rojo);
-     font-size: 22px;
-     
- }
- #fuente{
-     color: var(--rojo);
-     font-family: "Montserrat", sans-serif;
-     font-size: 30px;
-     padding-left: 20px;
- }
- #piedepag{
-    font-family: "Montserrat", sans-serif;
-     color: var(--rojo);
-     font-size: 20px;
- }
- 
+/* ---- ----- ----- Header ----- ----- ----- */
+
+:root {
+	--rojo: #ffc400;
+	--fondo: #1414148c;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: var(--fondo);
+	font-family: 'Open Sans', sans-serif;
+}
+header {
+	font-family: 'Bebas Neue', cursive;
+	color: var(--rojo);
+	font-size: 22px;
+	
+}
+#fuente{
+	color: var(--rojo);
+	font-family: 'Bebas Neue', cursive;
+	font-size: 30px;
+   padding-left: 20px;
+}
+#piedepag{
+	font-family: 'Bebas Neue', cursive;
+	color: var(--rojo);
+	font-size: 20px;
+	margin-top: 20px;
+}
+
 /* 
 =======================================
  Diseño general del menu de navegación
@@ -425,9 +341,38 @@
 .navbar ul li a.active::before {
     transform: scale3d(1, 1, 1);
 }
- #separarsearch{
-     padding-right: 20px;
- }
+
+#titulo1 {
+    color: #ffc400;
+    border: 3px dimgray solid;
+    border-radius: 100px;
+    background-color: black;
+    margin-top: 70px;
+    margin-left: 20%;
+    margin-right: 20%;
+    font-family: "Montserrat", sans-serif;
+    align-items: center;
+}
+
+.color2{
+    color: #ffc400 ;
+    font-family: georgia;
+}
+
+#col{
+	background-color: black;
+}
+.cajacard{
+	opacity: 0.85;
+
+}
+#separar-derecha{
+	margin-right: 20px;
+}
+
+#separar-izquiera{
+	margin-left: 20px;
+}
 
 /*
 =======================================================
