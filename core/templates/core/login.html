@@ -34,9 +34,15 @@
             <!-- Lista de navegación -->
             <ul class="nav-list d-flex align-items-center">
                 <li class="menu"><a href="{% url 'home' %}">Inicio</a></li>
-                <li class="menu"><a href="{% url 'error_404' %}">Categorías</a></li>
-                <li class="menu"><a href="{% url 'error_404' %}">Mi Cuenta</a></li>
+                <li class="menu"><a href="{% url 'error_404' %}">Foro</a></li>
+                <li class="menu"><a href="{% url 'error_404' %}">Dirección</a></li>
+                <li class="menu"><a href="{% url 'error_404' %}">Registrarse</a></li>
                 <li class="menu"><a href="{% url 'login' %}">Iniciar Sesión</a></li>
+                <li class="menu"><a href="{% url 'error_404' %}">Mi Cuenta</a></li>
+                <form class="d-flex" id="separar-derecha">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
             </ul>
         </div>
     </nav>

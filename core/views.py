@@ -11,3 +11,7 @@ def error_404(request):
 # Vista para la página de iniciar sesión
 def login(request):
     return render(request, 'core/login.html')
+
+# Vista para la página de animales
+def animales(request):
+    return render(request, 'core/animales.html')

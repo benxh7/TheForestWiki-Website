@@ -32,12 +32,19 @@
                 <span></span>
             </label>
             <!-- Lista de navegación -->
+            <!-- Lista de navegación -->
             <ul class="nav-list d-flex align-items-center">
-                <li class="menu"><a href="#">Inicio</a></li>
-                <li class="menu"><a href="{% url 'error_404' %}">Categorías</a></li>
-                <li class="menu"><a href="{% url 'error_404' %}">Mi Cuenta</a></li>
+                <li class="menu"><a href="{% url 'home' %}">Inicio</a></li>
+                <li class="menu"><a href="{% url 'error_404' %}">Foro</a></li>
+                <li class="menu"><a href="{% url 'error_404' %}">Dirección</a></li>
+                <li class="menu"><a href="{% url 'error_404' %}">Registrarse</a></li>
                 <li class="menu"><a href="{% url 'login' %}">Iniciar Sesión</a></li>
+                <li class="menu"><a href="{% url 'error_404' %}">Mi Cuenta</a></li>
             </ul>
+            <form class="d-flex" id="separar-derecha">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </form>
         </div>
     </nav>
 
@@ -106,7 +113,7 @@
                     Estos animales se convierten en una parte esencial de la supervivencia del jugador, 
                     ya que algunos pueden ser cazados para obtener alimento, piel u otros materiales de artesanía.
                 </p>
-                <a href="{% url 'error_404' %}" class="btn btn-primary">Leer más</a>
+                <a href="{% url 'animales' %}" class="btn btn-primary">Leer más</a>
             </div>
         </div>
 
