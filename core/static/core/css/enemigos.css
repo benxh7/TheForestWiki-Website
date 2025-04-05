@@ -335,20 +335,21 @@ header {
 }
 
 #titulo1 {
-    color: #ffc400 ;
-    border: 5px dimgray solid;
+    color: #ffc400;
+    border: 3px dimgray solid;
     border-radius: 100px;
-    background-color: #242424; ;
+    background-color: #242424;
+    margin-top: 70px;
     margin-left: 20%;
     margin-right: 20%;
-	margin-top: 20px;
-	margin-bottom: 20px;
     font-family: "Montserrat", sans-serif;
-   }
+    align-items: center;
+}
 
 .color2{
     color: #ffc400 ;
     font-family: "Montserrat", sans-serif;
+    margin-bottom: 40px; /* o la cantidad de px que necesites */
 }
 
 #col{
