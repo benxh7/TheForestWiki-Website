@@ -1,10 +1,3 @@
-.center{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 10px;
-}
-
 #titulo {
     color: #ffc400;
     border: 3px dimgray solid;
@@ -29,7 +22,7 @@
 #caja_bienvenida{
    background-color: black;
    margin: auto;
-   margin-top: 20px;
+   margin-top: 8px;
    border: 3px dimgray solid;
    border-radius: 5px;   
    text-align: center; 
@@ -39,6 +32,17 @@
    padding-right: 20px;
    opacity: 0.85;
    
+}
+
+
+table{
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: black;
+    border-radius: 4px;
+    opacity: 0.85;
+    padding-right: auto;
 }
 
 .fondo-tabla{
@@ -69,37 +73,43 @@
    font-family: georgia;
 }
 
-.separar-arriba{
-	padding-top: 25px;
+.tabla{
+	table-layout: fixed;
 }
 
-
-.center1{
-    text-align: center;
+.center{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding-top: 10px;
 }
 
 .center-titulo{
-   text-align: center;
-   align-items: center;
+    text-align: center;
+    align-items: center;
 }
 
 .imagen{
    
-   width: 110px;
-   height: 110px;
+   width: 130px;
+   height: 130px;
 }
 
 .letra{
    font-family: cursive;
 }
 
-#separar-arriba{
-	padding-top: 10px;
+td,th{
+    border: 2px solid gray;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
-.B{
-	margin-left: auto;
-	margin-right: auto;
+.centrart{
+	align-items: center;
+	text-align: center;
 }
 
 /* 
@@ -172,7 +182,6 @@
     padding-top: 20px;
     border-top: 1px solid rgba(63, 63, 63, 0.466);
 }
-
 /* ---- ----- ----- Header ----- ----- ----- */
 
 :root {
@@ -343,16 +352,16 @@ header {
 }
 
 #titulo1 {
-    color: #ffc400;
-    border: 3px dimgray solid;
+    color: #ffc400 ;
+    border: 5px dimgray solid;
     border-radius: 100px;
-    background-color: black;
-    margin-top: 70px;
+    background-color: black ;
     margin-left: 20%;
     margin-right: 20%;
-    font-family: "Montserrat", sans-serif;
-    align-items: center;
-}
+	margin-top: 20px;
+	margin-bottom: 20px;
+    font-family: monospace;
+   }
 
 .color2{
     color: #ffc400 ;
