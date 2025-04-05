@@ -705,7 +705,7 @@ body.modal-open {
     font-size: 2.5rem;
     font-weight: 700;
     color: #E0C066; /* Amarillo dorado */
-    background-color: #0B0B0B; /* Fondo negro profundo */
+    background: linear-gradient(90deg, #0B2E1D, #1F4F2B, #19571e);
     padding: 20px 30px;
     border-left: 10px solid #556B2F; /* Verde musgo */
     font-family: 'Montserrat', sans-serif;
