@@ -31,3 +31,7 @@ def construcciones(request):
 # Vista para la página de plantas
 def plantas(request):
     return render(request, 'core/plantas.html')
+
+# Vista para la página de armas
+def armas(request):
+    return render(request, 'core/armas.html')
