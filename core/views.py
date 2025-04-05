@@ -29,3 +29,6 @@ def armas(request):
 
 def consumibles(request):
     return render(request, 'core/consumibles.html')
+
+def historia(request):
+    return render(request, 'core/historia.html')
