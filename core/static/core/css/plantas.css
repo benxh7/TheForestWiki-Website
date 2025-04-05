@@ -138,70 +138,9 @@
  
  
  
- /* -- fin header -- */
- 
- 
- 
+ /* -- fin header -- */ 
  * {box-sizing:border-box}
- 
- /* Slideshow container */
- 
- 
- 
- .container-slider{
-    width: 90%;
-    max-width: 900px;
-    margin: auto;
-    overflow: hidden;
-    box-shadow: 0 0 0 10px #1414148c, 0 15px 50px;
-    margin-top: 50px;
- }
- 
- .slider__img{
-    display: block;
-    width: 100%;
-    height: 150%;
-    object-fit: cover;
- }
- 
- .slider{
-    display: flex;
-    width: 400%;
-    height: 400px;
-    margin-left: -200%;
- }
- 
- .slider__section{
-    width: 100%;
- }
- 
- .slider__btn{
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.7);
-    top: 50%;
-    transform: translateY(-50%);
-    font-weight: bold;
-    font-family: "Montserrat", sans-serif;
-    text-align: center;
-    border-radius: 50%;
-    cursor: pointer;
- 
- }
- 
- .slider__btn:hover{
-    background: #fff;
- }
- 
- 
- .slider__btn--right{
-    right: 10px;
- }
- .slider__btn--left{
-    left: 10px;
- }
- 
+
 /* 
 ================================
  Diseño del footer de la pagina 
@@ -429,6 +368,158 @@
  #separarsearch{
      padding-right: 20px;
  }
+
+/*
+=====================================
+ Image Slider (Carrusel de imagenes)
+=====================================
+*/
+
+.slider-image {
+    width: 500%;
+    height: 100%;
+    overflow: hidden;
+    border: 2px solid gold; /* Opcional, si deseas mantener el estilo */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2), 0 2px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Contenedor de imagenes */
+.slider-images {
+    display: flex;
+    height: 100%;
+    overflow-x: auto; /* Permite el desplazamiento horizontal */
+    scroll-behavior: smooth; /* Hace que el desplazamiento sea muy suave */
+    scroll-snap-type: x mandatory; /* Habilita el efecto de "snap" al desplazarse */
+    -ms-overflow-style: none;  /* Para Internet Explorer y Edge */
+    scrollbar-width: none;  /* Para Firefox */
+}
+
+/* Oculta la barra de desplazamiento en navegadores modernos */
+.slider-images::-webkit-scrollbar {
+    display: none;
+}
+
+/* Estilo de las imagenes dentro del slider */
+.slider-images img {
+    flex: 0 0 100%; /* Cada imagen ocupa el 100% del contenedor */
+    scroll-snap-align: center; /* Alinea la imagen al centro al hacer scroll */
+    transition: transform 0.5s ease; /* Transición suave al desplazarse */
+}
+
+/* Al hacer hover sobre la imagen se aplica un efecto de zoom */
+.slider-images img:hover {
+    transform: scale(1.05); /* Aumenta el tamaño de la imagen al pasar el mouse */
+}
+
+/* Estilo del contenedor del slider */
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Estilo del slider */
+.slider-wrapper {
+    /*position: relative;
+    margin: 100px auto; /* Centra el slider en la página */
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    height: 500px;
+    display: block;
+}
+
+/* Estilo de la imagen */
+.slider-image {
+    width: 50%;
+    height: 100%;
+    object-fit: cover; /* Mantiene la proporción de la imagen */
+}
+
+/* Elimina o comenta los background-color en .slider y .slide */
+.slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.slider::-webkit-scrollbar {
+    display: none;
+}
+
+/* Cada slide se posiciona de forma absoluta para superponerse */
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* Contenedor de flechas */
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    /* Distribuir flechas a los lados opuestos */
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 5; /* Asegura que queden encima de las imágenes */
+    padding: 0 50px; /* Espacio en los bordes laterales */
+}
+
+/* Estilo general de cada flecha */
+.slider-nav span {
+    cursor: pointer;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 40px;          /* Ancho fijo */
+    height: 40px;         /* Alto fijo */
+    display: flex;        /* Para centrar el contenido */
+    align-items: center;  
+    justify-content: center;
+    border-radius: 10px;  /* Bordes redondeados, pero no totalmente redondos */
+    font-size: 1.5rem;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover */
+.slider-nav span:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.dots {
+    position: absolute;
+    bottom: 25px;
+    width: 100%; /* Ocupa todo el ancho */
+    display: flex;
+    justify-content: center; /* Centra los puntos */
+    gap: 15px;
+    z-index: 10;
+}
+  
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+    border-radius: 50%;
+    opacity: 0.75;
+    cursor: pointer;
+    transition: opacity 250ms ease;
+}
+  
+.dot.active,
+.dot:hover {
+    opacity: 1;
+}
 
 /*
 =======================================================
