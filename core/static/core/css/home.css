@@ -759,3 +759,35 @@ body.modal-open {
     }
   }
   
+/* ============================================
+   Para darle onda al texto introductorio.
+   ============================================ */
+
+
+  .forest-intro {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 25px 30px;
+    background: rgba(43, 43, 43, 0.6); /* Fondo oscuro con transparencia */
+    border-radius: 12px;
+    color: #E0E0E0;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: justify;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    animation: slideFadeIn 1.2s ease forwards;
+}
+
+.forest-intro p {
+    margin: 0;
+}
+
+.forest-intro .resaltado {
+    color: #E0C066;
+    font-weight: bold;
+}
+
+.forest-intro strong {
+    color: #C75C28;
+    font-weight: bold;
+}
