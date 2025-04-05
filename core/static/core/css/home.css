@@ -791,3 +791,95 @@ body.modal-open {
     color: #C75C28;
     font-weight: bold;
 }
+
+/* ============================================
+   Para darle onda al boton de comprar juego.
+   ============================================ */
+
+   .btn-buy-game {
+    background: linear-gradient(90deg, #4E5E2E, #7D8F43); /* Degradado verde musgo */
+    color: #E0C066; /* Texto dorado claro */
+    padding: 12px 28px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 25px;
+    text-transform: uppercase;
+}
+
+.btn-buy-game:hover {
+    background: linear-gradient(90deg, #6A7C3B, #A17C2D); /* Verde a mostaza */
+    box-shadow: 0 0 15px rgba(224, 192, 102, 0.4);
+    transform: scale(1.05);
+}
+
+/* ============================
+   MEDIA QUERIES: TABLETS
+   ============================ */
+   @media (max-width: 768px) {
+
+    /* Título principal responsive */
+    .forest-title {
+        font-size: 1.8rem; /* Más chico para tablets */
+        padding: 15px 20px; /* Menos espacio interior */
+        text-align: center; /* Centrado en pantallas medianas */
+    }
+  
+    /* Caja de texto informativo responsive */
+    .forest-intro {
+        font-size: 1rem; /* Letra más pequeña */
+        padding: 20px; /* Menos padding */
+        text-align: left; /* Alineado a la izquierda (mejor lectura) */
+    }
+  
+    /* Botón de comprar responsive */
+    .btn-buy-game {
+        font-size: 1rem; /* Tamaño de texto más equilibrado */
+        padding: 10px 22px; /* Padding más reducido */
+        display: block;
+        width: fit-content; /* Que se adapte al contenido */
+        margin: 20px auto; /* Centrado horizontal */
+    }
+  }
+  
+  
+  /* ============================
+     MEDIA QUERIES: CELULARES
+     ============================ */
+  @media (max-width: 480px) {
+  
+    /* Título principal en móviles */
+    .forest-title {
+        font-size: 1.4rem; /* Más compacto para pantallas pequeñas */
+        padding: 12px 15px;
+        text-align: center;
+        border-left: none; /* Eliminamos el borde lateral */
+        border-top: 4px solid #556B2F; /* Borde superior para mantener el estilo */
+    }
+  
+    /* Caja de introducción en móviles */
+    .forest-intro {
+        font-size: 0.95rem; /* Texto más pequeño pero legible */
+        padding: 15px;
+        line-height: 1.6; /* Más separación entre líneas para facilitar la lectura */
+        text-align: justify; /* Ajuste elegante del texto */
+    }
+  
+    /* Botón en móviles */
+    .btn-buy-game {
+        font-size: 0.95rem; /* Letra justa para pantallas chicas */
+        padding: 10px 18px;
+        text-align: center;
+        width: 90%; /* Que se adapte al ancho del dispositivo */
+        max-width: 300px; /* Pero que no se extienda demasiado */
+    }
+  }
+  
+
