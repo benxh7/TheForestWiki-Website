@@ -510,7 +510,7 @@ body.modal-open {
 } 
 
 .footer-text {
-    color: #6c757d;
+    color: #ffffff;
     font-size: 0.9rem;
     /*max-width: 300px;*/
 }
@@ -520,7 +520,7 @@ body.modal-open {
 }
 
 .social-link {
-    color: #6c757d;
+    color: #ffffff;
     margin-right: 20px;
     font-size: 1.2rem;
     transition: color 0.3s ease;
