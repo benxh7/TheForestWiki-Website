@@ -23,3 +23,11 @@ def enemigos(request):
 # Vista para la página de mapa
 def mapa(request):
     return render(request, 'core/mapa.html')
+
+# Vista para la página de construccion
+def construcciones(request):
+    return render(request, 'core/construcciones.html')
+
+# Vista para la página de plantas
+def plantas(request):
+    return render(request, 'core/plantas.html')
