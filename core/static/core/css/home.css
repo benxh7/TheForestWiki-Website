@@ -697,3 +697,22 @@ body.modal-open {
         flex: 1;
     }
 }
+
+/* ============================================
+   Estilo especial para el título destacado
+   ============================================ */
+   .forest-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #E0C066; /* Amarillo dorado */
+    background-color: #0B0B0B; /* Fondo negro profundo */
+    padding: 20px 30px;
+    border-left: 10px solid #556B2F; /* Verde musgo */
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    box-shadow: 0 0 15px rgba(224, 192, 102, 0.2);
+    display: inline-block;
+    margin-bottom: 30px;
+    text-align: left;
+}

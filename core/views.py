@@ -19,3 +19,7 @@ def animales(request):
 # Vista para la página de enemigos
 def enemigos(request):
     return render(request, 'core/enemigos.html')
+
+# Vista para la página de mapa
+def mapa(request):
+    return render(request, 'core/mapa.html')
