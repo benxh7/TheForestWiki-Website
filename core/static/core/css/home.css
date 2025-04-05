@@ -118,8 +118,8 @@ body.modal-open {
     left: 0;
     width: 100%;
     z-index: 100;
-    background: rgb(15, 15, 15);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: rgb(31, 11, 2);
+    box-shadow: 0 4px 10px rgba(12, 1, 1, 0.1);
     padding: 25px 0;
 }
 
