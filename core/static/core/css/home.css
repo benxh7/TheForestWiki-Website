@@ -736,3 +736,26 @@ body.modal-open {
 
     animation: slideFadeIn 1s ease forwards, glow 2.5s ease-in-out infinite alternate;
 }
+
+/* ============================================
+   Para hacer responsive la caluga de categoria.
+   ============================================ */
+
+@media (max-width: 768px) {
+    .forest-title {
+        font-size: 1.8rem;
+        padding: 15px 20px;
+        text-align: center;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .forest-title {
+        font-size: 1.4rem;
+        padding: 12px 15px;
+        text-align: center;
+        border-left: none;
+        border-top: 4px solid #556B2F;
+    }
+  }
+  
