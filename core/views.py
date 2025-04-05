@@ -15,3 +15,7 @@ def login(request):
 # Vista para la página de animales
 def animales(request):
     return render(request, 'core/animales.html')
+
+# Vista para la página de enemigos
+def enemigos(request):
+    return render(request, 'core/enemigos.html')
