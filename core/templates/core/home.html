@@ -32,14 +32,13 @@
                 <span></span>
             </label>
             <!-- Lista de navegación -->
-            <!-- Lista de navegación -->
             <ul class="nav-list d-flex align-items-center">
                 <li class="menu"><a href="{% url 'home' %}">Inicio</a></li>
-                <li class="menu"><a href="{% url 'error_404' %}">Foro</a></li>
-                <li class="menu"><a href="{% url 'error_404' %}">Dirección</a></li>
-                <li class="menu"><a href="{% url 'error_404' %}">Registrarse</a></li>
+                <li class="menu"><a href="{% url 'foro' %}">Foro</a></li>
+                <li class="menu"><a href="https://www.google.com/maps/place/R%C3%ADo+Imperial+460,+Valle+Grande,+Lampa,+Regi%C3%B3n+Metropolitana/@-33.3295809,-70.751195,17z/data=!3m1!4b1!4m5!3m4!1s0x9662bf62531dc747:0xc0b4aee73c3b9373!8m2!3d-33.3295854!4d-70.7490063?hl=es-CL">Dirección</a></li>
+                <li class="menu"><a href="{% url 'registrarse' %}">Registrarse</a></li>
                 <li class="menu"><a href="{% url 'login' %}">Iniciar Sesión</a></li>
-                <li class="menu"><a href="{% url 'error_404' %}">Mi Cuenta</a></li>
+                <li class="menu"><a href="{% url 'micuenta' %}">Mi Cuenta</a></li>
             </ul>
             <form class="d-flex" id="separar-derecha">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -81,25 +80,24 @@
         </div>
     </div>
 
-<!-- Contenido principal -->
-<div class="body-content container py-5 py-md-50">
-    <!--<h1 class="animate-up">The Forest Wiki</h1>-->
-    <img src="{% static 'core/img/home/site-logo.png' %}" alt="Img Logo" class="animate-breathing img-fluid w-1">
+    <!-- Contenido principal -->
+    <div class="body-content container py-5 py-md-50">
+        <!--<h1 class="animate-up">The Forest Wiki</h1>-->
+        <img src="{% static 'core/img/home/site-logo.png' %}" alt="Img Logo" class="animate-breathing img-fluid w-1">
 
-    <!-- 🔥 Caja estilizada -->
-    <div class="forest-intro animate-up">
-        <p>
-            ¿Te gusta <span class="resaltado">The Forest</span>? Pues estás en la página correcta. <br>
-            Aquí en <span class="resaltado">The Forest Wiki</span> encontrarás todo lo que necesitas 
-            saber sobre el juego, desde guías y trucos hasta información sobre los personajes y la historia. <br>
-            <strong>¡Explora y descubre todo lo que necesitas!</strong>
-        </p>
+        <!-- 🔥 Caja estilizada -->
+        <div class="forest-intro animate-up">
+            <p>
+                ¿Te gusta <span class="resaltado">The Forest</span>? Pues estás en la página correcta. <br>
+                Aquí en <span class="resaltado">The Forest Wiki</span> encontrarás todo lo que necesitas 
+                saber sobre el juego, desde guías y trucos hasta información sobre los personajes y la historia. <br>
+                <strong>¡Explora y descubre todo lo que necesitas!</strong>
+            </p>
+        </div>
+
+        <a href="https://store.steampowered.com/app/242760/The_Forest/" class="btn-buy-game animate-up">Comprar Juego</a> 
+
     </div>
-
-    <a href="https://store.steampowered.com/app/242760/The_Forest/" class="btn-buy-game animate-up">Comprar Juego</a> 
-
-</div>
-
 
     <!-- Categorias con contenido -->
     <div class="container my-5">
@@ -261,8 +259,8 @@
                 <div class="col-md-6 d-flex justify-content-center justify-content-md-end">
                     <ul class="footer-links">
                         <li><a href="#">Inicio</a></li>
-                        <li><a href="{% url 'error_404' %}">Categorías</a></li>
-                        <li><a href="{% url 'error_404' %}">Contacto</a></li>
+                        <!--<li><a href="{% url 'error_404' %}">Categorías</a></li>-->
+                        <li><a href="https://www.google.com/maps/place/R%C3%ADo+Imperial+460,+Valle+Grande,+Lampa,+Regi%C3%B3n+Metropolitana/@-33.3295809,-70.751195,17z/data=!3m1!4b1!4m5!3m4!1s0x9662bf62531dc747:0xc0b4aee73c3b9373!8m2!3d-33.3295854!4d-70.7490063?hl=es-CL">Dirección</a></li>
                     </ul>
                 </div>
             </div>

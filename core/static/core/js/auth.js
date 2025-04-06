@@ -1,105 +1,78 @@
 document.addEventListener("DOMContentLoaded", function () {
     /* FUNCIONAMIENTO PARA EL FORMULARIO REGISTRARSE */
-    const formularioRegistro = document.querySelector("#registerModal form");
-    if (formularioRegistro) {
-        const nombreCompleto = formularioRegistro.querySelector("#nombre-completo");
-        const nombreUsuario = formularioRegistro.querySelector("#nombre-usuario");
-        const email = formularioRegistro.querySelector("#correo");
-        const fechaNacimiento = formularioRegistro.querySelector("#fecha-nacimiento");
-        const direccion = formularioRegistro.querySelector("#direccion");
-        const contraseña = formularioRegistro.querySelector("#contraseña");
-        const confirmarContraseña = formularioRegistro.querySelector("#confirmar");
-        const limpiarBtn = formularioRegistro.querySelector("#limpiarBtn");
-
-        // Botón para limpiar el formulario y remover mensajes de error
-        if (limpiarBtn) {
-            limpiarBtn.addEventListener("click", function () {
-                // Limpiamos el formulario y removemos los mensajes de error de los campos
-                formularioRegistro.querySelectorAll(".is-invalid").forEach(el => el.classList.remove("is-invalid"));
-                formularioRegistro.querySelectorAll(".invalid-feedback").forEach(el => el.remove());
-                // Limpiamos los campos del formulario
-                nombreCompleto.value = "";
-                nombreUsuario.value = "";
-                email.value = "";
-                fechaNacimiento.value = "";
-                direccion.value = "";
-                contraseña.value = "";
-                confirmarContraseña.value = "";
-                // Reiniciamos el formulario
-                formularioRegistro.reset();
-                limpiarErrores(formularioRegistro);
-            });
-        }
+    const formRegister = document.querySelector("#registerForm");
+    if (formRegister) {
+        setupTogglePassword(formRegister, ['#password', '#confirm']);
+        // Referencias a los elementos del formulario de registro
+        const email = formRegister.querySelector("#email");
+        const contraseña = formRegister.querySelector("#password");
+        const confirmarContraseña = formRegister.querySelector("#confirm");
 
         // Evento submit del formulario de registro
-        formularioRegistro.addEventListener("submit", function (event) {
+        formRegister.addEventListener("submit", function (event) {
             event.preventDefault();
-            limpiarErrores(formularioRegistro);
+            limpiarErrores(formRegister);
             let isValid = true;
 
-            // Lista de verificacio de cada campo
-            if (!nombreCompleto.value.trim()) {
-                mostrarError(nombreCompleto, "El nombre completo es obligatorio.", formularioRegistro);
-                isValid = false;
-            }
-            if (!nombreUsuario.value.trim()) {
-                mostrarError(nombreUsuario, "El nombre de usuario es obligatorio.", formularioRegistro);
-                isValid = false;
-            }
             if (!email.value.trim() || !validarCorreo(email.value)) {
-                mostrarError(email, "Ingrese un correo válido.", formularioRegistro);
+                mostrarError(email, "Ingrese un correo válido.", formRegister);
                 isValid = false;
             }
-            if (!fechaNacimiento.value || !validarEdad(fechaNacimiento.value)) {
-                mostrarError(fechaNacimiento, "Debe tener al menos 13 años.", formularioRegistro);
-                isValid = false;
-            }
-            // Este campo como se decia en la semana 2 es opcional
             if (!contraseña.value.trim() || !validarContraseña(contraseña.value)) {
-                mostrarError(contraseña, "La contraseña debe tener 6-18 caracteres, incluir una mayúscula y un número.", formularioRegistro);
+                mostrarError(contraseña, "La contraseña debe tener 6-18 caracteres, incluir una mayúscula y un número.", formRegister);
                 isValid = false;
             }
             if (contraseña.value !== confirmarContraseña.value) {
-                mostrarError(confirmarContraseña, "Las contraseñas no coinciden.", formularioRegistro);
+                mostrarError(confirmarContraseña, "Las contraseñas no coinciden.", formRegister);
+                isValid = false;
+            }
+            // Validar que el campo de confirmar contraseña no esté vacío
+            if (!confirmarContraseña.value.trim()) {
+                mostrarError(confirmarContraseña, "Confirma tu contraseña.", formRegister);
                 isValid = false;
             }
 
             // Si todas las verificaciones son validas, se simula el envío (en este caso mediante redirección)
             if (isValid) {
-                const params = new URLSearchParams(new FormData(formularioRegistro)).toString();
-                const url = (formularioRegistro.getAttribute("action") || "#") + "?" + params;
-                window.location.href = url;
+                // Obtenemos el contenedor para el mensaje de registro
+                const registerMessageDiv = document.getElementById("registerMessage");
+                registerMessageDiv.innerHTML = '<div class="alert alert-success alert-dismissible fade show" role="alert">' +
+                    'Te has registrado correctamente.' +
+                    '</div>';
+                // Esperamos 5 segundos para que se vea el mensaje antes de redirigir
+                setTimeout(function () {
+                    // Si el formulario no tiene un atributo "action", usamos homeUrl
+                    const params = new URLSearchParams(new FormData(formRegister)).toString();
+                    const url = formRegister.getAttribute("action") ?
+                        formRegister.getAttribute("action") + "?" + params : homeUrl;
+                    window.location.href = url;
+                }, 5000);
             }
         });
     }
 
     /* FUNCIONAMIENTO PARA EL FORMULARIO INICIAR SESION */
-    const formularioLogin = document.querySelector("#loginForm");
-    if (formularioLogin) {
+    const formLogin = document.querySelector("#loginForm");
+    if (formLogin) {
         // Referencias a los elementos del formulario de login
-        const usuarioLogin = formularioLogin.querySelector("#username");
-        const contraseñaLogin = formularioLogin.querySelector("#password");
-        
+        const usuarioLogin = formLogin.querySelector("#username");
+        const contraseñaLogin = formLogin.querySelector("#password");
+
         // Evento para mostrar/ocultar la contraseña
-        const showPasswordCheckbox = document.getElementById('showPassword');
-        if (showPasswordCheckbox) {
-            showPasswordCheckbox.addEventListener('change', function() {
-                contraseñaLogin.type = this.checked ? 'text' : 'password';
-            });
-        }
-        
+        setupTogglePassword(formLogin, ['#password']);
+
         // Evento submit del formulario de login
-        formularioLogin.addEventListener("submit", function (event) {
+        formLogin.addEventListener("submit", function (event) {
             event.preventDefault();
-            limpiarErrores(formularioLogin);
+            limpiarErrores(formLogin);
             let isValid = true;
 
             if (!usuarioLogin.value.trim()) {
-                mostrarError(usuarioLogin, "El usuario o correo es obligatorio.", formularioLogin);
+                mostrarError(usuarioLogin, "El usuario o correo es obligatorio.", formLogin);
                 isValid = false;
             }
             if (!contraseñaLogin.value.trim()) {
-                mostrarError(contraseñaLogin, "La contraseña es obligatoria.", formularioLogin);
+                mostrarError(contraseñaLogin, "La contraseña es obligatoria.", formLogin);
                 isValid = false;
             }
 
@@ -107,10 +80,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Definimos las credenciales predefinidas para el administrador
                 const usuario = "ADMIN";
                 const contraseña = "Admin@12345";
-                
+
                 // Obtenemos el contenedor del mensaje (asegúrate de tenerlo en tu HTML)
                 const loginMessageDiv = document.getElementById("loginMessage");
-                
+
                 if (usuarioLogin.value.trim() === usuario && contraseñaLogin.value.trim() === contraseña) {
                     // Mensaje de éxito para el administrador
                     loginMessageDiv.innerHTML = '<div class="alert alert-success alert-dismissible fade show" role="alert">' +
@@ -126,9 +99,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         '</div>';
                     setTimeout(function () {
                         // Si el formulario no tiene un atributo "action", usamos homeUrl
-                        const params = new URLSearchParams(new FormData(formularioLogin)).toString();
-                        const url = formularioLogin.getAttribute("action") ? 
-                                    formularioLogin.getAttribute("action") + "?" + params : homeUrl;
+                        const params = new URLSearchParams(new FormData(formLogin)).toString();
+                        const url = formLogin.getAttribute("action") ?
+                            formLogin.getAttribute("action") + "?" + params : homeUrl;
                         window.location.href = url;
                     }, 5000);
                 }
@@ -208,124 +181,25 @@ document.addEventListener("DOMContentLoaded", function () {
         return regex.test(email);
     }
 
-    // Validación de edad (al menos 13 años)
-    function validarEdad(fecha) {
-        const birthDate = new Date(fecha);
-        const today = new Date();
-        let age = today.getFullYear() - birthDate.getFullYear();
-        const m = today.getMonth() - birthDate.getMonth();
-        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-            age--;
-        }
-        return age >= 13;
-    }
-
     // Validación de contraseña: 6-18 caracteres, al menos una mayúscula y un dígito
     function validarContraseña(password) {
         const regex = /^(?=.*[A-Z])(?=.*\d)[\S]{6,18}$/;
         return regex.test(password);
     }
 
-    // Ventana de añadir juego
-    let submitTriggered = false;
-
-    const formAñadirJuego = document.getElementById("formAñadirJuego");
-    if (formAñadirJuego) {
-        formAñadirJuego.addEventListener("submit", function (e) {
-            e.preventDefault();
-            // Obtener valores y eliminar espacios en blanco
-            const titulo = document.getElementById("tituloJuego").value.trim();
-            const descripcion = document.getElementById("descripcionJuego").value.trim();
-            const precio = document.getElementById("precioJuego").value.trim();
-            const stock = document.getElementById("stockJuego").value.trim();
-
-            // Verificar que ningún campo esté vacío
-            if (titulo === "" || descripcion === "" || precio === "" || stock === "") {
-                document.getElementById("alertaJuego").innerHTML =
-                    '<div class="alert alert-danger alert-dismissible fade show" role="alert">' +
-                    'Por favor, complete todos los campos para publicar el juego.' +
-                    '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' +
-                    '</div>';
-                return;
-            }
-
-            // Si todos los campos tienen datos, se considera que se publicó el juego
-            submitTriggered = true;
-            document.getElementById("alertaJuego").innerHTML =
-                '<div class="alert alert-success alert-dismissible fade show" role="alert">' +
-                'Juego publicado exitosamente.' +
-                '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' +
-                '</div>';
-            // Limpiar el formulario (esto disparará el evento reset)
-            this.reset();
-        });
-
-        // Evento reset para mostrar mensaje al eliminar datos manualmente
-        formAñadirJuego.addEventListener("reset", function (e) {
-            // Si el reset es producto del submit, no mostramos el mensaje de "eliminar"
-            if (submitTriggered) {
-                submitTriggered = false;
-                return;
-            }
-            document.getElementById("alertaJuego").innerHTML =
-                '<div class="alert alert-warning alert-dismissible fade show" role="alert">' +
-                'Los datos han sido eliminados.' +
-                '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' +
-                '</div>';
-        });
-    }
-
-    // Ventana de editar juego
-    let submitTriggeredEditar = false;
-    const formEditarJuego = document.getElementById("formEditarJuego");
-    if (formEditarJuego) {
-        formEditarJuego.addEventListener("submit", function (e) {
-            e.preventDefault();
-            // Obtenemos los valores de los campos de edicion y eliminamos los espacios en blanco
-            const juegoSeleccionado = document.getElementById("juegoSeleccionado").value;
-            const tituloEd = document.getElementById("tituloJuegoEd").value.trim();
-            const descripcionEd = document.getElementById("descripcionJuegoEd").value.trim();
-            const precioEd = document.getElementById("precioJuegoEd").value.trim();
-            const stockEd = document.getElementById("stockJuegoEd").value.trim();
-
-            // Validamos que hayamos seleccionado un juego y que todos los campos tengan datos
-            if (
-                !juegoSeleccionado ||
-                tituloEd === "" ||
-                descripcionEd === "" ||
-                precioEd === "" ||
-                stockEd === ""
-            ) {
-                document.getElementById("alertaEditar").innerHTML =
-                    '<div class="alert alert-danger alert-dismissible fade show" role="alert">' +
-                    'Por favor, seleccione un juego y complete todos los campos para editar.' +
-                    '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' +
-                    '</div>';
-                return;
-            }
-
-            // Si la validacion es correcta, se muestra el mensaje
-            submitTriggeredEditar = true;
-            document.getElementById("alertaEditar").innerHTML =
-                '<div class="alert alert-success alert-dismissible fade show" role="alert">' +
-                'Cambios guardados exitosamente.' +
-                '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' +
-                '</div>';
-            // Limpiar el formulario
-            this.reset();
-        });
-
-        // Evento reset para el formulario de edicion
-        formEditarJuego.addEventListener("reset", function (e) {
-            if (submitTriggeredEditar) {
-                submitTriggeredEditar = false;
-                return;
-            }
-            document.getElementById("alertaEditar").innerHTML =
-                '<div class="alert alert-warning alert-dismissible fade show" role="alert">' +
-                'Los datos han sido eliminados.' +
-                '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' +
-                '</div>';
-        });
+    // Configuración para mostrar/ocultar contraseña en el formulario de registro y login
+    function setupTogglePassword(form, passwordFieldSelectors) {
+        // Busca el checkbox dentro del formulario (evita duplicados o conflictos globales)
+        const toggle = form.querySelector('#showPassword');
+        if (toggle) {
+            toggle.addEventListener('change', function () {
+                passwordFieldSelectors.forEach(selector => {
+                    const field = form.querySelector(selector);
+                    if (field) {
+                        field.type = this.checked ? 'text' : 'password';
+                    }
+                });
+            });
+        }
     }
 });

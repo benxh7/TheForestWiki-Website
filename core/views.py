@@ -9,6 +9,9 @@ def error_404(request):
 def login(request):
     return render(request, 'core/login.html')
 
+def registrarse(request):
+    return render(request, 'core/registrarse.html')
+
 def animales(request):
     return render(request, 'core/animales.html')
 
@@ -32,3 +35,9 @@ def consumibles(request):
 
 def historia(request):
     return render(request, 'core/historia.html')
+
+def foro(request):
+    return render(request, 'core/foro.html')
+
+def micuenta(request):
+    return render(request, 'core/micuenta.html')
