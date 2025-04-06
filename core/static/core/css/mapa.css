@@ -1,3 +1,10 @@
+html, body {
+    font-family: "Rationale", sans-serif;
+    font-size: 1.15em;
+    font-weight: 500;
+    font-style: normal;
+}
+
 :root {
 	--rojo: #ffc400;
 	--fondo: #1414148c;
@@ -11,10 +18,9 @@
 
 body {
 	background: var(--fondo);
-	font-family: 'Open Sans', sans-serif;
 }
+
 header {
-	font-family: 'Bebas Neue', cursive;
 	color: var(--rojo);
 	font-size: 22px;
 	
@@ -22,12 +28,10 @@ header {
 
 #fuente{
 	color: var(--rojo);
-	font-family: 'Bebas Neue', cursive;
 	font-size: 30px;
 	padding-left: 20px;
 }
 #piedepag{
-	font-family: 'Bebas Neue', cursive;
 	color: var(--rojo);
 	font-size: 20px;
 }
@@ -177,19 +181,13 @@ header {
     margin-top: 120px;
     margin-left: 20%;
     margin-right: 20%;
-    font-family: monospace;
-	margin-top: 20px;
+    margin-top: 20px;
 	margin-bottom: 20px;
 }
 
 .color2{
     color: #ffc400 ;
-    font-family: georgia;
     margin-bottom: 40px; /* o la cantidad de px que necesites */
-}
-
-.letra{
-	font-family: cursive;
 }
 
 .center {
@@ -213,13 +211,11 @@ header {
 
 .card-title {
     color: #ffc400;
-    font-family: 'Bebas Neue', cursive;
     font-size: 20px;
 }
 
 .card-text {
     color: #ffc400;
-    font-family: 'Bebas Neue', cursive;
     font-size: 16px;
 }
 
@@ -245,7 +241,6 @@ header .contenedor {
 }
 
 header .logotipo {
-	font-family: 'Bebas Neue', cursive;
 	font-weight: normal;
 	color: var(--rojo);
 	font-size: 40px;
@@ -298,7 +293,6 @@ header nav a.activo {
 }
 
 .footer-brand {
-    font-family: "Montserrat", sans-serif;
     color: gold;
     font-size: 1.5rem;
     font-weight: 600;

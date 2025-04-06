@@ -4,7 +4,10 @@
 =============================
 */
 html, body {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Rationale", sans-serif;
+    font-size: 1.15em;
+    font-weight: 500;
+    font-style: normal;
     /*background-color: rgb(59, 59, 59);*/
     background-color: rgb(27, 27, 27);
     margin: 0;
@@ -289,7 +292,6 @@ body.modal-open {
 }
 
 .footer-brand {
-    font-family: 'Arial', sans-serif;
     color: gold;
     font-size: 1.5rem;
     font-weight: 600;

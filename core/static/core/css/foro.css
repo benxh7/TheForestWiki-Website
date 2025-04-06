@@ -1,3 +1,10 @@
+html, body {
+    font-family: "Rationale", sans-serif;
+    font-size: 1.15em;
+    font-weight: 500;
+    font-style: normal;
+}
+
 :root {
 	--rojo: #ffc400;
 	--fondo: #1414148c;
@@ -20,7 +27,6 @@ h5 {
 
 #fuente{
 	color: var(--rojo);
-	font-family: 'Bebas Neue', cursive;
 	font-size: 30px;
 	padding-left: 20px;
 }
@@ -40,8 +46,7 @@ h5 {
     min-width: 100%;
     min-height: 84px;
     max-height: 300px;
-    padding: 10px;
-    font-family: 'Courier New', Courier, monospace;
+    padding: 10px;   
     line-height: 30px;
     border: 1px solid #4b65d1;
     margin-bottom: 20px;
@@ -50,7 +55,6 @@ h5 {
 
 .form_comentarios .btn{
     background: #4b65d1;
-    font-family: 'Times New Roman', Times, serif;
     border-radius: 0;
     color: #fff;
     margin-bottom: 20px;
@@ -275,7 +279,6 @@ img{
 }
 
 .footer-brand {
-    font-family: "Montserrat", sans-serif;
     color: gold;
     font-size: 1.5rem;
     font-weight: 600;

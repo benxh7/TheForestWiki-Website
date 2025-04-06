@@ -1,3 +1,10 @@
+html, body {
+    font-family: "Rationale", sans-serif;
+    font-size: 1.15em;
+    font-weight: 500;
+    font-style: normal;
+}
+
 #titulo {
     color: #ffc400;
     border: 3px dimgray solid;
@@ -6,7 +13,6 @@
     margin-top: 70px;
     margin-left: 20%;
     margin-right: 20%;
-    font-family: "Montserrat", sans-serif;
     align-items: center;
 }
 
@@ -70,7 +76,6 @@ table{
 
 .colorl{
    color: #ffc400;
-   font-family: georgia;
 }
 
 .tabla{
@@ -93,10 +98,6 @@ table{
    
    width: 130px;
    height: 130px;
-}
-
-.letra{
-   font-family: cursive;
 }
 
 td,th{
@@ -127,7 +128,6 @@ td,th{
 }
 
 .footer-brand {
-    font-family: "Montserrat", sans-serif;
     color: gold;
     font-size: 1.5rem;
     font-weight: 600;
@@ -197,22 +197,18 @@ td,th{
 
 body {
 	background: var(--fondo);
-	font-family: 'Open Sans', sans-serif;
 }
 header {
-	font-family: 'Bebas Neue', cursive;
 	color: var(--rojo);
 	font-size: 22px;
 	
 }
 #fuente{
 	color: var(--rojo);
-	font-family: 'Bebas Neue', cursive;
 	font-size: 30px;
    padding-left: 20px;
 }
 #piedepag{
-	font-family: 'Bebas Neue', cursive;
 	color: var(--rojo);
 	font-size: 20px;
 	margin-top: 20px;
@@ -360,12 +356,10 @@ header {
     margin-right: 20%;
 	margin-top: 20px;
 	margin-bottom: 20px;
-    font-family: monospace;
-   }
+}
 
 .color2{
     color: #ffc400 ;
-    font-family: georgia;
 }
 
 #col{

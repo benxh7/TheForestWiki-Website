@@ -1,3 +1,10 @@
+html, body {
+    font-family: "Rationale", sans-serif;
+    font-size: 1.15em;
+    font-weight: 500;
+    font-style: normal;
+}
+
 .center-titulo{
     text-align: center;
     align-items: center;
@@ -18,7 +25,6 @@
     margin-top: 70px;
     margin-left: 20%;
     margin-right: 20%;
-    font-family: "Montserrat", sans-serif;
     align-items: center;
 }
  
@@ -41,8 +47,7 @@
  
  .color2{
     color: #ffc400 ;
-    font-family: georgia;
- }
+}
  
  .center{
     display: flex;
@@ -50,10 +55,7 @@
     justify-content: center;
  }
  
- .letra{
-    font-family: cursive;
- }
- 
+
  #tamannioimagenanimales1{
     width: 200px;
     height: 200px;
@@ -78,7 +80,6 @@
 }
 
 .footer-brand {
-    font-family: "Montserrat", sans-serif;
     color: gold;
     font-size: 1.5rem;
     font-weight: 600;
@@ -288,19 +289,16 @@
   /* --- Letras y Nav --- */
  
   header {
-     font-family: 'Bebas Neue', cursive;
      color: var(--rojo);
      font-size: 22px;
      
  }
  #fuente{
      color: var(--rojo);
-     font-family: 'Bebas Neue', cursive;
      font-size: 30px;
      padding-left: 20px;
  }
  #piedepag{
-     font-family: 'Bebas Neue', cursive;
      color: var(--rojo);
      font-size: 20px;
  }

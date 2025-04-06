@@ -1,5 +1,8 @@
 html, body {
     font-family: "Rationale", sans-serif;
+    font-size: 1.15em;
+    font-weight: 500;
+    font-style: normal;
 }
 
 #titulo {
