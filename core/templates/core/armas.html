@@ -19,8 +19,7 @@
     <link rel="icon" type="image/jpg" href="{% static 'core/img/favicon/favicon.webp' %}" />
 </head>
 
-<body id="fondo1"style="background-image: url('{% static 'core/img/background/Fondo3.jpg' %}'); background-size: cover; background-attachment: fixed;">
-</body>
+<body id="fondo1"style="background-image: url('{% static 'core/img/background/Fondo3.jpg' %}'); background-size: cover; background-attachment: fixed;"></body>
 
 <body class="bg-dark">
     <!-- Menú de navegación -->
@@ -38,16 +37,18 @@
             <!-- Lista de navegación -->
             <ul class="nav-list d-flex align-items-center">
                 <li class="menu"><a href="{% url 'home' %}">Inicio</a></li>
-                <li class="menu"><a href="{% url 'error_404' %}">Foro</a></li>
-                <li class="menu"><a href="https://www.google.com/maps/place/R%C3%ADo+Imperial+460,+Valle+Grande,+Lampa,+Regi%C3%B3n+Metropolitana/@-33.3295809,-70.751195,17z/data=!3m1!4b1!4m5!3m4!1s0x9662bf62531dc747:0xc0b4aee73c3b9373!8m2!3d-33.3295854!4d-70.7490063?hl=es-CL">Dirección</a></li>
-                <li class="menu"><a href="{% url 'error_404' %}">Registrarse</a></li>
+                <li class="menu"><a href="{% url 'foro' %}">Foro</a></li>
+                <li class="menu"><a
+                        href="https://www.google.com/maps/place/R%C3%ADo+Imperial+460,+Valle+Grande,+Lampa,+Regi%C3%B3n+Metropolitana/@-33.3295809,-70.751195,17z/data=!3m1!4b1!4m5!3m4!1s0x9662bf62531dc747:0xc0b4aee73c3b9373!8m2!3d-33.3295854!4d-70.7490063?hl=es-CL">Dirección</a>
+                </li>
+                <li class="menu"><a href="{% url 'registrarse' %}">Registrarse</a></li>
                 <li class="menu"><a href="{% url 'login' %}">Iniciar Sesión</a></li>
-                <li class="menu"><a href="{% url 'error_404' %}">Mi Cuenta</a></li>
-                <form class="d-flex" id="separar-derecha">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Buscar</button>
-                </form>
+                <li class="menu"><a href="{% url 'micuenta' %}">Mi Cuenta</a></li>
             </ul>
+            <form class="d-flex d-none d-md-flex" id="separar-derecha">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </form>
         </div>
     </nav>
 
@@ -57,7 +58,7 @@
                 <div class="center-titulo">
                     <h1 id=titulo>Armas</h1>
                 </div>
-                
+
                 <div class="w-33">
                     <div class="center">
                         <button class="btn btn-dark">
@@ -110,7 +111,8 @@
                             <p>1</p>
                         </div>
                         <div class="col-sm-2 border border-secondary fondo-tabla center">
-                            <p><img src="{% static 'core/img/armas/PlaneAxe.webp' %}" alt="" class="imagen img-fluid"></p>
+                            <p><img src="{% static 'core/img/armas/PlaneAxe.webp' %}" alt="" class="imagen img-fluid">
+                            </p>
                         </div>
                         <div class="col-sm-2 border border-secondary fondo-tabla center">
                             <p class="center-titulo">Hacha de avion</p>
@@ -129,7 +131,8 @@
                             <p>2</p>
                         </div>
                         <div class="col-sm-2 border border-secondary fondo-tabla center">
-                            <p><img src="{% static 'core/img/armas/CraftedAxe.webp' %}" alt="" class="imagen img-fluid"></p>
+                            <p><img src="{% static 'core/img/armas/CraftedAxe.webp' %}" alt="" class="imagen img-fluid">
+                            </p>
                         </div>
                         <div class="col-sm-2 border border-secondary fondo-tabla center">
                             <p class="center-titulo">Hacha artesanal</p>
@@ -149,7 +152,8 @@
                             <p>3</p>
                         </div>
                         <div class="col-sm-2 border border-secondary fondo-tabla center separar-arriba">
-                            <p><img src="{% static 'core/img/armas/RustyAxe.webp '%}" alt="" class="imagen img-fluid"></p>
+                            <p><img src="{% static 'core/img/armas/RustyAxe.webp '%}" alt="" class="imagen img-fluid">
+                            </p>
                         </div>
                         <div class="col-sm-2 border border-secondary fondo-tabla center">
                             <p class="center-titulo">Hacha oxidada</p>
@@ -168,7 +172,8 @@
                             <p>4</p>
                         </div>
                         <div class="col-sm-2 border border-secondary fondo-tabla center">
-                            <p><img src="{% static 'core/img/armas/ModernAxe.webp' %}" alt="" class="imagen img-fluid"></p>
+                            <p><img src="{% static 'core/img/armas/ModernAxe.webp' %}" alt="" class="imagen img-fluid">
+                            </p>
                         </div>
                         <div class="col-sm-2 border border-secondary fondo-tabla center">
                             <p class="center-titulo">Hacha moderna</p>
@@ -188,7 +193,8 @@
                             <p>5</p>
                         </div>
                         <div class="col-sm-2 border border-secondary fondo-tabla center separar-arriba">
-                            <p><img src="{% static 'core/img/armas/ClimbingAxe.webp' %}" alt="" class="imagen img-fluid"></p>
+                            <p><img src="{% static 'core/img/armas/ClimbingAxe.webp' %}" alt=""
+                                    class="imagen img-fluid"></p>
                         </div>
                         <div class="col-sm-2 border border-secondary fondo-tabla center">
                             <p class="center-titulo">Pico de escalada</p>
@@ -207,7 +213,8 @@
                             <p>6</p>
                         </div>
                         <div class="col-sm-2 border border-secondary fondo-tabla center">
-                            <p><img src="{% static 'core/img/armas/Machete.webp' %}" alt="" class="imagen img-fluid"></p>
+                            <p><img src="{% static 'core/img/armas/Machete.webp' %}" alt="" class="imagen img-fluid">
+                            </p>
                         </div>
                         <div class="col-sm-2 border border-secondary fondo-tabla center">
                             <p class="center-titulo">Machete</p>
@@ -246,7 +253,8 @@
                             <p>8</p>
                         </div>
                         <div class="col-sm-2 border border-secondary fondo-tabla center">
-                            <p><img src="{% static 'core/img/armas/WeakSpear.webp' %}" alt="" class="imagen img-fluid"></p>
+                            <p><img src="{% static 'core/img/armas/WeakSpear.webp' %}" alt="" class="imagen img-fluid">
+                            </p>
                         </div>
                         <div class="col-sm-2 border border-secondary fondo-tabla center">
                             <p class="center-titulo">Lanza debil</p>
@@ -266,7 +274,8 @@
                             <p>9</p>
                         </div>
                         <div class="col-sm-2 border border-secondary fondo-tabla center">
-                            <p><img src="{% static 'core/img/armas/UpgradedSpear.webp' %}" alt="" class="imagen img-fluid"></p>
+                            <p><img src="{% static 'core/img/armas/UpgradedSpear.webp' %}" alt=""
+                                    class="imagen img-fluid"></p>
                         </div>
                         <div class="col-sm-2 border border-secondary fondo-tabla center">
                             <p class="center-titulo">Lanza mejorada</p>
@@ -286,7 +295,8 @@
                             <p>10</p>
                         </div>
                         <div class="col-sm-2 border border-secondary fondo-tabla center">
-                            <p><img src="{% static 'core/img/armas/Chainsaw.webp' %}" alt="" class="imagen img-fluid"></p>
+                            <p><img src="{% static 'core/img/armas/Chainsaw.webp' %}" alt="" class="imagen img-fluid">
+                            </p>
                         </div>
                         <div class="col-sm-2 border border-secondary fondo-tabla center">
                             <p class="center-titulo">Motosierra</p>
@@ -307,7 +317,8 @@
                             <p>11</p>
                         </div>
                         <div class="col-sm-2 border border-secondary fondo-tabla center">
-                            <p><img src="{% static 'core/img/armas/CraftedBow.webp' %}" alt="" class="imagen img-fluid"></p>
+                            <p><img src="{% static 'core/img/armas/CraftedBow.webp' %}" alt="" class="imagen img-fluid">
+                            </p>
                         </div>
                         <div class="col-sm-2 border border-secondary fondo-tabla center">
                             <p class="center-titulo">Arco artesanal</p>
@@ -328,7 +339,8 @@
                             <p>12</p>
                         </div>
                         <div class="col-sm-2 border border-secondary fondo-tabla center">
-                            <p><img src="{% static 'core/img/armas/TurtleShell.webp' %}" alt="" class="imagen img-fluid"></p>
+                            <p><img src="{% static 'core/img/armas/TurtleShell.webp' %}" alt=""
+                                    class="imagen img-fluid"></p>
                         </div>
                         <div class="col-sm-2 border border-secondary fondo-tabla center">
                             <p class="center-titulo">Caparazon de tortuga</p>
@@ -367,7 +379,8 @@
                             <p>14</p>
                         </div>
                         <div class="col-sm-2 border border-secondary fondo-tabla center">
-                            <p><img src="{% static 'core/img/armas/Dynamite.webp' %}" alt="" class="imagen img-fluid"></p>
+                            <p><img src="{% static 'core/img/armas/Dynamite.webp' %}" alt="" class="imagen img-fluid">
+                            </p>
                         </div>
                         <div class="col-sm-2 border border-secondary fondo-tabla center">
                             <p class="center-titulo">Dinamita</p>
@@ -386,7 +399,8 @@
                             <p>15</p>
                         </div>
                         <div class="col-sm-2 border border-secondary fondo-tabla center">
-                            <p><img src="{% static 'core/img/armas/Molotov.webp' %}" alt="" class="imagen img-fluid"></p>
+                            <p><img src="{% static 'core/img/armas/Molotov.webp' %}" alt="" class="imagen img-fluid">
+                            </p>
                         </div>
                         <div class="col-sm-2 border border-secondary fondo-tabla center">
                             <p class="center-titulo">Molotov</p>
@@ -427,9 +441,11 @@
                     <!-- Columna Derecha -->
                     <div class="col-md-6 d-flex justify-content-center justify-content-md-end">
                         <ul class="footer-links">
-                            <li><a href="{% url 'home' %}">Inicio</a></li>
-                            <li><a href="{% url 'error_404' %}">Categorías</a></li>
-                            <li><a href="{% url 'error_404' %}">Contacto</a></li>
+                            <li><a href="#">Inicio</a></li>
+                            <!--<li><a href="{% url 'error_404' %}">Categorías</a></li>-->
+                            <li><a
+                                    href="https://www.google.com/maps/place/R%C3%ADo+Imperial+460,+Valle+Grande,+Lampa,+Regi%C3%B3n+Metropolitana/@-33.3295809,-70.751195,17z/data=!3m1!4b1!4m5!3m4!1s0x9662bf62531dc747:0xc0b4aee73c3b9373!8m2!3d-33.3295854!4d-70.7490063?hl=es-CL">Dirección</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
