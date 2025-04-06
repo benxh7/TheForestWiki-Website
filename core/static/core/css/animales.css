@@ -1,3 +1,7 @@
+html, body {
+    font-family: "Rationale", sans-serif;
+}
+
 #titulo {
     color: #ffc400;
     border: 3px dimgray solid;
@@ -6,13 +10,11 @@
     margin-top: 70px;
     margin-left: 20%;
     margin-right: 20%;
-    font-family: "Montserrat", sans-serif;
     align-items: center;
 }
 
 #fondo{
    background-color: rgb(27, 27, 27);
-   background-image: url(imagenes/Fondos/Fondo3.jpg); 
    background-position: top;
    background-attachment: fixed;
    background-repeat: no-repeat;
@@ -70,7 +72,6 @@ table{
 
 .colorl{
    color: #ffc400;
-   font-family: "Montserrat", sans-serif;
 }
 
 .center{
@@ -90,10 +91,6 @@ table{
    height: 130px;
 }
 
-.letra{
-    font-family: "Montserrat", sans-serif;
-}
-
 /* 
 ================================
  Diseño del footer de la pagina 
@@ -109,7 +106,6 @@ table{
 }
 
 .footer-brand {
-    font-family: "Montserrat", sans-serif;
     color: gold;
     font-size: 1.5rem;
     font-weight: 600;
@@ -180,23 +176,19 @@ table{
 
 body {
 	background: var(--fondo);
-	font-family: "Montserrat", sans-serif;
 }
 
 header {
-	font-family: "Montserrat", sans-serif;
 	color: var(--rojo);
 	font-size: 22px;
 	
 }
 #fuente{
 	color: var(--rojo);
-	font-family: "Montserrat", sans-serif;
 	font-size: 30px;
    padding-left: 20px;
 }
 #piedepag{
-	font-family: "Montserrat", sans-serif;
 	color: var(--rojo);
 	font-size: 20px;
 	margin-top: 20px;
@@ -344,12 +336,10 @@ header {
     margin-right: 20%;
 	margin-top: 20px;
 	margin-bottom: 20px;
-    font-family: "Montserrat", sans-serif;
-   }
+}
 
 .color2{
     color: #ffc400 ;
-    font-family: "Montserrat", sans-serif;
     margin-bottom: 40px; /* o la cantidad de px que necesites */
 }
 
