@@ -331,13 +331,14 @@ body.modal-open {
 */
 
 .footer {
-    background: rgb(15, 15, 15);
+    background: rgb(17, 6, 1);
     padding: 40px 0 20px;
-    border-top: 1px solid rgb(14, 14, 14);
+    border-top: 1px solid rgb(15, 3, 3);
     position: relative;
 }
 
 .footer-brand {
+    font-family: 'Arial', sans-serif;
     color: gold;
     font-size: 1.5rem;
     font-weight: 600;
@@ -346,7 +347,7 @@ body.modal-open {
 } 
 
 .footer-text {
-    color: #6c757d;
+    color: #ffffff;
     font-size: 0.9rem;
     /*max-width: 300px;*/
 }
@@ -356,14 +357,14 @@ body.modal-open {
 }
 
 .social-link {
-    color: #6c757d;
+    color: #ffffff;
     margin-right: 20px;
     font-size: 1.2rem;
     transition: color 0.3s ease;
 }
 
 .social-link:hover {
-    color: #0d6efd;
+    color: #E0C066;
 }
 
 .footer-links {
@@ -375,18 +376,18 @@ body.modal-open {
 }
 
 .footer-links a {
-    color: #6c757d;
+    color: #ffffff;
     text-decoration: none;
     font-size: 0.9rem;
     transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
-    color: #0d6efd;
+    color: #E0C066;
 }
 
 .copyright {
-    color: #6c757d;
+    color: #ffffff;
     font-size: 0.85rem;
     margin-top: 20px;
     padding-top: 20px;
