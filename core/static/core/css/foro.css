@@ -48,14 +48,14 @@ h5 {
     max-height: 300px;
     padding: 10px;   
     line-height: 30px;
-    border: 2px solid gold;
+    border: 2px solid #024605;
     margin-bottom: 20px;
 
 }
 
 .form_comentarios .btn{
     background: linear-gradient(90deg, #024605, #031f0e, #020803);
-    border: 2px solid gold;
+    border: 1px solid gold;
     border-radius: 0;
     color: #E0C066;
     margin-bottom: 20px;
