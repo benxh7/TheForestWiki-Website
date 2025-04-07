@@ -7,7 +7,7 @@ html, body {
 
 :root {
 	--rojo: #ffc400;
-	--fondo: #1414148c;
+	--fondo: rgb(17, 6, 1);
 }
 
 * {
