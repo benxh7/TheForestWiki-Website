@@ -67,7 +67,7 @@ h5 {
 }
 
 .media{
-    border-top: 1px solid #E0C066;
+    border-top: 2px solid #8b4206;
     padding-top: 20px;
 }
 
@@ -110,7 +110,7 @@ img{
 
 
 #fondo1{
-    background-color: black;  
+    background-color: rgb(17, 6, 1);  
     background-position: top;
     background-attachment: fixed;
     background-repeat: no-repeat;
