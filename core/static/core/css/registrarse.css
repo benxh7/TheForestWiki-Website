@@ -256,11 +256,11 @@ body.modal-open {
     border-radius: 5px; /* Bordes redondeados */
     display: inline-block;
     font-size: 1rem;
-    transition: background-color 0.3s ease;
+    transition: linear-gradient 0.3s ease;
 }
 
 .btn-back {
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    transition: transform 0.3s ease, linear-gradient 0.3s ease;
 }
   
 .btn-back:hover {
