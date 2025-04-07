@@ -48,15 +48,15 @@ h5 {
     max-height: 300px;
     padding: 10px;   
     line-height: 30px;
-    border: 1px solid #4b65d1;
+    border: 1px solid gold;
     margin-bottom: 20px;
 
 }
 
 .form_comentarios .btn{
-    background: #4b65d1;
+    background: linear-gradient(90deg, #024605, #031f0e, #020803);
     border-radius: 0;
-    color: #fff;
+    color: #E0C066;
     margin-bottom: 20px;
 }
 
@@ -271,14 +271,14 @@ img{
 */
 
 .footer {
-    background: rgb(15, 15, 15);
+    background: rgb(17, 6, 1);
     padding: 40px 0 20px;
-    margin-top: 50px;
-    border-top: 1px solid rgb(14, 14, 14);
+    border-top: 1px solid rgb(15, 3, 3);
     position: relative;
 }
 
 .footer-brand {
+    font-family: 'Arial', sans-serif;
     color: gold;
     font-size: 1.5rem;
     font-weight: 600;
@@ -287,7 +287,7 @@ img{
 } 
 
 .footer-text {
-    color: #6c757d;
+    color: #ffffff;
     font-size: 0.9rem;
     /*max-width: 300px;*/
 }
@@ -297,14 +297,14 @@ img{
 }
 
 .social-link {
-    color: #6c757d;
+    color: #ffffff;
     margin-right: 20px;
     font-size: 1.2rem;
     transition: color 0.3s ease;
 }
 
 .social-link:hover {
-    color: #0d6efd;
+    color: #E0C066;
 }
 
 .footer-links {
@@ -316,18 +316,18 @@ img{
 }
 
 .footer-links a {
-    color: #6c757d;
+    color: #ffffff;
     text-decoration: none;
     font-size: 0.9rem;
     transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
-    color: #0d6efd;
+    color: #E0C066;
 }
 
 .copyright {
-    color: #6c757d;
+    color: #ffffff;
     font-size: 0.85rem;
     margin-top: 20px;
     padding-top: 20px;
