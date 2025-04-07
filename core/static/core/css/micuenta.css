@@ -286,10 +286,10 @@ Copiar esto
     height: 180px;
     align-items: center;
     justify-content: center;
-    border: 7px solid #FFFFFF;
+    border: 7px solid #291301;
     background-color: #DFE5F2;
     border-radius: 50%;
-    box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+    box-shadow: 0 0 12px #291301;
     position: absolute;
     bottom: -40px;
     left: calc(50% - 90px);
@@ -338,7 +338,7 @@ Copiar esto
     display: flex;
     flex-wrap: wrap;
     padding: 1.5rem 2rem;
-    box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+    box-shadow: 0 0 12px #291301;
     background-color: #fff;
     border-radius: 15px;
     width: 100%;
@@ -385,7 +385,7 @@ Copiar esto
     height: 50px;
     border-radius: 50%;
     color: #fff;
-    box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+    box-shadow: 0 0 12px #291301;
     font-size: 1.3rem;
 }
 
