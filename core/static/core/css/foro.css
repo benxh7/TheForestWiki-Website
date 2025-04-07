@@ -62,12 +62,12 @@ h5 {
 }
 
 .form_comentarios .btn:hover{
-    box-shadow: 0px 0px 9px rgba(0,0,0,.35);
+    box-shadow: 0px 0px 9px rgb(255, 255, 255);
 
 }
 
 .media{
-    border-top: 1px solid #bfbfbf;
+    border-top: 1px solid #E0C066;
     padding-top: 20px;
 }
 
@@ -76,20 +76,20 @@ h5 {
 }
 
 .media .nombre{
-    color: #fff;
+    color: #E0C066;
     margin-bottom: 0;
 }
 
 .media .nombre span{
     font-size: 12px;
-    color: #fff;
+    color: #E0C066;
     margin-left: 10px;
 
 }
 
 .media .comentario{
     margin-top: 10px;
-    color: #fff;
+    color: #E0C066;
 }
 
 .media .botones{
