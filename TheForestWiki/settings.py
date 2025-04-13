@@ -12,6 +12,27 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 
+# Inicializa explícitamente Oracle Instant Client para conectarnos a Oracle Cloud
+# ATENCION: ESTO LO PUEDES BORRAR, SOLO LO USO YO POR PROBLEMAS EN MI PC
+import os
+import sys
+from telnetlib import LOGOUT
+
+import cx_Oracle
+
+cx_Oracle.init_oracle_client(lib_dir=r"C:\Program Files\instantclient_23_7")
+
+if __name__ == '__main__':
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'TheForestWiki.settings')
+    try:
+        from django.core.management import execute_from_command_line
+    except ImportError as exc:
+        raise ImportError(
+            "Couldn't import Django. Are you sure it's installed and available on your PYTHONPATH environment variable? "
+            "Did you forget to activate a virtual environment?"
+        ) from exc
+    execute_from_command_line(sys.argv)
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -55,7 +76,7 @@ ROOT_URLCONF = 'TheForestWiki.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'core' /'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,11 +96,14 @@ WSGI_APPLICATION = 'TheForestWiki.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': 'z879lkbuz2lrlw8s_high',
+        'USER': 'USER',
+        'PASSWORD': '59B?w3FmX#+T7PX',
     }
 }
 
+#AUTH_USER_MODEL = 'core.CustomUser'
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -103,7 +127,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-la'
 
 TIME_ZONE = 'UTC'
 
@@ -121,3 +145,21 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SESSION_COOKIE_AGE = 60 * 60 * 1  # 1 hora
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+SESSION_SAVE_EVERY_REQUEST = False
+
+SESSION_COOKIE_NAME = 'sessionid'
+
+SESSION_COOKIE_SECURE = False
+SESSION_COOKIE_HTTPONLY = True
+
+SESSION_COOKIE_PATH = '/'
+
+LOGIN_REDIRECT_URL = 'logged'
+LOGOUT_REDIRECT_URL = 'home'
+
+AUTH_USER_MODEL = 'core.Cuenta'

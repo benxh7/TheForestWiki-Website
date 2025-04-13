@@ -1,12 +1,14 @@
 from django.urls import path, include
-from .views import home, error_404, login_view, registrarse, animales, enemigos, mapa, construcciones, plantas, armas, consumibles, historia, foro, micuenta
+from .views import home, error_404, login_view, register_view, logged_view, logout_view, animales, enemigos, mapa, construcciones, plantas, armas, consumibles, historia, foro, micuenta
 
 # Aqui debemos añadir las urls de la app core
 urlpatterns = [
+    path('register/', register_view, name='registrarse'),
+    path('login/', login_view, name='login'),
+    path('logout/', logout_view, name='logout'),
+    path('logged/', logged_view, name='logged'),
     path('', home, name='home'),
     path('error_404', error_404, name='error_404'),
-    path('login', login_view, name='login'),
-    path('registrarse', registrarse, name='registrarse'),
     path('animales', animales, name='animales'),
     path('enemigos', enemigos, name='enemigos'),
     path('mapa', mapa, name='mapa'),

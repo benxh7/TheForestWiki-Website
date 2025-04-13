@@ -1,10 +1,13 @@
+<!-- registration/logout.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Sesión Cerrada</title>
 </head>
 <body>
-
+    <h1>Has cerrado sesión correctamente</h1>
+    <p><a href="{% url 'login' %}">Iniciar Sesión nuevamente</a></p>
+    <p><a href="{% url 'home' %}">Volver al Inicio</a></p>
 </body>
 </html>
