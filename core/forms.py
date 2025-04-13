@@ -1,7 +1,7 @@
 from django import forms
-from .models import Registro
+from .models import Cuenta
 
-class RegistroForm(forms.ModelForm):
+class RegisterForm(forms.ModelForm):
     confirm_password = forms.CharField(
         label="Confirmar Contraseña",
         widget=forms.PasswordInput(attrs={
@@ -11,9 +11,14 @@ class RegistroForm(forms.ModelForm):
         })
     )
     class Meta:
-        model = Registro
-        fields = ['email', 'password']
+        model = Cuenta
+        fields = ['username', 'email', 'password']
         widgets = {
+            'username': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Ingresa tu nombre de usuario',
+                'id': 'username'
+            }),
             'email': forms.EmailInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'correo@gmail.com',
@@ -23,9 +28,10 @@ class RegistroForm(forms.ModelForm):
                 'class': 'form-control',
                 'placeholder': 'Ingresa tu contraseña',
                 'id': 'password'
-            })
+            }),
         }
         labels = {
+            'username': 'Nombre de Usuario',
             'email': 'Email',
             'password': 'Contraseña',
         }

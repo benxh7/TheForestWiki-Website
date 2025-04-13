@@ -54,31 +54,41 @@
             <div class="col-md-6 d-none d-md-block"style="background: url('{% static 'core/img/background/Fondo1.png' %}') no-repeat center center; background-size: cover; height: 100vh;">
                 <img src="{% static 'core/img/home/site-logo.png' %}" alt="Img Logo" class="site-logo animate-breathing img-fluid w-5 mx-auto mt-5">
             </div>
-            <!-- Formulario de login derecha -->
+            <!-- Formulario de registro derecha -->
             <div class="col-12 col-md-6 d-flex align-items-center justify-content-center" style="min-height: 100vh;">
                 <!-- Aquí coloca tu formulario de login -->
                 <form id="registerForm" class="w-50" method="post" action="{% url 'registrarse' %}">
                     {% csrf_token %}
                     <h1 class="mb-4">¡Ingresa tus Datos!</h1>
-                    <div id="registerMessage"></div>
-                    <div id="loginMessage"></div>
                     
+                    <!-- Nombre de Usuario -->
                     <div class="mb-3 text-start">
-                       {{ form.email.label_tag }}
-                       {{ form.email }}
-                       {% if form.email.errors %}
-                           <div class="text-danger">{{ form.email.errors }}</div>
-                       {% endif %}
+                        {{ form.username.label_tag }}
+                        {{ form.username }}
+                        {% if form.username.errors %}
+                           <div class="text-danger">{{ form.username.errors }}</div>
+                        {% endif %}
                     </div>
-                
+
+                    <!-- Email -->
+                    <div class="mb-3 text-start">
+                        {{ form.email.label_tag }}
+                        {{ form.email }}
+                        {% if form.email.errors %}
+                           <div class="text-danger">{{ form.email.errors }}</div>
+                        {% endif %}
+                    </div>
+
+                    <!-- Contraseña -->
                     <div class="mb-3 text-start">
                         {{ form.password.label_tag }}
                         {{ form.password }}
                         {% if form.password.errors %}
-                            <div class="text-danger">{{ form.password.errors }}</div>
+                           <div class="text-danger">{{ form.password.errors }}</div>
                         {% endif %}
                     </div>
-                
+
+                    <!-- Confirmar Contraseña -->
                     <div class="mb-3 text-start">
                         {{ form.confirm_password.label_tag }}
                         {{ form.confirm_password }}

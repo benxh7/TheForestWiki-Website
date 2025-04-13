@@ -1,29 +1,33 @@
 from django.shortcuts import render, redirect
-from .forms import RegistroForm
+
+from django.shortcuts import render, redirect
+from .forms import RegisterForm
+
+
+def registrarse(request):
+    if request.method == 'POST':
+        print("Se recibió una petición POST")
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            form.save()  # Guarda el nuevo registro
+            print("Registro guardado correctamente")
+            return redirect('home')  # Redirige a la página de inicio
+        else:
+            # Imprime los errores del formulario para depuración
+            print("Errores en el formulario:", form.errors)
+    else:
+        form = RegisterForm()
+    return render(request, 'registration/register.html', {"form": form})
+
+
+def login_view(request):
+    return render(request, 'registration/login.html')
 
 def home(request):
     return render(request, 'core/home.html')
 
 def error_404(request):
     return render(request, 'core/error_404.html')
-
-def login(request):
-    return render(request, 'core/login.html')
-
-def registrarse(request):
-    if request.method == 'POST':
-        print("Se recibió una petición POST")
-        form = RegistroForm(request.POST)
-        if form.is_valid():
-            form.save() # Guarda el nuevo registro
-            print("Registro guardado correctamente")
-            return redirect('home') # Redirige a la página de inicio
-        else:
-            # Imprime los errores del formulario para depuración
-            print("Errores en el formulario:", form.errors)
-    else:
-        form = RegistroForm()
-    return render(request, 'core/registrarse.html', {"form": form})
 
 def animales(request):
     return render(request, 'core/animales.html')
