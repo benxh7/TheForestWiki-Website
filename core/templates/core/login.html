@@ -57,7 +57,7 @@
             <!-- Formulario de login derecha -->
             <div class="col-12 col-md-6 d-flex align-items-center justify-content-center" style="min-height: 100vh;">
                 <!-- Aquí coloca tu formulario de login -->
-                <form id="loginForm" class="w-50">
+                <form id="loginForm" class="w-50" method="post" action="{% url 'login' %}">
                     <h1 class="mb-4">¡Bienvenido Ingresa tu Usuario!</h1>
                     <!-- Contenedor de mensajes -->
                     <div id="loginMessage"></div>

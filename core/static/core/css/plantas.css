@@ -50,24 +50,20 @@ html, body {
  }
  
  
- .color2{
-    color: #ffc400 ;
+ .color2 {
+     color: #ffc400;
  }
  
- #tamannioimagenanimales1{
-    width: 200px;
-    height: 200px;
+ #tamannioimagenanimales1 {
+     width: 200px;
+     height: 200px;
  }
  
- #bordertabla1{
-    border-radius: 5px;
+ #bordertabla1 {
+     border-radius: 5px;
  }
- 
- 
- 
- 
- 
- table{
+
+table {
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
@@ -75,7 +71,7 @@ html, body {
     border-radius: 4px;
     opacity: 0.85;
     padding-right: auto;
- }
+}
  
  td,th{
     border: 2px solid gray;
@@ -147,10 +143,10 @@ html, body {
 */
 
 .footer {
-    background: rgb(15, 15, 15);
+    background: rgb(17, 6, 1);
     padding: 40px 0 20px;
     margin-top: 50px;
-    border-top: 1px solid rgb(14, 14, 14);
+    border-top: 1px solid rgb(15, 3, 3);
     position: relative;
 }
 

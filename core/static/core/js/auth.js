@@ -39,14 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 registerMessageDiv.innerHTML = '<div class="alert alert-success alert-dismissible fade show" role="alert">' +
                     'Te has registrado correctamente.' +
                     '</div>';
-                // Esperamos 5 segundos para que se vea el mensaje antes de redirigir
-                setTimeout(function () {
-                    // Si el formulario no tiene un atributo "action", usamos homeUrl
-                    const params = new URLSearchParams(new FormData(formRegister)).toString();
-                    const url = formRegister.getAttribute("action") ?
-                        formRegister.getAttribute("action") + "?" + params : homeUrl;
-                    window.location.href = url;
-                }, 5000);
             }
         });
     }
