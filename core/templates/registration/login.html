@@ -30,9 +30,25 @@
                 <li class="menu"><a href="{% url 'home' %}">Inicio</a></li>
                 <li class="menu"><a href="{% url 'foro' %}">Foro</a></li>
                 <li class="menu"><a href="#">Dirección</a></li>
-                <li class="menu"><a href="{% url 'registrarse' %}">Registrarse</a></li>
-                <li class="menu"><a href="{% url 'login' %}">Iniciar Sesión</a></li>
-                <li class="menu"><a href="{% url 'micuenta' %}">Mi Cuenta</a></li>
+                <!-- Aquí mostramos el username si está logueado -->
+                {% if user.is_authenticated %}
+                    <li class="menu">
+                        <a href="{% url 'micuenta' %}">Mi Cuenta</a>
+                    </li>
+                    <li class="menu">
+                        <a href="{% url 'logout' %}">Cerrar Sesión</a>
+                    </li>
+                    <li class="menu" style="color: #ffc400">
+                        <span>Bienvenido, {{ user.username }}</span>
+                    </li>
+                {% else %}
+                    <li class="menu">
+                        <a href="{% url 'registrarse' %}">Registrarse</a>
+                    </li>
+                    <li class="menu">
+                        <a href="{% url 'login' %}">Iniciar Sesión</a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
     </nav>

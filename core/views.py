@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from .forms import RegisterForm
 
 def register_view(request):
@@ -77,5 +78,6 @@ def historia(request):
 def foro(request):
     return render(request, 'core/foro.html')
 
+@login_required
 def micuenta(request):
     return render(request, 'core/micuenta.html')

@@ -19,6 +19,7 @@ import sys
 from telnetlib import LOGOUT
 
 import cx_Oracle
+from django.conf.global_settings import LOGIN_URL
 
 cx_Oracle.init_oracle_client(lib_dir=r"C:\Program Files\instantclient_23_7")
 
@@ -159,6 +160,7 @@ SESSION_COOKIE_HTTPONLY = True
 
 SESSION_COOKIE_PATH = '/'
 
+LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'logged'
 LOGOUT_REDIRECT_URL = 'home'
 
