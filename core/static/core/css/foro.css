@@ -251,7 +251,6 @@ img{
 }
 
 .logout-link {
-    /* Copia lo esencial de tu .navbar ul li a */
     color: #fff;
     padding: 5px 0px;
     margin: 5px auto;
@@ -260,15 +259,12 @@ img{
     transition: background 0.3s ease;
     position: relative;
     border-radius: 7px;
-
-    /* Suma esto si quieres que luzca como enlace, sin borde ni fondo */
     background: none;
     border: none;
     cursor: pointer;
     font: inherit;
 }
 
-/* Efecto de la línea inferior */
 .logout-link::before {
     content: "";
     width: 100%;
@@ -282,7 +278,6 @@ img{
     transform-origin: 50% 50%;
 }
 
-/* Al hacer hover, se muestra la línea igual que en tus enlaces */
 .logout-link:hover::before {
     transform: scale3d(1, 1, 1);
 }

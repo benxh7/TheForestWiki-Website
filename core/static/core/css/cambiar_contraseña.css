@@ -44,11 +44,6 @@ h1 {
     color: gold;
 }
 
-/* Que el contenido crezca, dejando el footer abajo */
-.page-wrapper {
-    flex: 1;
-    padding-bottom: 2rem;
-}
 /*
 ================================
  Diseño del footer de la pagina

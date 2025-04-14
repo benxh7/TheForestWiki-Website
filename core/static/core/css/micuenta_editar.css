@@ -32,11 +32,6 @@ h1 {
     color: #ffc400;
 }
 
-/* Que el contenido crezca, dejando el footer abajo */
-.page-wrapper {
-    flex: 1;
-    padding-bottom: 2rem;
-}
 /*
 ================================
  Diseño del footer de la pagina
@@ -48,7 +43,6 @@ h1 {
     padding: 40px 0 20px;
     border-top: 1px solid rgb(15, 3, 3);
     position: relative;
-    margin-top: auto; /* Lo empuja hacia abajo */
 }
 
 .footer-brand {
@@ -62,7 +56,7 @@ h1 {
 
 .footer-text {
     color: #ffffff;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     /*max-width: 300px;*/
 }
 
@@ -73,7 +67,7 @@ h1 {
 .social-link {
     color: #ffffff;
     margin-right: 20px;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     transition: color 0.3s ease;
 }
 
@@ -92,7 +86,7 @@ h1 {
 .footer-links a {
     color: #ffffff;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     transition: color 0.3s ease;
 }
 
@@ -102,11 +96,12 @@ h1 {
 
 .copyright {
     color: #ffffff;
-    font-size: 1rem;
+    font-size: 0.85rem;
     margin-top: 20px;
     padding-top: 20px;
     border-top: 1px solid rgba(63, 63, 63, 0.466);
 }
+
 /*
 =======================================================
  Cambio de diseño al abrir la pagina con un dispositvo
