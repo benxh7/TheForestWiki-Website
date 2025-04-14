@@ -48,7 +48,10 @@
                         <a href="{% url 'micuenta' %}">Mi Cuenta</a>
                     </li>
                     <li class="menu">
-                        <a href="{% url 'logout' %}">Cerrar Sesión</a>
+                        <form method="post" action="{% url 'logout' %}">
+                            {% csrf_token %}
+                            <button type="submit" class="logout-link">Cerrar Sesión</button>
+                        </form>
                     </li>
                     <li class="menu" style="color: #ffc400">
                         <span>Bienvenido, {{ user.username }}</span>
