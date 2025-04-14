@@ -43,7 +43,7 @@ h1 {
     padding: 40px 0 20px;
     border-top: 1px solid rgb(15, 3, 3);
     position: relative;
-    bottom: -150px; /* Baja el footer */
+    bottom: -148px; /* Baja el footer */
 }
 
 .footer-brand {

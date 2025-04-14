@@ -24,10 +24,7 @@ html, body {
     background-color: rgba(0, 0, 0, 0.5); /* Ajustá la opacidad acá */
     z-index: 0;
 }
-.page-wrapper, .footer {
-    position: relative;
-    z-index: 1;
-}
+
 body {
     font-family: 'Rationale', sans-serif;
     margin: 0;
