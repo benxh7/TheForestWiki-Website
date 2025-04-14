@@ -1,13 +1,9 @@
-from django import forms
 from django.contrib.auth.forms import UserCreationForm
+from django import forms
 from .models import Cuenta
 
+# Formulario para registrar nuevos usuarios en la base de datos
 class RegisterForm(UserCreationForm):
-    """
-    Formulario para registrar un usuario nuevo en la base de datos,
-    basado en el modelo Cuenta (heredado de AbstractUser).
-    """
-
     class Meta:
         model = Cuenta
         # 'password1' y 'password2' vienen de UserCreationForm
@@ -39,3 +35,15 @@ class RegisterForm(UserCreationForm):
             'class': 'form-control',
             'placeholder': 'Confirma tu contraseña',
         })
+
+# Formulario para editar el perfil del usuario
+class EditProfileForm(forms.ModelForm):
+    class Meta:
+        model = Cuenta
+        fields = ['username', 'email'] # Ajusta los campos que quieras editar
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Opcional: añadir clases, placeholders, etc.
+        self.fields['username'].widget.attrs.update({'class': 'form-control'})
+        self.fields['email'].widget.attrs.update({'class': 'form-control'})

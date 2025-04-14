@@ -71,17 +71,6 @@
                     {% csrf_token %}
                     <h1 class="mb-4">¡Bienvenido! Ingresa tus credenciales</h1>
 
-                    <!-- Mensajes de error o éxito (si usas django.contrib.messages) -->
-                    {% if messages %}
-                      <div class="mb-3 text-danger">
-                        <ul>
-                          {% for message in messages %}
-                            <li>{{ message }}</li>
-                          {% endfor %}
-                        </ul>
-                      </div>
-                    {% endif %}
-
                     <!-- Campo Username -->
                     <div class="mb-3 text-start">
                         <label for="username" class="form-label">Nombre de Usuario</label>
@@ -96,6 +85,14 @@
                         <input type="password" name="password" id="password"
                                class="form-control"
                                placeholder="Contraseña">
+                    </div>
+                
+                    <div class="form-check text-start mb-3">
+                        <input type="checkbox" class="form-check-input" id="showPassword">
+                        <label class="form-check-label" for="showPassword">Mostrar contraseña</label>
+                        <a href="{% url 'registrarse' %}" class="ms-2" style="color: rgb(77, 77, 77); text-decoration: none;">
+                            ¿No tienes cuenta? Ingresa aquí
+                        </a>
                     </div>
 
                     <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
@@ -139,5 +136,6 @@
     <!-- Scripts personalizados -->
     <script src="{% static 'core/js/app.js' %}"></script>
     <script src="{% static 'core/js/scroll.js' %}"></script>
+    <script src="{% static 'core/js/auth.js' %}"></script>
 </body>
 </html>

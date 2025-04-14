@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Cuenta</title>
+    <!-- Bootstrap CSS, etc. -->
+</head>
+<body>
+    <!-- Podrías usar tu navbar normal aquí -->
+    <h1>Actualizar Perfil</h1>
+
+    <!-- Mensajes de error / éxito -->
+    {% if messages %}
+      <div>
+        {% for message in messages %}
+          <p>{{ message }}</p>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar Cambios</button>
+    </form>
+
+    <hr>
+    <!-- Enlace para cambiar contraseña (ver sección siguiente) -->
+    <a href="{% url 'cambiar_contraseña' %}">Cambiar Contraseña</a>
+</body>
+</html>

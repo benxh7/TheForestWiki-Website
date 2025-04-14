@@ -79,21 +79,10 @@
 
             <!-- Formulario de registro derecha -->
             <div class="col-12 col-md-6 d-flex align-items-center justify-content-center" style="min-height: 100vh;">
-                <!-- Aquí colocas tu formulario de registro -->
+                <!-- FORMULARIO REGISTRO -->
                 <form id="registerForm" class="w-50" method="post" action="{% url 'registrarse' %}">
                     {% csrf_token %}
                     <h1 class="mb-4">¡Ingresa tus Datos!</h1>
-
-                    <!-- Mensajes de error general (si los usas con messages) -->
-                    {% if messages %}
-                        <div class="mb-3 text-start text-danger">
-                            <ul>
-                                {% for message in messages %}
-                                    <li>{{ message }}</li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    {% endif %}
 
                     <!-- Nombre de Usuario -->
                     <div class="mb-3 text-start">
@@ -104,7 +93,7 @@
                         {% endif %}
                     </div>
 
-                    <!-- Email (si tu formulario lo usa) -->
+                    <!-- Email -->
                     {% if form.email %}
                     <div class="mb-3 text-start">
                         {{ form.email.label_tag }}
@@ -115,7 +104,7 @@
                     </div>
                     {% endif %}
 
-                    <!-- Password 1 -->
+                    <!-- Contraseña -->
                     <div class="mb-3 text-start">
                         {{ form.password1.label_tag }}
                         {{ form.password1 }}
@@ -124,7 +113,7 @@
                         {% endif %}
                     </div>
 
-                    <!-- Password 2 -->
+                    <!-- Confirmar Contraseña -->
                     <div class="mb-3 text-start">
                         {{ form.password2.label_tag }}
                         {{ form.password2 }}
@@ -186,5 +175,6 @@
     <!-- Scripts personalizados -->
     <script src="{% static 'core/js/app.js' %}"></script>
     <script src="{% static 'core/js/scroll.js' %}"></script>
+    <script src="{% static 'core/js/auth.js' %}"></script>
 </body>
 </html>
