@@ -97,7 +97,9 @@
                             ¿No tienes cuenta? Ingresa aquí
                         </a>
                     </div>
-
+                    <div id="loginError" class="alert alert-danger d-none" role="alert">
+                    Debes ingresar un nombre de usuario y contraseña válidos.
+                    </div>
                     <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
                 </form>
             </div>
@@ -140,5 +142,19 @@
     <script src="{% static 'core/js/app.js' %}"></script>
     <script src="{% static 'core/js/scroll.js' %}"></script>
     <script src="{% static 'core/js/auth.js' %}"></script>
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const errorDiv = document.getElementById('loginError');
+
+        if (username === '' || password === '') {
+            event.preventDefault(); // Evita que se envíe el formulario
+            errorDiv.classList.remove('d-none'); // Muestra el mensaje de error
+        } else {
+            errorDiv.classList.add('d-none'); // Oculta el mensaje si los campos están completos
+        }
+    });
+</script>
 </body>
 </html>
