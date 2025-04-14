@@ -330,6 +330,43 @@ header {
     transform: scale3d(1, 1, 1);
 }
 
+.logout-link {
+    /* Copia lo esencial de tu .navbar ul li a */
+    color: #fff;
+    padding: 5px 0px;
+    margin: 5px auto;
+    text-decoration: none;
+    display: block;
+    transition: background 0.3s ease;
+    position: relative;
+    border-radius: 7px;
+
+    /* Suma esto si quieres que luzca como enlace, sin borde ni fondo */
+    background: none;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+}
+
+/* Efecto de la línea inferior */
+.logout-link::before {
+    content: "";
+    width: 100%;
+    height: 4px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: rgba(255, 196, 0, 0.7);
+    transition: transform 0.5s ease;
+    transform: scale3d(0, 1, 1);
+    transform-origin: 50% 50%;
+}
+
+/* Al hacer hover, se muestra la línea igual que en tus enlaces */
+.logout-link:hover::before {
+    transform: scale3d(1, 1, 1);
+}
+
 #titulo1 {
     color: #ffc400 ;
     border: 5px dimgray solid;

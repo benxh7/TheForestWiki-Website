@@ -41,6 +41,9 @@
                     <!-- Aquí mostramos el username si está logueado -->
                     {% if user.is_authenticated %}
                         <li class="menu">
+                            <a href="{% url 'micuenta' %}">Mi Cuenta</a>
+                        </li>
+                        <li class="menu">
                             <a href="{% url 'logout' %}">Cerrar Sesión</a>
                         </li>
                         <li class="menu" style="color: #ffc400">
