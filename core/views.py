@@ -14,7 +14,7 @@ def register_view(request):
             user = form.save() # Se guarda el usuario en la DB con contraseña hasheada
             login(request, user) # Si quieres que inicie sesión automáticamente tras registrarse
             messages.success(request, f'Bienvenido, {user.username}!')
-            return redirect('logged')   # Redirige a la url que desees
+            return redirect('home')   # Redirige a la url que desees
         else:
             messages.error(request, 'Corrige los errores en el formulario.')
     else:
@@ -40,7 +40,7 @@ def login_view(request):
             # Si las credenciales coinciden, iniciamos sesión
             login(request, user)
             messages.success(request, f'¡Bienvenido, {user.username}!')
-            return redirect('logged')
+            return redirect('home')
         else:
             # Credenciales inválidas
             messages.error(request, 'Usuario o contraseña incorrectos')
