@@ -13,7 +13,7 @@ def generate_username():
 class Cuenta(AbstractUser):
     # Hacemos que el email sea unico para cada cuenta de usuario.
     email = models.EmailField(unique=True)
-    imagen = models.ImageField(upload_to='foto_perfil', null=True, default='default/foto-usuario.png')
+    imagen = models.ImageField(upload_to='fotos_perfil', null=True, default='default/foto-usuario.png')
 
     def save(self, *args, **kwargs):
         # Si no tiene username manualmente ingresado, generarlo
