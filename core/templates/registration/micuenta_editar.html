@@ -75,13 +75,17 @@
        <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
 
-    <div class="form-group foto-perfil-container">
+    <div class="foto-perfil-container">
         <label class="form-label">Imagen actual:</label>
-        {% if user.imagen %}
-            <div class="foto-perfil-preview" style="background-image: url('{{ user.imagen.url }}');"></div>
-        {% else %}
-            <div class="foto-perfil-preview" style="background-image: url('{% static 'core/img/avatar_default.png' %}');"></div>
-        {% endif %}
+        <div class="foto-perfil-preview"
+             style="background-image: url(
+                 {% if user.imagen %}
+                     '{{ user.imagen.url }}'
+                 {% else %}
+                     '{% static 'core/img/avatar_default.png' %}'
+                 {% endif %}
+             );">
+        </div>
     </div>
 
     <div class="form-group">
@@ -94,6 +98,7 @@
         <button type="submit" class="btn-guardar">Guardar</button>
     </div>
 </form>
+
 
 
 
