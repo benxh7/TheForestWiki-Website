@@ -6,34 +6,35 @@ html, body {
 }
 
 :root {
-	--rojo: #ffc400;
-	--fondo: #1414148c;
+    --rojo: #ffc400;
+    --fondo: #1414148c;
 }
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-	background: var(--fondo);
+    background: var(--fondo);
 }
 
 header {
-	color: var(--rojo);
-	font-size: 22px;
-	
+    color: var(--rojo);
+    font-size: 22px;
+
 }
 
-#fuente{
-	color: var(--rojo);
-	font-size: 30px;
-	padding-left: 20px;
+#fuente {
+    color: var(--rojo);
+    font-size: 30px;
+    padding-left: 20px;
 }
-#piedepag{
-	color: var(--rojo);
-	font-size: 20px;
+
+#piedepag {
+    color: var(--rojo);
+    font-size: 20px;
 }
 
 /* 
@@ -53,10 +54,10 @@ header {
     position: fixed;
     top: 13px;
     left: 13px; /* Poscicion del icono hacia la izquierda */
-    width: 33px;    /* Ancho para acomodar las 3 barras */
-    height: 24px;   /* Alto para acomodar las barras con espacio */
+    width: 33px; /* Ancho para acomodar las 3 barras */
+    height: 24px; /* Alto para acomodar las barras con espacio */
     cursor: pointer;
-    z-index: 200;   /* Nos aseguramos que este por encima del menu */
+    z-index: 200; /* Nos aseguramos que este por encima del menu */
 }
 
 /* Las 3 barras dentro del icono */
@@ -65,10 +66,10 @@ header {
     width: 33px;
     height: 4px;
     margin-bottom: 5px;
-    background: gold;  /* Color original de las barras */
+    background: gold; /* Color original de las barras */
     border-radius: 3px;
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
-                opacity 0.55s ease, background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+    opacity 0.55s ease, background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
     transform-origin: 4px 0px;
 }
 
@@ -76,6 +77,7 @@ header {
 .menu-icon span:first-child {
     transform-origin: 0% 0%;
 }
+
 .menu-icon span:nth-child(3) {
     transform-origin: 0% 100%;
 }
@@ -85,10 +87,12 @@ header {
     transform: rotate(45deg) translate(-3px, -1px);
     background: #ffffff;
 }
+
 .menu-toggle:checked + .menu-icon span:nth-child(2) {
     opacity: 0;
     transform: rotate(0deg) scale(0.2, 0.2);
 }
+
 .menu-toggle:checked + .menu-icon span:nth-child(3) {
     transform: rotate(-45deg) translate(-2px, -0.5px);
     background: #ffffff;
@@ -113,7 +117,7 @@ header {
     left: -100%; /* Fuera de la pantalla */
     width: 250px; /* Ancho fijo, ajústalo según tus necesidades */
     height: 100%; /* Ocupa la altura completa */
-    background: linear-gradient(to bottom, rgba(255,187,0,0.7), rgb(255,208,0));
+    background: linear-gradient(to bottom, rgba(255, 187, 0, 0.7), rgb(255, 208, 0));
     padding: 20px 0;
     display: flex;
     flex-direction: column; /* Los ítems se apilan verticalmente */
@@ -201,12 +205,12 @@ header {
     transform: scale3d(1, 1, 1);
 }
 
-#separarsearch{
-	padding-right: 20px;
+#separarsearch {
+    padding-right: 20px;
 }
 
 #titulo1 {
-    color: #ffc400 ;
+    color: #ffc400;
     border: 5px dimgray solid;
     border-radius: 100px;
     background-color: black;
@@ -214,31 +218,31 @@ header {
     margin-left: 20%;
     margin-right: 20%;
     margin-top: 20px;
-	margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
-.color2{
-    color: #ffc400 ;
+.color2 {
+    color: #ffc400;
     margin-bottom: 40px; /* o la cantidad de px que necesites */
 }
 
 .center {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
-.center-titulo{
+.center-titulo {
     text-align: center;
 }
 
-#col{
-	background-color: black;
+#col {
+    background-color: black;
 }
 
-.cajacard{
-	opacity: 0.85;
+.cajacard {
+    opacity: 0.85;
 }
 
 .card-title {
@@ -251,8 +255,8 @@ header {
     font-size: 16px;
 }
 
-.marginizquierda{
-	margin-left: 20px;
+.marginizquierda {
+    margin-left: 20px;
 }
 
 /* ---- ----- ----- header ----- ----- ----- */
@@ -291,18 +295,19 @@ header nav a.activo {
 
 /* ---- ----- ----- Media Queries ----- ----- ----- */
 @media screen and (max-width: 800px) {
-	header .logotipo {
-		margin-bottom: 10px;
-		font-size: 30px;
-	}
+    header .logotipo {
+        margin-bottom: 10px;
+        font-size: 30px;
+    }
 
-	header .contenedor {
-		flex-direction: column;
-		text-align: center;
-	}
+    header .contenedor {
+        flex-direction: column;
+        text-align: center;
+    }
 }
+
 /* ---- ----- ----- Fondo pagina ----- ----- ----- */
-#fondo1{
+#fondo1 {
     background-color: black;
     background-position: top;
     background-attachment: fixed;
@@ -329,7 +334,7 @@ header nav a.activo {
     font-weight: 600;
     margin-bottom: 15px;
     max-width: 320px;
-} 
+}
 
 .footer-text {
     color: #6c757d;
@@ -393,9 +398,10 @@ header nav a.activo {
     .menu-icon {
         display: none !important;
     }
+
     /* La lista de navegación se posiciona de forma normal */
     .nav-list {
-        position: static;  /* Deja de estar fixed */
+        position: static; /* Deja de estar fixed */
         background: none;
         flex-direction: row; /* Asegura un orden horizontal */
         /* Opcional: quitar transición o top */
@@ -413,6 +419,7 @@ header nav a.activo {
         justify-content: center;
         align-items: center;
     }
+
     /* Sobrescribir las reglas de la lista para que se muestre normalmente */
     .navbar ul {
         position: static !important;
@@ -426,6 +433,7 @@ header nav a.activo {
         flex-direction: row;
         transition: none !important;
     }
+
     .navbar ul li {
         margin: 0 15px;
     }

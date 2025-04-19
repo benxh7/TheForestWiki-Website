@@ -1,10 +1,11 @@
 :root {
     --dark: #16191C;
-    --dark-x: #1E2126; 
+    --dark-x: #1E2126;
     --light: #ffffff;
     --rojo: #ffc400;
-	--fondo: #1414148c;
+    --fondo: #1414148c;
 }
+
 * {
     margin: 0;
     padding: 0;
@@ -33,7 +34,7 @@
     font-weight: 600;
     margin-bottom: 15px;
     max-width: 320px;
-} 
+}
 
 .footer-text {
     color: #ffffff;
@@ -100,10 +101,10 @@
     position: fixed;
     top: 13px;
     left: 13px; /* Poscicion del icono hacia la izquierda */
-    width: 33px;    /* Ancho para acomodar las 3 barras */
-    height: 24px;   /* Alto para acomodar las barras con espacio */
+    width: 33px; /* Ancho para acomodar las 3 barras */
+    height: 24px; /* Alto para acomodar las barras con espacio */
     cursor: pointer;
-    z-index: 200;   /* Nos aseguramos que este por encima del menu */
+    z-index: 200; /* Nos aseguramos que este por encima del menu */
 }
 
 /* Las 3 barras dentro del icono */
@@ -112,10 +113,10 @@
     width: 33px;
     height: 4px;
     margin-bottom: 5px;
-    background: gold;  /* Color original de las barras */
+    background: gold; /* Color original de las barras */
     border-radius: 3px;
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
-                opacity 0.55s ease, background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+    opacity 0.55s ease, background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
     transform-origin: 4px 0px;
 }
 
@@ -123,6 +124,7 @@
 .menu-icon span:first-child {
     transform-origin: 0% 0%;
 }
+
 .menu-icon span:nth-child(3) {
     transform-origin: 0% 100%;
 }
@@ -132,10 +134,12 @@
     transform: rotate(45deg) translate(-3px, -1px);
     background: #ffffff;
 }
+
 .menu-toggle:checked + .menu-icon span:nth-child(2) {
     opacity: 0;
     transform: rotate(0deg) scale(0.2, 0.2);
 }
+
 .menu-toggle:checked + .menu-icon span:nth-child(3) {
     transform: rotate(-45deg) translate(-2px, -0.5px);
     background: #ffffff;
@@ -160,7 +164,7 @@
     left: -100%; /* Fuera de la pantalla */
     width: 250px; /* Ancho fijo, ajústalo según tus necesidades */
     height: 100%; /* Ocupa la altura completa */
-    background: linear-gradient(to bottom, rgba(255,187,0,0.7), rgb(255,208,0));
+    background: linear-gradient(to bottom, rgba(255, 187, 0, 0.7), rgb(255, 208, 0));
     padding: 20px 0;
     display: flex;
     flex-direction: column; /* Los ítems se apilan verticalmente */
@@ -248,8 +252,8 @@
     transform: scale3d(1, 1, 1);
 }
 
-#separarsearch{
-	padding-right: 20px;
+#separarsearch {
+    padding-right: 20px;
 }
 
 html, body {
@@ -283,7 +287,7 @@ Copiar esto
     position: relative;
     width: 90%;
     height: 17rem;
-    
+
     border-radius: 0 0 20px 20px;
     /*
     background-image: url('http://localhost/multimedia/png/user-portada-3.png');
@@ -329,8 +333,8 @@ Copiar esto
 .seccion-perfil-usuario .perfil-usuario-avatar img {
     width: 100%;
     height: 100%;
-    object-fit: cover;            /* escala y recorta para llenar */
-    object-position: center center;/* coloca el corte en el centro */
+    object-fit: cover; /* escala y recorta para llenar */
+    object-position: center center; /* coloca el corte en el centro */
     /* máscara circular */
     clip-path: circle(50% at 50% 50%);
     /* por si acaso, posición relativa para que clip-path respete el contenedor */
@@ -377,7 +381,7 @@ Copiar esto
     background-color: #fff;
     border-radius: 15px;
     width: 100%;
-    height: 500%;
+    height: auto;
     margin-top: 1.5rem;
     margin-bottom: 100px;
 }
@@ -398,7 +402,7 @@ Copiar esto
     font-size: 0.5cm;
 }
 
-.seccion-perfil-usuario .lista-datos li>.icono {
+.seccion-perfil-usuario .lista-datos li > .icono {
     margin-right: 0.5rem;
     font-size: 1.2rem;
     vertical-align: middle;
@@ -428,7 +432,6 @@ Copiar esto
 }
 
 
-
 /*
 =======================================================
  Cambio de diseño al abrir la pagina con un dispositvo
@@ -443,9 +446,10 @@ Copiar esto
     .menu-icon {
         display: none !important;
     }
+
     /* La lista de navegación se posiciona de forma normal */
     .nav-list {
-        position: static;  /* Deja de estar fixed */
+        position: static; /* Deja de estar fixed */
         background: none;
         flex-direction: row; /* Asegura un orden horizontal */
         /* Opcional: quitar transición o top */
@@ -463,6 +467,7 @@ Copiar esto
         justify-content: center;
         align-items: center;
     }
+
     /* Sobrescribir las reglas de la lista para que se muestre normalmente */
     .navbar ul {
         position: static !important;
@@ -476,6 +481,7 @@ Copiar esto
         flex-direction: row;
         transition: none !important;
     }
+
     .navbar ul li {
         margin: 0 15px;
     }
@@ -536,9 +542,6 @@ Copiar esto
         margin: 1px 0;
     }
 }
-
-
-============================================
 
 /* ========================================
    MODAL PERSONALIZADO PARA FOTO DE PERFIL
@@ -619,4 +622,9 @@ Copiar esto
 
 .modal-avatar .btn-primary:hover {
     background-color: #ffae00;
+}
+
+body.modal-open {
+  overflow: auto !important;
+  padding-right: 0 !important;
 }

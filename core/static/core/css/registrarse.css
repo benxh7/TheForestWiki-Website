@@ -35,7 +35,7 @@ body.modal-open {
 
 /* Para navegadores basados en WebKit (Chrome, Safari, Opera) */
 ::-webkit-scrollbar {
-    width: 6px;  /* Ancho de la barra vertical, "finita" */
+    width: 6px; /* Ancho de la barra vertical, "finita" */
     height: 6px; /* Alto de la barra horizontal */
 }
 
@@ -73,10 +73,10 @@ body.modal-open {
     position: fixed;
     top: 13px;
     left: 13px; /* Poscicion del icono hacia la izquierda */
-    width: 33px;    /* Ancho para acomodar las 3 barras */
-    height: 24px;   /* Alto para acomodar las barras con espacio */
+    width: 33px; /* Ancho para acomodar las 3 barras */
+    height: 24px; /* Alto para acomodar las barras con espacio */
     cursor: pointer;
-    z-index: 200;   /* Nos aseguramos que este por encima del menu */
+    z-index: 200; /* Nos aseguramos que este por encima del menu */
 }
 
 /* Las 3 barras dentro del icono */
@@ -85,10 +85,10 @@ body.modal-open {
     width: 33px;
     height: 4px;
     margin-bottom: 5px;
-    background: gold;  /* Color original de las barras */
+    background: gold; /* Color original de las barras */
     border-radius: 3px;
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
-                opacity 0.55s ease, background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+    opacity 0.55s ease, background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
     transform-origin: 4px 0px;
 }
 
@@ -96,6 +96,7 @@ body.modal-open {
 .menu-icon span:first-child {
     transform-origin: 0% 0%;
 }
+
 .menu-icon span:nth-child(3) {
     transform-origin: 0% 100%;
 }
@@ -105,10 +106,12 @@ body.modal-open {
     transform: rotate(45deg) translate(-3px, -1px);
     background: #ffffff;
 }
+
 .menu-toggle:checked + .menu-icon span:nth-child(2) {
     opacity: 0;
     transform: rotate(0deg) scale(0.2, 0.2);
 }
+
 .menu-toggle:checked + .menu-icon span:nth-child(3) {
     transform: rotate(-45deg) translate(-2px, -0.5px);
     background: #ffffff;
@@ -133,7 +136,7 @@ body.modal-open {
     left: -100%; /* Fuera de la pantalla */
     width: 250px; /* Ancho fijo, ajústalo según tus necesidades */
     height: 100%; /* Ocupa la altura completa */
-    background: linear-gradient(to bottom, rgba(255,187,0,0.7), rgb(255,208,0));
+    background: linear-gradient(to bottom, rgba(255, 187, 0, 0.7), rgb(255, 208, 0));
     padding: 20px 0;
     display: flex;
     flex-direction: column; /* Los ítems se apilan verticalmente */
@@ -229,17 +232,17 @@ body.modal-open {
 
 .animate-breathing {
     animation: breathing 3s ease-in-out infinite;
-  }
-  
-  @keyframes breathing {
+}
+
+@keyframes breathing {
     0% {
-      transform: scale(1);
+        transform: scale(1);
     }
     50% {
-      transform: scale(1.05);
+        transform: scale(1.05);
     }
     100% {
-      transform: scale(1);
+        transform: scale(1);
     }
 }
 
@@ -293,7 +296,7 @@ body.modal-open {
 .btn-back {
     transition: transform 0.3s ease, linear-gradient 0.3s ease;
 }
-  
+
 .btn-back:hover {
     transform: scale(1.05);
     box-shadow: 0px 0px 9px rgb(28, 219, 108);
@@ -308,10 +311,10 @@ body.modal-open {
 /* Clase para aplicar la animación */
 .animate-up {
     /* Origen de la transformación: opcional, por si quieres que “crezca” desde abajo */
-    transform-origin: center bottom;  
+    transform-origin: center bottom;
     /* Transición corta para que la animación sea suave */
     transition: transform 0.2s ease-out, opacity 0.2s ease-out;
-  }
+}
 
 .animate-up.visible {
     opacity: 1;
@@ -375,7 +378,7 @@ body.modal-open {
     font-weight: 600;
     margin-bottom: 15px;
     max-width: 320px;
-} 
+}
 
 .footer-text {
     color: #ffffff;
@@ -439,9 +442,10 @@ body.modal-open {
     .menu-icon {
         display: none !important;
     }
+
     /* La lista de navegación se posiciona de forma normal */
     .nav-list {
-        position: static;  /* Deja de estar fixed */
+        position: static; /* Deja de estar fixed */
         background: none;
         flex-direction: row; /* Asegura un orden horizontal */
         /* Opcional: quitar transición o top */
@@ -459,6 +463,7 @@ body.modal-open {
         justify-content: center;
         align-items: center;
     }
+
     /* Sobrescribir las reglas de la lista para que se muestre normalmente */
     .navbar ul {
         position: static !important;
@@ -472,6 +477,7 @@ body.modal-open {
         flex-direction: row;
         transition: none !important;
     }
+
     .navbar ul li {
         margin: 0 15px;
     }

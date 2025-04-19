@@ -5,10 +5,8 @@ from django.db.models.signals import pre_save, post_delete
 
 from django.dispatch import receiver
 
-
 def generate_username():
     return f"user_{uuid.uuid4().hex[:8]}"
-
 
 class Cuenta(AbstractUser):
     # Hacemos que el email sea unico para cada cuenta de usuario.
@@ -37,7 +35,7 @@ def borrar_imagen_antigua(sender, instance, **kwargs):
     if viejo.imagen and viejo.imagen.name != instance.imagen.name:
         viejo.imagen.delete(save=False)
 
-# Señal para borrar la imagen al eliminar la cuenta
+# Borramos la imagen al eliminar la cuenta
 @receiver(post_delete, sender=Cuenta)
 def borrar_imagen_al_eliminar(sender, instance, **kwargs):
     if instance.imagen:

@@ -15,6 +15,7 @@ html, body {
     min-height: 100vh;
     padding-bottom: 100px; /* Espacio para el footer */
 }
+
 .background-overlay {
     position: absolute;
     top: 0;
@@ -24,6 +25,7 @@ html, body {
     background-color: rgba(0, 0, 0, 0.5); /* Ajustá la opacidad acá */
     z-index: 0;
 }
+
 .page-wrapper, .footer {
     position: relative;
     height: auto;
@@ -63,10 +65,10 @@ h1 {
     position: fixed;
     top: 13px;
     left: 13px; /* Poscicion del icono hacia la izquierda */
-    width: 33px;    /* Ancho para acomodar las 3 barras */
-    height: 24px;   /* Alto para acomodar las barras con espacio */
+    width: 33px; /* Ancho para acomodar las 3 barras */
+    height: 24px; /* Alto para acomodar las barras con espacio */
     cursor: pointer;
-    z-index: 200;   /* Nos aseguramos que este por encima del menu */
+    z-index: 200; /* Nos aseguramos que este por encima del menu */
 }
 
 /* Las 3 barras dentro del icono */
@@ -75,10 +77,10 @@ h1 {
     width: 33px;
     height: 4px;
     margin-bottom: 5px;
-    background: gold;  /* Color original de las barras */
+    background: gold; /* Color original de las barras */
     border-radius: 3px;
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
-                opacity 0.55s ease, background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+    opacity 0.55s ease, background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
     transform-origin: 4px 0px;
 }
 
@@ -86,6 +88,7 @@ h1 {
 .menu-icon span:first-child {
     transform-origin: 0% 0%;
 }
+
 .menu-icon span:nth-child(3) {
     transform-origin: 0% 100%;
 }
@@ -95,10 +98,12 @@ h1 {
     transform: rotate(45deg) translate(-3px, -1px);
     background: #ffffff;
 }
+
 .menu-toggle:checked + .menu-icon span:nth-child(2) {
     opacity: 0;
     transform: rotate(0deg) scale(0.2, 0.2);
 }
+
 .menu-toggle:checked + .menu-icon span:nth-child(3) {
     transform: rotate(-45deg) translate(-2px, -0.5px);
     background: #ffffff;
@@ -123,7 +128,7 @@ h1 {
     left: -100%; /* Fuera de la pantalla */
     width: 250px; /* Ancho fijo, ajústalo según tus necesidades */
     height: 100%; /* Ocupa la altura completa */
-    background: linear-gradient(to bottom, rgba(255,187,0,0.7), rgb(255,208,0));
+    background: linear-gradient(to bottom, rgba(255, 187, 0, 0.7), rgb(255, 208, 0));
     padding: 20px 0;
     display: flex;
     flex-direction: column; /* Los ítems se apilan verticalmente */
@@ -140,7 +145,7 @@ h1 {
 .navbar ul li form {
     width: 100%;
     text-align: center;
-    margin: 0;  /* Opcional: elimina márgenes si los hubiera */
+    margin: 0; /* Opcional: elimina márgenes si los hubiera */
 }
 
 /* Cuando el checkbox esta marcado desplaza el menu a la vista dandole un efecto como de desplazamiento */
@@ -288,6 +293,7 @@ h1 {
     padding-top: 20px;
     border-top: 1px solid rgba(63, 63, 63, 0.466);
 }
+
 /*
 =======================================================
  Cambio de diseño al abrir la pagina con un dispositvo
@@ -302,9 +308,10 @@ h1 {
     .menu-icon {
         display: none !important;
     }
+
     /* La lista de navegación se posiciona de forma normal */
     .nav-list {
-        position: static;  /* Deja de estar fixed */
+        position: static; /* Deja de estar fixed */
         background: none;
         flex-direction: row; /* Asegura un orden horizontal */
         /* Opcional: quitar transición o top */
@@ -322,6 +329,7 @@ h1 {
         justify-content: center;
         align-items: center;
     }
+
     /* Sobrescribir las reglas de la lista para que se muestre normalmente */
     .navbar ul {
         position: static !important;
@@ -335,6 +343,7 @@ h1 {
         flex-direction: row;
         transition: none !important;
     }
+
     .navbar ul li {
         margin: 0 15px;
     }

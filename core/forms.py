@@ -16,7 +16,6 @@ class RegisterForm(UserCreationForm):
             'password2': 'Confirmar Contraseña'
         }
 
-    # Opcionalmente puedes agregar widgets para estilizar.
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['username'].widget.attrs.update({
@@ -40,11 +39,10 @@ class RegisterForm(UserCreationForm):
 class EditProfileForm(forms.ModelForm):
     class Meta:
         model = Cuenta
-        fields = ['username', 'email'] # Ajusta los campos que quieras editar
+        fields = ['username', 'email']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # Opcional: añadir clases, placeholders, etc.
         self.fields['username'].widget.attrs.update({'class': 'form-control'})
         self.fields['email'].widget.attrs.update({'class': 'form-control'})
 
@@ -55,7 +53,7 @@ class AvatarForm(forms.ModelForm):
         fields = ['imagen']
         widgets = {
             'imagen': forms.ClearableFileInput(attrs={
-                'style': 'display: none;',  # Oculta el input original
-                'id': 'id_imagen'           # Lo usamos para activarlo desde un label custom
+                'style': 'display: none;',
+                'id': 'id_imagen'
             })
         }

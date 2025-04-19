@@ -5,25 +5,25 @@ html, body {
     font-style: normal;
 }
 
-.center{
+.center {
     display: flex;
     align-items: center;
     justify-content: center;
     padding-top: 10px;
- }
- 
- #fondo1{
-    background-color: black;  
+}
+
+#fondo1 {
+    background-color: black;
     background-position: top;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
- }
+}
 
 .center-titulo {
     text-align: center;
     align-items: center;
-} 
+}
 
 #titulo {
     color: #ffc400;
@@ -35,33 +35,33 @@ html, body {
     margin-right: 20%;
     align-items: center;
 }
- 
-   #caja_descAnimales{
+
+#caja_descAnimales {
     background-color: black;
     margin: auto;
     margin-top: 3%;
     border: 5px dimgray solid;
     border-radius: 5px;
-    text-align: center; 
+    text-align: center;
     padding-top: 20px;
     opacity: 0.85;
     margin-bottom: 20px;
     padding-bottom: 2%;
- }
- 
- 
- .color2 {
-     color: #ffc400;
- }
- 
- #tamannioimagenanimales1 {
-     width: 200px;
-     height: 200px;
- }
- 
- #bordertabla1 {
-     border-radius: 5px;
- }
+}
+
+
+.color2 {
+    color: #ffc400;
+}
+
+#tamannioimagenanimales1 {
+    width: 200px;
+    height: 200px;
+}
+
+#bordertabla1 {
+    border-radius: 5px;
+}
 
 table {
     margin-top: 50px;
@@ -72,69 +72,65 @@ table {
     opacity: 0.85;
     padding-right: auto;
 }
- 
- td,th{
+
+td, th {
     border: 2px solid gray;
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
- }
- 
- #bordertabla{
+}
+
+#bordertabla {
     border-radius: 5px;
- }
- 
- #casillad{
+}
+
+#casillad {
     width: 500px;
- }
- 
- .colorl{
-    color: #ffc400 ;
- }
- 
- 
- .center{
+}
+
+.colorl {
+    color: #ffc400;
+}
+
+
+.center {
     display: flex;
     align-items: center;
     justify-content: center;
- }
- 
- 
- :root {
-   --rojo: #ffc400 ;
-   --fondo: #1414148c;
- }
- 
- * {
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
- }
- 
- body {
-   background: var(--fondo);
- }
- 
- 
- 
- /* -- fin ajustes 1 -- */
- 
- 
- 
- /*--header*/
- .contenedor {
-     width: 90%;
-     margin: auto;
- }
- 
- 
- 
- 
- 
- 
- /* -- fin header -- */ 
- * {box-sizing:border-box}
+}
+
+
+:root {
+    --rojo: #ffc400;
+    --fondo: #1414148c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--fondo);
+}
+
+
+/* -- fin ajustes 1 -- */
+
+
+/*--header*/
+.contenedor {
+    width: 90%;
+    margin: auto;
+}
+
+
+/* -- fin header -- */
+* {
+    box-sizing: border-box
+}
 
 /* 
 ================================
@@ -156,7 +152,7 @@ table {
     font-weight: 600;
     margin-bottom: 15px;
     max-width: 320px;
-} 
+}
 
 .footer-text {
     color: #6c757d;
@@ -205,25 +201,27 @@ table {
     padding-top: 20px;
     border-top: 1px solid rgba(63, 63, 63, 0.466);
 }
- 
- 
- /* --- Letras y Nav --- */
- 
- header {
-     color: var(--rojo);
-     font-size: 22px;
-     
- }
- #fuente{
-     color: var(--rojo);
-     font-size: 30px;
-     padding-left: 20px;
- }
- #piedepag{
-     color: var(--rojo);
-     font-size: 20px;
- }
- 
+
+
+/* --- Letras y Nav --- */
+
+header {
+    color: var(--rojo);
+    font-size: 22px;
+
+}
+
+#fuente {
+    color: var(--rojo);
+    font-size: 30px;
+    padding-left: 20px;
+}
+
+#piedepag {
+    color: var(--rojo);
+    font-size: 20px;
+}
+
 /* 
 =======================================
  Diseño general del menu de navegación
@@ -241,10 +239,10 @@ table {
     position: fixed;
     top: 13px;
     left: 13px; /* Poscicion del icono hacia la izquierda */
-    width: 33px;    /* Ancho para acomodar las 3 barras */
-    height: 24px;   /* Alto para acomodar las barras con espacio */
+    width: 33px; /* Ancho para acomodar las 3 barras */
+    height: 24px; /* Alto para acomodar las barras con espacio */
     cursor: pointer;
-    z-index: 200;   /* Nos aseguramos que este por encima del menu */
+    z-index: 200; /* Nos aseguramos que este por encima del menu */
 }
 
 /* Las 3 barras dentro del icono */
@@ -253,10 +251,10 @@ table {
     width: 33px;
     height: 4px;
     margin-bottom: 5px;
-    background: gold;  /* Color original de las barras */
+    background: gold; /* Color original de las barras */
     border-radius: 3px;
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
-                opacity 0.55s ease, background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+    opacity 0.55s ease, background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
     transform-origin: 4px 0px;
 }
 
@@ -264,6 +262,7 @@ table {
 .menu-icon span:first-child {
     transform-origin: 0% 0%;
 }
+
 .menu-icon span:nth-child(3) {
     transform-origin: 0% 100%;
 }
@@ -273,10 +272,12 @@ table {
     transform: rotate(45deg) translate(-3px, -1px);
     background: #ffffff;
 }
+
 .menu-toggle:checked + .menu-icon span:nth-child(2) {
     opacity: 0;
     transform: rotate(0deg) scale(0.2, 0.2);
 }
+
 .menu-toggle:checked + .menu-icon span:nth-child(3) {
     transform: rotate(-45deg) translate(-2px, -0.5px);
     background: #ffffff;
@@ -301,7 +302,7 @@ table {
     left: -100%; /* Fuera de la pantalla */
     width: 250px; /* Ancho fijo, ajústalo según tus necesidades */
     height: 100%; /* Ocupa la altura completa */
-    background: linear-gradient(to bottom, rgba(255,187,0,0.7), rgb(255,208,0));
+    background: linear-gradient(to bottom, rgba(255, 187, 0, 0.7), rgb(255, 208, 0));
     padding: 20px 0;
     display: flex;
     flex-direction: column; /* Los ítems se apilan verticalmente */
@@ -389,9 +390,9 @@ table {
     transform: scale3d(1, 1, 1);
 }
 
- #separarsearch{
-     padding-right: 20px;
- }
+#separarsearch {
+    padding-right: 20px;
+}
 
 /*
 =====================================
@@ -414,8 +415,8 @@ table {
     overflow-x: auto; /* Permite el desplazamiento horizontal */
     scroll-behavior: smooth; /* Hace que el desplazamiento sea muy suave */
     scroll-snap-type: x mandatory; /* Habilita el efecto de "snap" al desplazarse */
-    -ms-overflow-style: none;  /* Para Internet Explorer y Edge */
-    scrollbar-width: none;  /* Para Firefox */
+    -ms-overflow-style: none; /* Para Internet Explorer y Edge */
+    scrollbar-width: none; /* Para Firefox */
 }
 
 /* Oculta la barra de desplazamiento en navegadores modernos */
@@ -505,12 +506,12 @@ table {
     cursor: pointer;
     color: #fff;
     background-color: rgba(0, 0, 0, 0.3);
-    width: 40px;          /* Ancho fijo */
-    height: 40px;         /* Alto fijo */
-    display: flex;        /* Para centrar el contenido */
-    align-items: center;  
+    width: 40px; /* Ancho fijo */
+    height: 40px; /* Alto fijo */
+    display: flex; /* Para centrar el contenido */
+    align-items: center;
     justify-content: center;
-    border-radius: 10px;  /* Bordes redondeados, pero no totalmente redondos */
+    border-radius: 10px; /* Bordes redondeados, pero no totalmente redondos */
     font-size: 1.5rem;
     transition: background-color 0.3s ease;
 }
@@ -529,7 +530,7 @@ table {
     gap: 15px;
     z-index: 10;
 }
-  
+
 .dot {
     width: 8px;
     height: 8px;
@@ -539,7 +540,7 @@ table {
     cursor: pointer;
     transition: opacity 250ms ease;
 }
-  
+
 .dot.active,
 .dot:hover {
     opacity: 1;
@@ -559,9 +560,10 @@ table {
     .menu-icon {
         display: none !important;
     }
+
     /* La lista de navegación se posiciona de forma normal */
     .nav-list {
-        position: static;  /* Deja de estar fixed */
+        position: static; /* Deja de estar fixed */
         background: none;
         flex-direction: row; /* Asegura un orden horizontal */
         /* Opcional: quitar transición o top */
@@ -579,6 +581,7 @@ table {
         justify-content: center;
         align-items: center;
     }
+
     /* Sobrescribir las reglas de la lista para que se muestre normalmente */
     .navbar ul {
         position: static !important;
@@ -592,6 +595,7 @@ table {
         flex-direction: row;
         transition: none !important;
     }
+
     .navbar ul li {
         margin: 0 15px;
     }

@@ -5,7 +5,7 @@ html, body {
     font-style: normal;
 }
 
-.center{
+.center {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -23,84 +23,84 @@ html, body {
     align-items: center;
 }
 
-#fondo{
-   background-color: black;  
-   background-image: url(imagenes/Fondos/Fondo3.jpg); 
-   background-position: top;
-   background-attachment: fixed;
-   background-repeat: no-repeat;
-   background-size: cover;
+#fondo {
+    background-color: black;
+    background-image: url(imagenes/Fondos/Fondo3.jpg);
+    background-position: top;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-#caja_bienvenida{
-   background-color: black;
-   margin: auto;
-   margin-top: 20px;
-   border: 3px dimgray solid;
-   border-radius: 5px;   
-   text-align: center; 
-   padding-top: 20px;
-   padding-bottom: 20px;
-   padding-left: 20px;
-   padding-right: 20px;
-   opacity: 0.85;
-   
+#caja_bienvenida {
+    background-color: black;
+    margin: auto;
+    margin-top: 20px;
+    border: 3px dimgray solid;
+    border-radius: 5px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    opacity: 0.85;
+
 }
 
-.fondo-tabla{
-   background-color: black;
-   opacity: 8px;
-}
-
-
-.margin-tabla{
-   margin-top: 20px;
-}
-
-.tamannio-letra{
-   width: 100px;
-   height: 100px;
-}
-
-#bordertabla{
-   border-radius: 5px;
-}
-
-#casillad{
-   width: 400px;
-}
-
-.colorl{
-   color: #ffc400;
-}
-
-.separar-arriba{
-	padding-top: 25px;
+.fondo-tabla {
+    background-color: black;
+    opacity: 8px;
 }
 
 
-.center1{
+.margin-tabla {
+    margin-top: 20px;
+}
+
+.tamannio-letra {
+    width: 100px;
+    height: 100px;
+}
+
+#bordertabla {
+    border-radius: 5px;
+}
+
+#casillad {
+    width: 400px;
+}
+
+.colorl {
+    color: #ffc400;
+}
+
+.separar-arriba {
+    padding-top: 25px;
+}
+
+
+.center1 {
     text-align: center;
 }
 
-.center-titulo{
-   text-align: center;
-   align-items: center;
+.center-titulo {
+    text-align: center;
+    align-items: center;
 }
 
-.imagen{
-   
-   width: 110px;
-   height: 110px;
+.imagen {
+
+    width: 110px;
+    height: 110px;
 }
 
-#separar-arriba{
-	padding-top: 10px;
+#separar-arriba {
+    padding-top: 10px;
 }
 
-.B{
-	margin-left: auto;
-	margin-right: auto;
+.B {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* 
@@ -123,7 +123,7 @@ html, body {
     font-weight: 600;
     margin-bottom: 15px;
     max-width: 320px;
-} 
+}
 
 .footer-text {
     color: #6c757d;
@@ -176,34 +176,36 @@ html, body {
 /* ---- ----- ----- Header ----- ----- ----- */
 
 :root {
-	--rojo: #ffc400;
-	--fondo: #1414148c;
+    --rojo: #ffc400;
+    --fondo: #1414148c;
 }
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-	background: var(--fondo);
+    background: var(--fondo);
 }
 
 header {
-	color: var(--rojo);
-	font-size: 22px;
-	
+    color: var(--rojo);
+    font-size: 22px;
+
 }
-#fuente{
-	color: var(--rojo);
-	font-size: 30px;
-   padding-left: 20px;
+
+#fuente {
+    color: var(--rojo);
+    font-size: 30px;
+    padding-left: 20px;
 }
-#piedepag{
-	color: var(--rojo);
-	font-size: 20px;
-	margin-top: 20px;
+
+#piedepag {
+    color: var(--rojo);
+    font-size: 20px;
+    margin-top: 20px;
 }
 
 /* 
@@ -223,10 +225,10 @@ header {
     position: fixed;
     top: 13px;
     left: 13px; /* Poscicion del icono hacia la izquierda */
-    width: 33px;    /* Ancho para acomodar las 3 barras */
-    height: 24px;   /* Alto para acomodar las barras con espacio */
+    width: 33px; /* Ancho para acomodar las 3 barras */
+    height: 24px; /* Alto para acomodar las barras con espacio */
     cursor: pointer;
-    z-index: 200;   /* Nos aseguramos que este por encima del menu */
+    z-index: 200; /* Nos aseguramos que este por encima del menu */
 }
 
 /* Las 3 barras dentro del icono */
@@ -235,10 +237,10 @@ header {
     width: 33px;
     height: 4px;
     margin-bottom: 5px;
-    background: gold;  /* Color original de las barras */
+    background: gold; /* Color original de las barras */
     border-radius: 3px;
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
-                opacity 0.55s ease, background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+    opacity 0.55s ease, background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
     transform-origin: 4px 0px;
 }
 
@@ -246,6 +248,7 @@ header {
 .menu-icon span:first-child {
     transform-origin: 0% 0%;
 }
+
 .menu-icon span:nth-child(3) {
     transform-origin: 0% 100%;
 }
@@ -255,10 +258,12 @@ header {
     transform: rotate(45deg) translate(-3px, -1px);
     background: #ffffff;
 }
+
 .menu-toggle:checked + .menu-icon span:nth-child(2) {
     opacity: 0;
     transform: rotate(0deg) scale(0.2, 0.2);
 }
+
 .menu-toggle:checked + .menu-icon span:nth-child(3) {
     transform: rotate(-45deg) translate(-2px, -0.5px);
     background: #ffffff;
@@ -283,7 +288,7 @@ header {
     left: -100%; /* Fuera de la pantalla */
     width: 250px; /* Ancho fijo, ajústalo según tus necesidades */
     height: 100%; /* Ocupa la altura completa */
-    background: linear-gradient(to bottom, rgba(255,187,0,0.7), rgb(255,208,0));
+    background: linear-gradient(to bottom, rgba(255, 187, 0, 0.7), rgb(255, 208, 0));
     padding: 20px 0;
     display: flex;
     flex-direction: column; /* Los ítems se apilan verticalmente */
@@ -382,23 +387,25 @@ header {
     align-items: center;
 }
 
-.color2{
-    color: #ffc400 ;
+.color2 {
+    color: #ffc400;
 }
 
-#col{
-	background-color: black;
-}
-.cajacard{
-	opacity: 0.85;
-
-}
-#separar-derecha{
-	margin-right: 20px;
+#col {
+    background-color: black;
 }
 
-#separar-izquiera{
-	margin-left: 20px;
+.cajacard {
+    opacity: 0.85;
+
+}
+
+#separar-derecha {
+    margin-right: 20px;
+}
+
+#separar-izquiera {
+    margin-left: 20px;
 }
 
 /*
@@ -415,9 +422,10 @@ header {
     .menu-icon {
         display: none !important;
     }
+
     /* La lista de navegación se posiciona de forma normal */
     .nav-list {
-        position: static;  /* Deja de estar fixed */
+        position: static; /* Deja de estar fixed */
         background: none;
         flex-direction: row; /* Asegura un orden horizontal */
         /* Opcional: quitar transición o top */
@@ -435,6 +443,7 @@ header {
         justify-content: center;
         align-items: center;
     }
+
     /* Sobrescribir las reglas de la lista para que se muestre normalmente */
     .navbar ul {
         position: static !important;
@@ -448,6 +457,7 @@ header {
         flex-direction: row;
         transition: none !important;
     }
+
     .navbar ul li {
         margin: 0 15px;
     }

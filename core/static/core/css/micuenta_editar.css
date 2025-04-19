@@ -1,5 +1,3 @@
-tengo asi mi codigo actualmente:
-
 /* =============================
    Fondo y ajustes generales
 ============================= */
@@ -276,8 +274,6 @@ h1 {
     border-top: 1px solid rgba(63, 63, 63, 0.466);
 }
 
-========================================================
-
 /*
 =======================================================
  Cambio de diseño al abrir la pagina con un dispositvo
@@ -395,567 +391,256 @@ form {
     text-decoration: underline;
 }
 
-/* ============================================
-   CONTENEDOR GENERAL DEL FORMULARIO
-   Centrado y con fondo oscuro semitransparente
-============================================ */
-.form-container {
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo translúcido oscuro */
-    border-radius: 8px;
-    color: #fff;
-    box-shadow: 0 0 15px rgba(255, 196, 0, 0.08); /* Toque dorado tenue */
+/* ====================================================
+   OVERLAY DE FONDO PARA OSCURECER Y AUMENTAR INMERSIÓN
+======================================================= */
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65); /* Oscurece el fondo */
+    z-index: -1;
+    pointer-events: none;
 }
 
-/* ============================================
-   CAMPOS DE TEXTO, SELECTS Y TEXTAREAS
-   Fondo oscuro, borde claro, buen espaciado
-============================================ */
+/* ================================================
+   SOMBRAS EN TEXTOS DESTACADOS PARA MÁS PROFUNDIDAD
+================================================== */
+h1,
+.footer-brand {
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+}
+
+/* Sombra ambiental para el formulario */
+.form-container {
+    box-shadow: 0 0 15px rgba(255, 196, 0, 0.1);
+}
+
+/* ================================================
+   INPUTS Y TEXTAREAS ESTILO OSCURO INMERSIVO
+================================================== */
 .form-container input,
 .form-container textarea,
 .form-container select {
     width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-    border: 1px solid #333;
-    border-radius: 4px;
     background-color: #1a1a1a;
+    border: 1px solid #333;
     color: #eee;
+    padding: 0.75rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
     font-size: 1rem;
 }
 
-/* EFECTO AL ENFOCAR UN CAMPO */
+/* EFECTO GLOW AL ENFOCAR */
 .form-container input:focus,
 .form-container textarea:focus,
 .form-container select:focus {
     outline: none;
-    border-color: #ffc400;
+    border: 1px solid #ffc400;
     box-shadow: 0 0 5px #ffc40066;
+    background-color: #1a1a1a;
+    color: white;
 }
 
-/* ============================================
-   BOTÓN SUBMIT PRINCIPAL
-   Estilo glow y colores acordes a la temática
-============================================ */
-.form-container button[type="submit"] {
+/* ===============================================
+   BOTÓN DE ENVÍO CON EFECTO BRILLO DORADO
+================================================== */
+.btn.btn-primary {
     background-color: #ffc400;
-    color: #000;
-    padding: 0.75rem 2rem;
     border: none;
-    border-radius: 4px;
+    padding: 0.75rem 2rem;
     font-weight: bold;
-    font-size: 1rem;
-    transition: background-color 0.3s, box-shadow 0.3s;
-    width: 100%;
+    color: #000;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
-.form-container button[type="submit"]:hover {
+.btn.btn-primary:hover {
+    box-shadow: 0 0 15px #ffc40099;
     background-color: #ffae00;
-    box-shadow: 0 0 10px #ffc40088;
 }
 
-/* ============================================
-   ENLACES DENTRO DEL FORMULARIO (Ej: cambiar contraseña)
-============================================ */
-.form-container a {
-    color: #ffc400;
-    font-weight: bold;
+/* ==========================
+   ENLACES ESTILO FOREST
+========================== */
+a {
+    color: #88c0ff;
     text-decoration: none;
-    display: inline-block;
-    margin-top: 1rem;
 }
 
-.form-container a:hover {
-    text-decoration: underline;
+a:hover {
+    color: #61a0ff;
 }
 
-/* ============================================
-   ESTILOS RESPONSIVOS
-   Para móviles y pantallas pequeñas
-============================================ */
+/* =================================================
+   CAMBIO DE COLOR EN NAVBAR AL HACER SCROLL
+   (Se activa con scroll.js)
+================================================== */
+.navbar.scrolled {
+    background-color: rgba(0, 0, 0, 0.85) !important;
+    transition: background-color 0.5s ease;
+}
+
+/* ============================================================
+   RESPONSIVE: AJUSTES PARA MÓVILES Y TABLETS
+=============================================================== */
 @media (max-width: 768px) {
     .form-container {
         padding: 1.5rem;
         margin: 1.5rem;
     }
 
-    .form-container button[type="submit"] {
-        font-size: 0.95rem;
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .btn.btn-primary {
+        width: 100%;
         padding: 0.75rem;
-    }
-
-    .form-container input,
-    .form-container textarea,
-    .form-container select {
         font-size: 1rem;
     }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .navbar ul {
+        width: 100%;
+    }
+
+    .footer {
+        padding: 2rem 1rem;
+        text-align: center;
+    }
 }
-
-==================================================
-
-/* ================================
-   PERFIL DE USUARIO - BLOQUE VISUAL
-   Contenedor del formulario de imagen
-================================ */
-.foto-perfil-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 1.5rem;
+/* ====================================================
+   OVERLAY DE FONDO PARA OSCURECER Y AUMENTAR INMERSIÓN
+======================================================= */
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65); /* Oscurece el fondo */
+    z-index: -1;
+    pointer-events: none;
 }
 
-/* ================================
-   IMAGEN DE PERFIL ACTUAL (preview)
-   Se muestra como un avatar redondo
-================================ */
-.foto-perfil-preview {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    background-color: #222;
-    background-size: cover;
-    background-position: center;
-    box-shadow: 0 0 10px rgba(255, 196, 0, 0.2);
-    margin-bottom: 1rem;
-    border: 2px solid #ffc400;
+/* ================================================
+   SOMBRAS EN TEXTOS DESTACADOS PARA MÁS PROFUNDIDAD
+================================================== */
+h1,
+.footer-brand {
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
 }
 
-/* ================================
-   TÍTULO DEL FORMULARIO (opcional)
-================================ */
-.form-title {
-    text-align: center;
-    font-size: 1.5rem;
-    color: #ffc400;
-    margin-bottom: 1rem;
+/* Sombra ambiental para el formulario */
+.form-container {
+    box-shadow: 0 0 15px rgba(255, 196, 0, 0.1);
 }
 
-/* ================================
-   ETIQUETA DEL CAMPO (label)
-================================ */
-.form-label {
-    font-weight: bold;
-    color: #ffc400;
-    margin-bottom: 0.5rem;
-}
-
-/* ================================
-   CAMPO INPUT DE TIPO ARCHIVO
-   Estilo tipo "dropzone" moderno
-================================ */
-input[type="file"] {
-    color: #ffc400;
-    background: none;
-    border: 2px dashed #ffc400;
-    padding: 0.6rem;
-    border-radius: 6px;
+/* ================================================
+   INPUTS Y TEXTAREAS ESTILO OSCURO INMERSIVO
+================================================== */
+.form-container input,
+.form-container textarea,
+.form-container select {
     width: 100%;
-    max-width: 320px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-input[type="file"]:hover {
-    background-color: rgba(255, 196, 0, 0.05);
-    border-color: #ffae00;
-}
-
-/* ================================
-   BOTÓN GUARDAR PERSONALIZADO
-================================ */
-.btn-guardar {
-    background-color: #ffc400;
-    color: #000;
-    padding: 0.6rem 2rem;
-    border: none;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    color: #eee;
+    padding: 0.75rem;
     border-radius: 4px;
-    font-weight: bold;
+    margin-bottom: 1rem;
     font-size: 1rem;
-    transition: 0.3s ease;
-    margin-top: 1.5rem;
 }
 
-.btn-guardar:hover {
+/* EFECTO GLOW AL ENFOCAR */
+.form-container input:focus,
+.form-container textarea:focus,
+.form-container select:focus {
+    outline: none;
+    border: 1px solid #ffc400;
+    box-shadow: 0 0 5px #ffc40066;
+    background-color: #1a1a1a;
+    color: white;
+}
+
+/* ===============================================
+   BOTÓN DE ENVÍO CON EFECTO BRILLO DORADO
+================================================== */
+.btn.btn-primary {
+    background-color: #ffc400;
+    border: none;
+    padding: 0.75rem 2rem;
+    font-weight: bold;
+    color: #000;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.btn.btn-primary:hover {
+    box-shadow: 0 0 15px #ffc40099;
     background-color: #ffae00;
-    box-shadow: 0 0 8px #ffc40088;
 }
 
-/* ================================
-   AJUSTES RESPONSIVOS (móvil)
-================================ */
-@media (max-width: 480px) {
-    .foto-perfil-preview {
-        width: 100px;
-        height: 100px;
+/* ==========================
+   ENLACES ESTILO FOREST
+========================== */
+a {
+    color: #88c0ff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #61a0ff;
+}
+
+/* =================================================
+   CAMBIO DE COLOR EN NAVBAR AL HACER SCROLL
+   (Se activa con scroll.js)
+================================================== */
+.navbar.scrolled {
+    background-color: rgba(0, 0, 0, 0.85) !important;
+    transition: background-color 0.5s ease;
+}
+
+/* ============================================================
+   RESPONSIVE: AJUSTES PARA MÓVILES Y TABLETS
+=============================================================== */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 1.5rem;
+        margin: 1.5rem;
     }
 
-    .form-title {
-        font-size: 1.2rem;
+    h1 {
+        font-size: 2.2rem;
     }
 
-    .btn-guardar {
+    .btn.btn-primary {
         width: 100%;
+        padding: 0.75rem;
         font-size: 1rem;
     }
 
-    input[type="file"] {
-        max-width: 100%;
-    }
-}
-
-
-==========================================
-
-/* ==============================================
-   CONTENEDOR DE LA SECCIÓN DE IMAGEN DE PERFIL
-   Centrado con espacio inferior
-============================================== */
-.foto-perfil-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 1.5rem;
-}
-
-/* ==============================================
-   PREVISUALIZACIÓN DE LA IMAGEN ACTUAL
-   Muestra un círculo con la imagen como fondo
-============================================== */
-.foto-perfil-preview {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background-color: #222; /* Fondo si no hay imagen */
-    background-size: cover;  /* Ajusta la imagen al contenedor */
-    background-position: center;
-    border: 2px solid #ffc400;
-    box-shadow: 0 0 10px rgba(255, 196, 0, 0.2);
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-/* ==============================================
-   ETIQUETAS DE CAMPO
-   Color dorado y separación visual
-============================================== */
-.form-label {
-    font-weight: bold;
-    color: #ffc400;
-    margin-bottom: 0.5rem;
-    display: inline-block;
-}
-
-/* ==============================================
-   CAMPO PARA SUBIR ARCHIVO (INPUT FILE)
-   Estilo moderno tipo "dropzone" con hover
-============================================== */
-input[type="file"] {
-    color: #ffc400;
-    background: none;
-    border: 2px dashed #ffc400;
-    padding: 0.5rem;
-    border-radius: 6px;
-    width: 100%;
-    max-width: 320px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-input[type="file"]:hover {
-    background-color: rgba(255, 196, 0, 0.05);
-    border-color: #ffae00;
-}
-
-/* ==============================================
-   BOTONES DEL MODAL
-   Cancelar (gris oscuro) / Guardar (dorado)
-============================================== */
-.modal-footer {
-    display: flex;
-    justify-content: end;
-    gap: 10px;
-    margin-top: 1rem;
-}
-
-.btn-cancelar {
-    background-color: #444;
-    color: #ccc;
-    padding: 0.5rem 1.5rem;
-    border: none;
-    border-radius: 4px;
-    font-weight: bold;
-    transition: 0.3s ease;
-}
-
-.btn-cancelar:hover {
-    background-color: #555;
-}
-
-.btn-guardar {
-    background-color: #ffc400;
-    color: #000;
-    padding: 0.5rem 1.5rem;
-    border: none;
-    border-radius: 4px;
-    font-weight: bold;
-    transition: 0.3s ease;
-}
-
-.btn-guardar:hover {
-    background-color: #ffae00;
-    box-shadow: 0 0 8px #ffc40088;
-}
-
-/* ==============================================
-   AJUSTES RESPONSIVOS PARA DISPOSITIVOS PEQUEÑOS
-============================================== */
-@media (max-width: 480px) {
-    .foto-perfil-preview {
-        width: 100px;
-        height: 100px;
-    }
-
-    input[type="file"] {
-        max-width: 100%;
-    }
-
-    .btn-guardar, .btn-cancelar {
-        width: 100%;
-        text-align: center;
-    }
-
-    .modal-footer {
+    .footer-links {
         flex-direction: column;
-        gap: 0.5rem;
-    }
-}
-
-
-=======================================================
-
-.foto-perfil-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 1.5rem;
-}
-
-.foto-perfil-preview {
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-    background-color: #222;
-    background-size: cover;
-    background-position: center;
-    border: 2px solid #ffc400;
-    box-shadow: 0 0 10px rgba(255, 196, 0, 0.2);
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-.form-label {
-    color: #ffc400;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-}
-
-input[type="file"] {
-    color: #ffc400;
-    background: none;
-    border: 2px dashed #ffc400;
-    padding: 0.5rem;
-    width: 100%;
-    max-width: 300px;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-input[type="file"]:hover {
-    background-color: rgba(255, 196, 0, 0.05);
-    border-color: #ffae00;
-}
-
-.modal-footer {
-    display: flex;
-    justify-content: end;
-    gap: 10px;
-    margin-top: 1rem;
-}
-
-.btn-cancelar {
-    background-color: #444;
-    color: #ccc;
-    padding: 0.5rem 1.5rem;
-    border: none;
-    border-radius: 4px;
-    font-weight: bold;
-    transition: 0.3s ease;
-}
-
-.btn-cancelar:hover {
-    background-color: #555;
-}
-
-.btn-guardar {
-    background-color: #ffc400;
-    color: #000;
-    padding: 0.5rem 1.5rem;
-    border: none;
-    border-radius: 4px;
-    font-weight: bold;
-    transition: 0.3s ease;
-}
-
-.btn-guardar:hover {
-    background-color: #ffae00;
-    box-shadow: 0 0 8px #ffc40088;
-}
-
-/* Responsive */
-@media (max-width: 480px) {
-    .foto-perfil-preview {
-        width: 100px;
-        height: 100px;
+        gap: 10px;
+        align-items: center;
     }
 
-    .modal-footer {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .btn-cancelar,
-    .btn-guardar {
+    .navbar ul {
         width: 100%;
+    }
+
+    .footer {
+        padding: 2rem 1rem;
         text-align: center;
     }
 }
-
-
-============================================
-
-/* ===================================
-   POP-UP / MODAL OSCURO Y ESTÉTICO
-=================================== */
-.modal-content {
-    background-color: #1e1e1e !important; /* fondo oscuro */
-    color: #eee !important;              /* texto claro */
-    border-radius: 8px !important;
-    padding: 1.5rem !important;
-    border: none !important;
-    box-shadow: 0 0 20px rgba(255, 196, 0, 0.1);
-}
-
-/* ===================================
-   OCULTAR LA RUTA DEL ARCHIVO SUBIDO
-   (el texto que aparece cuando se elige imagen)
-=================================== */
-input[type="file"]::file-selector-button {
-    display: none;
-}
-
-
-=========================================================
-
-/* ================================
-   MODAL DE CAMBIO DE AVATAR
-   Fondo oscuro + sin texto feo
-================================ */
-.modal-content {
-    background-color: #1a1a1a !important; /* fondo oscuro elegante */
-    color: #eee !important;              /* texto claro */
-    border-radius: 8px !important;
-    padding: 1.5rem !important;
-    border: none !important;
-    box-shadow: 0 0 20px rgba(255, 196, 0, 0.1);
-    font-family: "Rationale", sans-serif;
-}
-
-/* Título del modal */
-.modal-header {
-    border-bottom: 1px solid #333;
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: #ffc400;
-}
-
-/* Campo input file personalizado */
-input[type="file"] {
-    appearance: none;
-    background-color: transparent;
-    color: #ffc400;
-    border: 2px dashed #ffc400;
-    padding: 0.6rem;
-    border-radius: 6px;
-    width: 100%;
-    max-width: 350px;
-    margin-top: 0.5rem;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    font-size: 0.95rem;
-}
-
-/* Estilo al pasar el mouse */
-input[type="file"]:hover {
-    background-color: rgba(255, 196, 0, 0.05);
-    border-color: #ffae00;
-}
-
-/* OCULTA LA RUTA DEL ARCHIVO SUBIDO */
-input[type="file"]::file-selector-button {
-    display: none;
-}
-
-/* Pie del modal: botones personalizados */
-.modal-footer button {
-    padding: 0.6rem 1.5rem;
-    border-radius: 4px;
-    font-weight: bold;
-    font-size: 0.95rem;
-    border: none;
-    transition: background-color 0.3s ease;
-}
-
-/* Botón Cancelar */
-.modal-footer .btn-cancelar {
-    background-color: #444;
-    color: #ccc;
-}
-
-.modal-footer .btn-cancelar:hover {
-    background-color: #555;
-}
-
-/* Botón Guardar */
-.modal-footer .btn-guardar {
-    background-color: #ffc400;
-    color: #000;
-}
-
-.modal-footer .btn-guardar:hover {
-    background-color: #ffae00;
-    box-shadow: 0 0 8px #ffc40088;
-}
-
-/* Responsive */
-@media (max-width: 480px) {
-    input[type="file"] {
-        max-width: 100%;
-    }
-
-    .modal-footer {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .modal-footer .btn-cancelar,
-    .modal-footer .btn-guardar {
-        width: 100%;
-        text-align: center;
-    }
-}
-
 
