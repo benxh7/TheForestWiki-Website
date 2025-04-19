@@ -1,5 +1,7 @@
 from django.urls import path, include
-from .views import home, error_404, login_view, register_view, logout_view, mi_cuenta_view, mi_cuenta_editar_view, cambiar_contraseña_view, animales, enemigos, mapa, construcciones, plantas, armas, consumibles, historia, foro
+from .views import home, error_404, login_view, register_view, logout_view, mi_cuenta_view, mi_cuenta_editar_view, \
+    cambiar_contraseña_view, animales, enemigos, mapa, construcciones, plantas, armas, consumibles, historia, foro, \
+    ver_cuentas_api
 
 # Aqui debemos añadir las urls de la app core
 urlpatterns = [
@@ -9,6 +11,7 @@ urlpatterns = [
     path('micuenta/', mi_cuenta_view, name='micuenta'),
     path('micuenta_editar/', mi_cuenta_editar_view, name='micuenta_editar'),
     path('cambiar_contraseña/', cambiar_contraseña_view, name='cambiar_contraseña'),
+    path('ver_cuentas_api', ver_cuentas_api, name='ver_cuentas_api'),
     path('', home, name='home'),
     path('error_404', error_404, name='error_404'),
     path('animales', animales, name='animales'),

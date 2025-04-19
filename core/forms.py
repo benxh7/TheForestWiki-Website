@@ -47,3 +47,9 @@ class EditProfileForm(forms.ModelForm):
         # Opcional: añadir clases, placeholders, etc.
         self.fields['username'].widget.attrs.update({'class': 'form-control'})
         self.fields['email'].widget.attrs.update({'class': 'form-control'})
+
+# Formulario para editar la imagen de un perfil de usuario
+class AvatarForm(forms.ModelForm):
+    class Meta:
+        model = Cuenta
+        fields = ['imagen']
