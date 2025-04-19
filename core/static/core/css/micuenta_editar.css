@@ -605,3 +605,130 @@ input[type="file"]:hover {
 }
 
 
+==========================================
+
+/* ==============================================
+   CONTENEDOR DE LA SECCIÓN DE IMAGEN DE PERFIL
+   Centrado con espacio inferior
+============================================== */
+.foto-perfil-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+/* ==============================================
+   PREVISUALIZACIÓN DE LA IMAGEN ACTUAL
+   Muestra un círculo con la imagen como fondo
+============================================== */
+.foto-perfil-preview {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #222; /* Fondo si no hay imagen */
+    background-size: cover;  /* Ajusta la imagen al contenedor */
+    background-position: center;
+    border: 2px solid #ffc400;
+    box-shadow: 0 0 10px rgba(255, 196, 0, 0.2);
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* ==============================================
+   ETIQUETAS DE CAMPO
+   Color dorado y separación visual
+============================================== */
+.form-label {
+    font-weight: bold;
+    color: #ffc400;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+}
+
+/* ==============================================
+   CAMPO PARA SUBIR ARCHIVO (INPUT FILE)
+   Estilo moderno tipo "dropzone" con hover
+============================================== */
+input[type="file"] {
+    color: #ffc400;
+    background: none;
+    border: 2px dashed #ffc400;
+    padding: 0.5rem;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 320px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+input[type="file"]:hover {
+    background-color: rgba(255, 196, 0, 0.05);
+    border-color: #ffae00;
+}
+
+/* ==============================================
+   BOTONES DEL MODAL
+   Cancelar (gris oscuro) / Guardar (dorado)
+============================================== */
+.modal-footer {
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+.btn-cancelar {
+    background-color: #444;
+    color: #ccc;
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.btn-cancelar:hover {
+    background-color: #555;
+}
+
+.btn-guardar {
+    background-color: #ffc400;
+    color: #000;
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.btn-guardar:hover {
+    background-color: #ffae00;
+    box-shadow: 0 0 8px #ffc40088;
+}
+
+/* ==============================================
+   AJUSTES RESPONSIVOS PARA DISPOSITIVOS PEQUEÑOS
+============================================== */
+@media (max-width: 480px) {
+    .foto-perfil-preview {
+        width: 100px;
+        height: 100px;
+    }
+
+    input[type="file"] {
+        max-width: 100%;
+    }
+
+    .btn-guardar, .btn-cancelar {
+        width: 100%;
+        text-align: center;
+    }
+
+    .modal-footer {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+
