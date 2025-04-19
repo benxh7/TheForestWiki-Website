@@ -84,31 +84,42 @@
         </div>
         
         <!-- Modal de Bootstrap para el Formulario de Imagen -->
-        <div class="modal fade" id="avatarModal" tabindex="-1" aria-labelledby="avatarModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content modal-avatar">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="avatarModalLabel">Cambiar foto de perfil</h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                                aria-label="Cerrar"></button>
-                    </div>
-                    <form method="post" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        <div class="modal-body">
-                            {{ form.imagen.label_tag }}
-                            {{ form.imagen }}
-                            {% if form.imagen.errors %}
-                                <div class="text-danger">{{ form.imagen.errors }}</div>
-                            {% endif %}
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                        </div>
-                    </form>
-                </div>
+<div class="modal fade" id="avatarModal" tabindex="-1" aria-labelledby="avatarModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content modal-avatar">
+            <div class="modal-header">
+                <h5 class="modal-title" id="avatarModalLabel">Cambiar foto de perfil</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="modal-body">
+                    <!-- Etiqueta -->
+                    <label class="form-label">Modificar:</label>
+
+                    <!-- Estilizado del input con preview de nombre -->
+                    <div class="custom-file-upload">
+                        <label for="id_imagen" class="custom-upload-label">
+                            <i class="fas fa-upload"></i> Seleccionar imagen
+                        </label>
+                        {{ form.imagen }}
+                        <span id="nombre-archivo">Ningún archivo seleccionado</span>
+                    </div>
+
+                    {% if form.imagen.errors %}
+                        <div class="text-danger">{{ form.imagen.errors }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
         </div>
+    </div>
+</div>
+
         
         <div class="perfil-usuario-body">
             <div class="perfil-usuario-bio">
@@ -174,6 +185,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const input = document.getElementById('id_imagen');
+        const label = document.getElementById('nombre-archivo');
+        if (input && label) {
+            input.addEventListener('change', function () {
+                label.textContent = this.files.length > 0 ? this.files[0].name : 'Ningún archivo seleccionado';
+            });
+        }
+    });
+</script>
+
+
 </body>
 
 </html>
