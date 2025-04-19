@@ -39,6 +39,34 @@ html, body {
 
 }
 
+/*
+============================
+ Diseño de la barra lateral
+============================
+*/
+
+/* Para navegadores basados en WebKit (Chrome, Safari, Opera) */
+::-webkit-scrollbar {
+    width: 6px;  /* Ancho de la barra vertical, "finita" */
+    height: 6px; /* Alto de la barra horizontal */
+}
+
+::-webkit-scrollbar-track {
+    background: transparent; /* Sin fondo blanco */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: gold; /* Color naranja */
+    border-radius: 10px;
+    border: none;
+}
+
+/* Para Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: gold transparent;
+}
 
 table {
     margin-top: 50px;
@@ -47,12 +75,10 @@ table {
     background-color: #242424;;
     border-radius: 4px;
     opacity: 0.85;
-    padding-right: auto;
 }
 
 .fondo-tabla {
     background-color: #242424;;
-    opacity: 8px;
 }
 
 

@@ -14,6 +14,35 @@
     box-sizing: border-box;
 }
 
+/*
+============================
+ Diseño de la barra lateral
+============================
+*/
+
+/* Para navegadores basados en WebKit (Chrome, Safari, Opera) */
+::-webkit-scrollbar {
+    width: 6px;  /* Ancho de la barra vertical, "finita" */
+    height: 6px; /* Alto de la barra horizontal */
+}
+
+::-webkit-scrollbar-track {
+    background: transparent; /* Sin fondo blanco */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: gold; /* Color naranja */
+    border-radius: 10px;
+    border: none;
+}
+
+/* Para Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: gold transparent;
+}
+
 /* 
 ================================
  Diseño del footer de la pagina 

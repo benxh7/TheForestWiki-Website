@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=, initial-scale=1.0">
-    <link rel="shortcut icon" href="imagenes/Icono/the-forest.icon.png" />
+    <link rel="shortcut icon" href="imagenes/Icono/the-forest.icon.png"/>
     <link href="https://fonts.googleapis.com/css2?family=Rationale&display=swap" rel="stylesheet">
     <title>Consumibles - The forest Wiki</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Estilo propio de CSS -->
     {% load static %}
@@ -20,302 +20,322 @@
     <link rel="icon" type="image/jpg" href="{% static 'core/img/favicon/favicon.webp' %}"/>
 </head>
 
-<body id="fondo"style="background-image: url('{% static 'core/img/background/Fondo3.jpg' %}'); background-size: cover; background-attachment: fixed;">
-    <!-- Menú de navegación -->
-    <nav class="navbar d-flex justify-content-between align-items-center">
-        <!-- Menú hamburguesa y enlaces -->
-        <div class="nav-left d-flex align-items-center">
-            <!-- Checkbox oculto para el menú hamburguesa -->
-            <input type="checkbox" id="menu-toggle" class="menu-toggle">
-            <!-- Botón de menú hamburguesa -->
-            <label for="menu-toggle" class="menu-icon">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
-            <!-- Lista de navegación -->
-            <ul class="nav-list d-flex align-items-center">
-                <li class="menu"><a href="{% url 'home' %}">Inicio</a></li>
-                <li class="menu"><a href="{% url 'foro' %}">Foro</a></li>
-                <li class="menu"><a href="https://www.google.com/maps/place/R%C3%ADo+Imperial+460,+Valle+Grande,+Lampa,+Regi%C3%B3n+Metropolitana/@-33.3295809,-70.751195,17z/data=!3m1!4b1!4m5!3m4!1s0x9662bf62531dc747:0xc0b4aee73c3b9373!8m2!3d-33.3295854!4d-70.7490063?hl=es-CL">Dirección</a></li>
-                <!-- Aquí mostramos el username si está logueado -->
-                {% if user.is_authenticated %}
-                    <li class="menu">
-                        <a href="{% url 'micuenta' %}">Mi Cuenta</a>
-                    </li>
-                    <li class="menu">
-                        <form method="post" action="{% url 'logout' %}">
-                            {% csrf_token %}
-                            <button type="submit" class="logout-link">Cerrar Sesión</button>
-                        </form>
-                    </li>
-                    <li class="menu" style="color: #ffc400">
-                        <span>Bienvenido, {{ user.username }}</span>
-                    </li>
-                {% else %}
-                    <li class="menu">
-                        <a href="{% url 'registrarse' %}">Registrarse</a>
-                    </li>
-                    <li class="menu">
-                        <a href="{% url 'login' %}">Iniciar Sesión</a>
-                    </li>
-                {% endif %}
-            </ul>
-            <form class="d-flex d-none d-md-flex" id="separar-derecha">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Buscar</button>
-            </form>
-        </div>
-    </nav>
-
-    <div class="container">
-        <div class="center-titulo">
-            <h1 id=titulo>Consumibles</h1>
-        </div>
-        <section class="colorl">
-            <div class="letra">
-                <div class="container">
-                    <div class="w-33">
-                        <div class="center">
-                            <button class="btn btn-dark">
-                                Editar
-                            </button>
-                        </div>
-                    </div>
-                    <div class="center">
-                        <p id="caja_bienvenida">Los consumibles son esenciales para la supervivencia, pueden restaurar o
-                            disminuir la salud, la plenitud, la hidratación, la energía, la resistencia, etc.,
-                            según los tipos de consumibles que utilice.
-                        </p>
-                    </div>
-                    <div style=overflow-x:auto>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th scope="col-md-3"></th>
-                                    <th colspan="4" style="text-align: center; font-weight: bold;">Modo normal</th>
-                                    <th colspan="4" style="text-align: center; font-weight: bold;">Modo dificil</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row" class="centrart">Consumible</th>
-                                    <td>Hambre</td>
-                                    <td>Agua</td>
-                                    <td>Vida</td>
-                                    <td>Energia</td>
-                                    <td>Hambre</td>
-                                    <td>Agua</td>
-                                    <td>Vida</td>
-                                    <td>Energia</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="centrart"><img src="{% static 'core/img/consumibles/Aloe.webp' %}" >Aloe</th>
-                                    <td>5</td>
-                                    <td>0</td>
-                                    <td>2</td>
-                                    <td>2</td>
-                                    <td>5</td>
-                                    <td>0</td>
-                                    <td>2</td>
-                                    <td>2</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="centrart"><img src="{% static 'core/img/consumibles/AmanitaMushroom.webp' %}" >Amanita</th>
-                                    <td>5</td>
-                                    <td>0</td>
-                                    <td>-2</td>
-                                    <td>10</td>
-                                    <td>5</td>
-                                    <td>0</td>
-                                    <td>-30</td>
-                                    <td>10</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="centrart"><img src="{% static 'core/img/consumibles/BlackBerries.webp' %}" >Bayas negras</th>
-                                    <td>5</td>
-                                    <td>10</td>
-                                    <td>0</td>
-                                    <td>10</td>
-                                    <td>5</td>
-                                    <td>10</td>
-                                    <td>0</td>
-                                    <td>10</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="centrart"><img src="{% static 'core/img/consumibles/Bloodied.webp' %}" >Beber con manos</th>
-                                    <td>0</td>
-                                    <td>10</td>
-                                    <td>-1</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>5</td>
-                                    <td>-20</td>
-                                    <td>0</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="centrart"><img src="{% static 'core/img/consumibles/Booze.webp' %}" >Alcohol</th>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>15</td>
-                                    <td>-10</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>15</td>
-                                    <td>-10</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="centrart"><img src="{% static 'core/img/consumibles/FishEdible.webp' %}" >Pescado</th>
-                                    <td>61</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>40</td>
-                                    <td>61</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>14</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="centrart"><img src="{% static 'core/img/consumibles/Head.webp' %}" >Cabeza</th>
-                                    <td>10</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>10</td>
-                                    <td>10</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>10</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="centrart"><img src="{% static 'core/img/consumibles/IconMeatBurnt.webp' %}" >Carne cocinada</th>
-                                    <td>17</td>
-                                    <td>-10</td>
-                                    <td>0</td>
-                                    <td>10</td>
-                                    <td>17</td>
-                                    <td>-40</td>
-                                    <td>0</td>
-                                    <td>3</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="centrart"><img src="{% static 'core/img/consumibles/Leg.webp' %}" >Piernas</th>
-                                    <td>98</td>
-                                    <td>20</td>
-                                    <td>0</td>
-                                    <td>80</td>
-                                    <td>7</td>
-                                    <td>0</td>
-                                    <td>-5</td>
-                                    <td>4</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="centrart"><img src="{% static 'core/img/consumibles/Meat.webp' %}" >Carne cruda</th>
-                                    <td>98</td>
-                                    <td>-5</td>
-                                    <td>20</td>
-                                    <td>80</td>
-                                    <td>98</td>
-                                    <td>-20</td>
-                                    <td>7</td>
-                                    <td>28</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="centrart"><img src="{% static 'core/img/consumibles/Meds.webp' %}" >Medicina</th>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>100</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>75</td>
-                                    <td>0</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="centrart"><img src="{% static 'core/img/consumibles/Oyster.webp' %}" >Ostra</th>
-                                    <td>15</td>
-                                    <td>0</td>
-                                    <td>3</td>
-                                    <td>12</td>
-                                    <td>14</td>
-                                    <td>1</td>
-                                    <td>4</td>
-                                    <td>12</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="centrart"><img src="{% static 'core/img/consumibles/RabbitMeat.webp' %}" >Carne de conejo</th>
-                                    <td>98</td>
-                                    <td>-5</td>
-                                    <td>20</td>
-                                    <td>80</td>
-                                    <td>98</td>
-                                    <td>-20</td>
-                                    <td>7</td>
-                                    <td>28</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="centrart"><img src="{% static 'core/img/consumibles/Snack.webp' %}" >Snack</th>
-                                    <td>25</td>
-                                    <td>0</td>
-                                    <td>5</td>
-                                    <td>20</td>
-                                    <td>25</td>
-                                    <td>0</td>
-                                    <td>5</td>
-                                    <td>20</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="centrart"><img src="{% static 'core/img/consumibles/Soda.webp' %}" >Bebida</th>
-                                    <td>0</td>
-                                    <td>50</td>
-                                    <td>0</td>
-                                    <td>80</td>
-                                    <td>0</td>
-                                    <td>40</td>
-                                    <td>0</td>
-                                    <td>60</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </section>
+<body id="fondo"
+      style="background-image: url('{% static 'core/img/background/Fondo3.jpg' %}'); background-size: cover; background-attachment: fixed;">
+<!-- Menú de navegación -->
+<nav class="navbar d-flex justify-content-between align-items-center">
+    <!-- Menú hamburguesa y enlaces -->
+    <div class="nav-left d-flex align-items-center">
+        <!-- Checkbox oculto para el menú hamburguesa -->
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <!-- Botón de menú hamburguesa -->
+        <label for="menu-toggle" class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <!-- Lista de navegación -->
+        <ul class="nav-list d-flex align-items-center">
+            <li class="menu"><a href="{% url 'home' %}">Inicio</a></li>
+            <li class="menu"><a href="{% url 'foro' %}">Foro</a></li>
+            <li class="menu"><a
+                    href="https://www.google.com/maps/place/R%C3%ADo+Imperial+460,+Valle+Grande,+Lampa,+Regi%C3%B3n+Metropolitana/@-33.3295809,-70.751195,17z/data=!3m1!4b1!4m5!3m4!1s0x9662bf62531dc747:0xc0b4aee73c3b9373!8m2!3d-33.3295854!4d-70.7490063?hl=es-CL">Dirección</a>
+            </li>
+            <!-- Aquí mostramos el username si está logueado -->
+            {% if user.is_authenticated %}
+                <li class="menu">
+                    <a href="{% url 'micuenta' %}">Mi Cuenta</a>
+                </li>
+                <li class="menu">
+                    <form method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="logout-link">Cerrar Sesión</button>
+                    </form>
+                </li>
+                <li class="menu" style="color: #ffc400">
+                    <span>Bienvenido, {{ user.username }}</span>
+                </li>
+            {% else %}
+                <li class="menu">
+                    <a href="{% url 'registrarse' %}">Registrarse</a>
+                </li>
+                <li class="menu">
+                    <a href="{% url 'login' %}">Iniciar Sesión</a>
+                </li>
+            {% endif %}
+        </ul>
+        <form class="d-flex d-none d-md-flex" id="separar-derecha">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Buscar</button>
+        </form>
     </div>
+</nav>
 
-    <!-- Pie de página (Usamos Bootstrap para la responsividad) -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row align-items-center">
-                <!-- Columna Izquierda -->
-                <div class="col-md-6 text-center text-md-start">
-                    <div class="footer-brand">
-                        <span>The Forest Wiki</span>
-                    </div>
-                    <p class="footer-text">
-                        Recopilando información esencial desde 2025.
+<div class="container">
+    <div class="center-titulo">
+        <h1 id=titulo>Consumibles</h1>
+    </div>
+    <section class="colorl">
+        <div class="letra">
+            <div class="container">
+                <div class="center">
+                    <p id="caja_bienvenida">Los consumibles son esenciales para la supervivencia, pueden restaurar o
+                        disminuir la salud, la plenitud, la hidratación, la energía, la resistencia, etc.,
+                        según los tipos de consumibles que utilice.
                     </p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                    </div>
                 </div>
-                <!-- Columna Derecha -->
-                <div class="col-md-6 d-flex justify-content-center justify-content-md-end">
-                    <ul class="footer-links">
-                        <li><a href="#">Inicio</a></li>
-                        <!--<li><a href="{% url 'error_404' %}">Categorías</a></li>-->
-                        <li><a href="https://www.google.com/maps/place/R%C3%ADo+Imperial+460,+Valle+Grande,+Lampa,+Regi%C3%B3n+Metropolitana/@-33.3295809,-70.751195,17z/data=!3m1!4b1!4m5!3m4!1s0x9662bf62531dc747:0xc0b4aee73c3b9373!8m2!3d-33.3295854!4d-70.7490063?hl=es-CL">Dirección</a></li>
-                    </ul>
+                <div style=overflow-x:auto>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th scope="col-md-3"></th>
+                            <th colspan="4" style="text-align: center; font-weight: bold;">Modo normal</th>
+                            <th colspan="4" style="text-align: center; font-weight: bold;">Modo dificil</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row" class="centrart">Consumible</th>
+                            <td>Hambre</td>
+                            <td>Agua</td>
+                            <td>Vida</td>
+                            <td>Energia</td>
+                            <td>Hambre</td>
+                            <td>Agua</td>
+                            <td>Vida</td>
+                            <td>Energia</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="centrart"><img src="{% static 'core/img/consumibles/Aloe.webp' %}">Aloe
+                            </th>
+                            <td>5</td>
+                            <td>0</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>5</td>
+                            <td>0</td>
+                            <td>2</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="centrart"><img
+                                    src="{% static 'core/img/consumibles/AmanitaMushroom.webp' %}">Amanita
+                            </th>
+                            <td>5</td>
+                            <td>0</td>
+                            <td>-2</td>
+                            <td>10</td>
+                            <td>5</td>
+                            <td>0</td>
+                            <td>-30</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="centrart"><img
+                                    src="{% static 'core/img/consumibles/BlackBerries.webp' %}">Bayas negras
+                            </th>
+                            <td>5</td>
+                            <td>10</td>
+                            <td>0</td>
+                            <td>10</td>
+                            <td>5</td>
+                            <td>10</td>
+                            <td>0</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="centrart"><img
+                                    src="{% static 'core/img/consumibles/Bloodied.webp' %}">Beber con manos
+                            </th>
+                            <td>0</td>
+                            <td>10</td>
+                            <td>-1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>5</td>
+                            <td>-20</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="centrart"><img src="{% static 'core/img/consumibles/Booze.webp' %}">Alcohol
+                            </th>
+                            <td>2</td>
+                            <td>50</td>
+                            <td>15</td>
+                            <td>-10</td>
+                            <td>2</td>
+                            <td>50</td>
+                            <td>15</td>
+                            <td>-10</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="centrart"><img
+                                    src="{% static 'core/img/consumibles/FishEdible.webp' %}">Pescado
+                            </th>
+                            <td>61</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>40</td>
+                            <td>61</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>14</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="centrart"><img src="{% static 'core/img/consumibles/Head.webp' %}">Cabeza
+                            </th>
+                            <td>10</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>10</td>
+                            <td>10</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="centrart"><img
+                                    src="{% static 'core/img/consumibles/IconMeatBurnt.webp' %}">Carne cocinada
+                            </th>
+                            <td>17</td>
+                            <td>-10</td>
+                            <td>0</td>
+                            <td>10</td>
+                            <td>17</td>
+                            <td>-40</td>
+                            <td>0</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="centrart"><img src="{% static 'core/img/consumibles/Leg.webp' %}">Piernas
+                            </th>
+                            <td>98</td>
+                            <td>20</td>
+                            <td>0</td>
+                            <td>80</td>
+                            <td>7</td>
+                            <td>0</td>
+                            <td>-5</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="centrart"><img src="{% static 'core/img/consumibles/Meat.webp' %}">Carne
+                                cruda
+                            </th>
+                            <td>98</td>
+                            <td>-5</td>
+                            <td>20</td>
+                            <td>80</td>
+                            <td>98</td>
+                            <td>-20</td>
+                            <td>7</td>
+                            <td>28</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="centrart"><img src="{% static 'core/img/consumibles/Meds.webp' %}">Medicina
+                            </th>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>100</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>75</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="centrart"><img src="{% static 'core/img/consumibles/Oyster.webp' %}">Ostra
+                            </th>
+                            <td>15</td>
+                            <td>0</td>
+                            <td>3</td>
+                            <td>12</td>
+                            <td>14</td>
+                            <td>1</td>
+                            <td>4</td>
+                            <td>12</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="centrart"><img
+                                    src="{% static 'core/img/consumibles/RabbitMeat.webp' %}">Carne de conejo
+                            </th>
+                            <td>98</td>
+                            <td>-5</td>
+                            <td>20</td>
+                            <td>80</td>
+                            <td>98</td>
+                            <td>-20</td>
+                            <td>7</td>
+                            <td>28</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="centrart"><img src="{% static 'core/img/consumibles/Snack.webp' %}">Snack
+                            </th>
+                            <td>25</td>
+                            <td>0</td>
+                            <td>5</td>
+                            <td>20</td>
+                            <td>25</td>
+                            <td>0</td>
+                            <td>5</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="centrart"><img src="{% static 'core/img/consumibles/Soda.webp' %}">Bebida
+                            </th>
+                            <td>0</td>
+                            <td>50</td>
+                            <td>0</td>
+                            <td>80</td>
+                            <td>0</td>
+                            <td>40</td>
+                            <td>0</td>
+                            <td>60</td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
-            </div>
-            <div class="copyright text-center">
-                © 2025 The Forest Wiki. Todos los derechos reservados.
             </div>
         </div>
-    </footer>
+    </section>
+</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+<!-- Pie de página (Usamos Bootstrap para la responsividad) -->
+<footer class="footer">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Columna Izquierda -->
+            <div class="col-md-6 text-center text-md-start">
+                <div class="footer-brand">
+                    <span>The Forest Wiki</span>
+                </div>
+                <p class="footer-text">
+                    Recopilando información esencial desde 2025.
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <!-- Columna Derecha -->
+            <div class="col-md-6 d-flex justify-content-center justify-content-md-end">
+                <ul class="footer-links">
+                    <li><a href="#">Inicio</a></li>
+                    <!--<li><a href="{% url 'error_404' %}">Categorías</a></li>-->
+                    <li>
+                        <a href="https://www.google.com/maps/place/R%C3%ADo+Imperial+460,+Valle+Grande,+Lampa,+Regi%C3%B3n+Metropolitana/@-33.3295809,-70.751195,17z/data=!3m1!4b1!4m5!3m4!1s0x9662bf62531dc747:0xc0b4aee73c3b9373!8m2!3d-33.3295854!4d-70.7490063?hl=es-CL">Dirección</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright text-center">
+            © 2025 The Forest Wiki. Todos los derechos reservados.
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 
