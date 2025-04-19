@@ -72,24 +72,29 @@
         </div>
         {% endif %}
 
-        <form method="POST" enctype="multipart/form-data" action="" class="form-container">
+       <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
 
-    <h2 class="form-title">Cambiar foto de perfil</h2>
-
-    <div class="foto-perfil-container">
+    <div class="form-group foto-perfil-container">
+        <label class="form-label">Imagen actual:</label>
         {% if user.imagen %}
             <div class="foto-perfil-preview" style="background-image: url('{{ user.imagen.url }}');"></div>
+        {% else %}
+            <div class="foto-perfil-preview" style="background-image: url('{% static 'core/img/avatar_default.png' %}');"></div>
         {% endif %}
+    </div>
 
-        <label for="{{ form.imagen.id_for_label }}" class="form-label">Nueva imagen:</label>
+    <div class="form-group">
+        <label for="{{ form.imagen.id_for_label }}" class="form-label">Subir nueva imagen:</label>
         {{ form.imagen }}
     </div>
 
-    <div class="form-buttons">
+    <div class="modal-footer">
+        <button type="button" class="btn-cancelar" data-bs-dismiss="modal">Cancelar</button>
         <button type="submit" class="btn-guardar">Guardar</button>
     </div>
 </form>
+
 
 
 
