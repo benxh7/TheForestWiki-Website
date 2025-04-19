@@ -53,3 +53,9 @@ class AvatarForm(forms.ModelForm):
     class Meta:
         model = Cuenta
         fields = ['imagen']
+        widgets = {
+            'imagen': forms.ClearableFileInput(attrs={
+                'style': 'display: none;',  # Oculta el input original
+                'id': 'id_imagen'           # Lo usamos para activarlo desde un label custom
+            })
+        }
