@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cuentas desde API</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        table { border-collapse: collapse; width: 100% }
+        td, th { padding: 10px; border: 1px; solid: #ddd; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>Cuentas desde API</h1>
+    {%  if cuentas %}
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Email</th>
+            </tr>
+        {% for cue in cuentas %}
+            <tr>
+                <td>{{ cue.id }}</td>
+                <td>{{ cue.nombre }}</td>
+                <td>{{ cue.email }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    {%  else %}
+        <h2>No hay cuentas disponibles</h2>
+    {% endif %}
+</body>
+</html>

@@ -303,8 +303,7 @@ header nav a.activo {
 }
 /* ---- ----- ----- Fondo pagina ----- ----- ----- */
 #fondo1{
-    background-color: black;  
-    background-image: url("{% static 'core/img/background/Fondo3.jpg' %}"); 
+    background-color: black;
     background-position: top;
     background-attachment: fixed;
     background-repeat: no-repeat;

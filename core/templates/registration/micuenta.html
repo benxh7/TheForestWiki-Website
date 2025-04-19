@@ -71,13 +71,45 @@
         <div class="perfil-usuario-header">
             <div class="perfil-usuario-portada">
                 <div class="perfil-usuario-avatar">
-                    <img src="{% static 'core/img/foro/user.png' %}" alt="img-avatar">
-                    <button type="button" class="boton-avatar">
+                    {% if request.user.imagen %}
+                        <img src="{{ request.user.imagen.url }}" alt="Avatar de {{ request.user.username }}">
+                    {% else %}
+                        <img src="{% static 'core/img/foro/user.png' %}" alt="Avatar por defecto">
+                    {% endif %}
+                    <button type="button" class="boton-avatar" data-bs-toggle="modal" data-bs-target="#avatarModal">
                         <i class="far fa-image"></i>
                     </button>
                 </div>
             </div>
         </div>
+        
+        <!-- Modal de Bootstrap para el Formulario de Imagen -->
+        <div class="modal fade" id="avatarModal" tabindex="-1" aria-labelledby="avatarModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content bg-dark text-white">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="avatarModalLabel">Cambiar foto de perfil</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                aria-label="Cerrar"></button>
+                    </div>
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="modal-body">
+                            {{ form.imagen.label_tag }}
+                            {{ form.imagen }}
+                            {% if form.imagen.errors %}
+                                <div class="text-danger">{{ form.imagen.errors }}</div>
+                            {% endif %}
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
         <div class="perfil-usuario-body">
             <div class="perfil-usuario-bio">
                 <h3 class="titulo">{{ user.username }}</h3>

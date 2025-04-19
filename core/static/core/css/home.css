@@ -682,14 +682,13 @@ body.modal-open {
         width: 150%; /* La imagen ocupará solo el 60% del ancho del contenedor */
         height: auto; /* Mantiene la proporción original */
         display: block; /* Para poder centrarla */
-        margin: 15 auto; /* Centrado horizontal */
+        margin: auto; /* Centrado horizontal */
         border: 2px solid gold; /* Opcional, si deseas mantener el estilo */
         box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2), 0 2px 20px rgba(0, 0, 0, 0.25);
     }
 
     /* El resto de tus estilos permanecen igual */
     .slider {
-        position: center;
         width: 130%;
         height: 130%;
         overflow: hidden;
@@ -858,7 +857,7 @@ body.modal-open {
 /* ============================
    MEDIA QUERIES: TABLETS
    ============================ */
-   @media (max-width: 768px) {
+@media (max-width: 768px) {
 
     /* Título principal responsive */
     .forest-title {
@@ -882,39 +881,39 @@ body.modal-open {
         width: fit-content; /* Que se adapte al contenido */
         margin: 20px auto; /* Centrado horizontal */
     }
-  }
+}
   
   
   /* ============================
      MEDIA QUERIES: CELULARES
      ============================ */
-  @media (max-width: 480px) {
+@media (max-width: 480px) {
   
-    /* Título principal en móviles */
-    .forest-title {
-        font-size: 1.4rem; /* Más compacto para pantallas pequeñas */
-        padding: 12px 15px;
-        text-align: center;
-        border-left: none; /* Eliminamos el borde lateral */
-        border-top: 4px solid #556B2F; /* Borde superior para mantener el estilo */
-    }
+      /* Título principal en móviles */
+      .forest-title {
+          font-size: 1.4rem; /* Más compacto para pantallas pequeñas */
+          padding: 12px 15px;
+          text-align: center;
+          border-left: none; /* Eliminamos el borde lateral */
+          border-top: 4px solid #556B2F; /* Borde superior para mantener el estilo */
+      }
   
-    /* Caja de introducción en móviles */
-    .forest-intro {
-        font-size: 0.95rem; /* Texto más pequeño pero legible */
-        padding: 15px;
-        line-height: 1.6; /* Más separación entre líneas para facilitar la lectura */
-        text-align: justify; /* Ajuste elegante del texto */
-    }
+      /* Caja de introducción en móviles */
+      .forest-intro {
+          font-size: 0.95rem; /* Texto más pequeño pero legible */
+          padding: 15px;
+          line-height: 1.6; /* Más separación entre líneas para facilitar la lectura */
+          text-align: justify; /* Ajuste elegante del texto */
+      }
   
-    /* Botón en móviles */
-    .btn-buy-game {
-        font-size: 0.95rem; /* Letra justa para pantallas chicas */
-        padding: 10px 18px;
-        text-align: center;
-        width: 90%; /* Que se adapte al ancho del dispositivo */
-        max-width: 300px; /* Pero que no se extienda demasiado */
-    }
+      /* Botón en móviles */
+      .btn-buy-game {
+          font-size: 0.95rem; /* Letra justa para pantallas chicas */
+          padding: 10px 18px;
+          text-align: center;
+          width: 90%; /* Que se adapte al ancho del dispositivo */
+          max-width: 300px; /* Pero que no se extienda demasiado */
+      }
   }
   
 

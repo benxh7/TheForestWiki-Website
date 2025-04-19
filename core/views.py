@@ -1,11 +1,22 @@
 from django.shortcuts import render, redirect
-
-from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordChangeForm
-from .forms import RegisterForm, EditProfileForm
+from .forms import RegisterForm, EditProfileForm, AvatarForm
+import requests
+
+def ver_cuentas_api(request):
+    try:
+        response = requests.get("http://127.0.0.1:8000/cuenta")
+        response.raise_for_status()
+        cuentas = response.json()
+
+    except request.RequestException as e:
+        cuentas = []
+        print(f'Error al obtener las cuentas: {e}')
+    return render(request, 'core/ver_cuentas_api.html', {'cuentas': cuentas})
+
 
 def register_view(request):
     if request.method == 'POST':
@@ -50,7 +61,15 @@ def login_view(request):
 
 @login_required
 def mi_cuenta_view(request):
-    return render(request, 'registration/micuenta.html')
+    # Formulario para cambiar imagen de perfil
+    form = AvatarForm(request.POST or None, request.FILES or None, instance=request.user)
+
+    if request.method == 'POST' and form.is_valid():
+        form.save() # Guarda la nueva imagen en el campo 'imagen'
+        messages.success(request, "Avatar actualizado correctamente.")
+        return redirect('micuenta') # Refresca la misma página
+
+    return render(request, 'registration/micuenta.html',{'form': form,})
 
 @login_required
 def mi_cuenta_editar_view(request):

@@ -279,7 +279,6 @@ body.modal-open {
 
 /* Diseño del boton para comprar el juego */
 .btn-back {
-    background-color: linear-gradient(90deg, #024605, #031f0e, #020803);
     color: #E0C066;
     padding: 10px 20px;
     text-decoration: none;
