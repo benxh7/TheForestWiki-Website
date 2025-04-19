@@ -858,3 +858,104 @@ input[type="file"]::file-selector-button {
 }
 
 
+=========================================================
+
+/* ================================
+   MODAL DE CAMBIO DE AVATAR
+   Fondo oscuro + sin texto feo
+================================ */
+.modal-content {
+    background-color: #1a1a1a !important; /* fondo oscuro elegante */
+    color: #eee !important;              /* texto claro */
+    border-radius: 8px !important;
+    padding: 1.5rem !important;
+    border: none !important;
+    box-shadow: 0 0 20px rgba(255, 196, 0, 0.1);
+    font-family: "Rationale", sans-serif;
+}
+
+/* Título del modal */
+.modal-header {
+    border-bottom: 1px solid #333;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #ffc400;
+}
+
+/* Campo input file personalizado */
+input[type="file"] {
+    appearance: none;
+    background-color: transparent;
+    color: #ffc400;
+    border: 2px dashed #ffc400;
+    padding: 0.6rem;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 350px;
+    margin-top: 0.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+/* Estilo al pasar el mouse */
+input[type="file"]:hover {
+    background-color: rgba(255, 196, 0, 0.05);
+    border-color: #ffae00;
+}
+
+/* OCULTA LA RUTA DEL ARCHIVO SUBIDO */
+input[type="file"]::file-selector-button {
+    display: none;
+}
+
+/* Pie del modal: botones personalizados */
+.modal-footer button {
+    padding: 0.6rem 1.5rem;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+/* Botón Cancelar */
+.modal-footer .btn-cancelar {
+    background-color: #444;
+    color: #ccc;
+}
+
+.modal-footer .btn-cancelar:hover {
+    background-color: #555;
+}
+
+/* Botón Guardar */
+.modal-footer .btn-guardar {
+    background-color: #ffc400;
+    color: #000;
+}
+
+.modal-footer .btn-guardar:hover {
+    background-color: #ffae00;
+    box-shadow: 0 0 8px #ffc40088;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    input[type="file"] {
+        max-width: 100%;
+    }
+
+    .modal-footer {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .modal-footer .btn-cancelar,
+    .modal-footer .btn-guardar {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
