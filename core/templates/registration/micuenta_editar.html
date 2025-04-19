@@ -72,11 +72,22 @@
         </div>
         {% endif %}
 
-        <form method="POST" action="">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-        </form>
+        <form method="POST" enctype="multipart/form-data" action="">
+    {% csrf_token %}
+
+    <div class="foto-perfil-container">
+        <!-- Muestra la imagen actual del usuario si existe -->
+        {% if user.imagen %}
+            <div class="foto-perfil-preview" style="background-image: url('{{ user.imagen.url }}');"></div>
+        {% endif %}
+
+        <!-- Campo para subir nueva imagen -->
+        {{ form.imagen }}
+    </div>
+
+    <button type="submit" class="btn btn-primary">Actualizar Imagen</button>
+</form>
+
 
         <!-- Enlace para cambiar contraseña (ver sección siguiente) -->
         <a href="{% url 'cambiar_contraseña' %}">Cambiar Contraseña</a>
