@@ -835,3 +835,26 @@ input[type="file"]:hover {
 }
 
 
+============================================
+
+/* ===================================
+   POP-UP / MODAL OSCURO Y ESTÉTICO
+=================================== */
+.modal-content {
+    background-color: #1e1e1e !important; /* fondo oscuro */
+    color: #eee !important;              /* texto claro */
+    border-radius: 8px !important;
+    padding: 1.5rem !important;
+    border: none !important;
+    box-shadow: 0 0 20px rgba(255, 196, 0, 0.1);
+}
+
+/* ===================================
+   OCULTAR LA RUTA DEL ARCHIVO SUBIDO
+   (el texto que aparece cuando se elige imagen)
+=================================== */
+input[type="file"]::file-selector-button {
+    display: none;
+}
+
+
