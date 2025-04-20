@@ -215,6 +215,7 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     // Maneja la vision de las respuestas
     document.querySelectorAll('.reply-btn').forEach(btn => {
@@ -237,6 +238,28 @@
             // parent (puede ser "" o un número)
             document.getElementById('editParent').value = btn.dataset.parent;
             new bootstrap.Modal(document.getElementById('editCommentModal')).show();
+        });
+    });
+    // SweetAlert2 para confirmar borrado (comentarios y respuestas)
+    document.querySelectorAll('.delete-btn').forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            const url = this.getAttribute('href');
+
+            Swal.fire({
+                title: '¿Estás segura/o?',
+                text: "Esto eliminará el comentario permanentemente.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#6c757d',
+                confirmButtonText: 'Sí, borrar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = url;
+                }
+            });
         });
     });
 </script>
