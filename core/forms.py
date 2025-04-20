@@ -1,6 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
-from .models import Cuenta
+from .models import Cuenta, Comentario
 
 # Formulario para registrar nuevos usuarios en la base de datos
 class RegisterForm(UserCreationForm):
@@ -56,4 +56,17 @@ class AvatarForm(forms.ModelForm):
                 'style': 'display: none;',
                 'id': 'id_imagen'
             })
+        }
+
+class ComentarioForm(forms.ModelForm):
+    class Meta:
+        model = Comentario
+        fields = ['content', 'parent']
+        widgets = {
+            "content": forms.Textarea(attrs={
+                "class": "form-control",
+                "placeholder": "Escribe tu comentario aquí...",
+                "rows": 3,
+            }),
+            "parent": forms.HiddenInput(),
         }

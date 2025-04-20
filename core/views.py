@@ -1,9 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordChangeForm
-from .forms import RegisterForm, EditProfileForm, AvatarForm
+from .forms import RegisterForm, EditProfileForm, AvatarForm, ComentarioForm
+from .models import Comentario
 import requests
 
 def ver_cuentas_api(request):
@@ -138,5 +139,44 @@ def consumibles(request):
 def historia(request):
     return render(request, 'core/historia.html')
 
-def foro(request):
-    return render(request, 'core/foro.html')
+@login_required
+def foro_view(request):
+    comentarios = Comentario.objects.filter(parent__isnull=True).select_related('usuario').prefetch_related('replies__usuario')
+
+    form = ComentarioForm(request.POST or None)
+    if request.method == "POST" and form.is_valid():
+        nuevo = form.save(commit=False)
+        nuevo.usuario = request.user
+        nuevo.save()
+        return redirect('foro')
+
+    return render(request, 'core/foro.html', {
+        'comentarios': comentarios,
+        'form': form,
+    })
+
+@login_required
+def comment_edit(request, pk):
+    comentario = get_object_or_404(Comentario, pk=pk)
+    # Permiso para editar
+    if comentario.usuario != request.user and not request.user.is_superuser:
+        messages.error(request, "No tienes permiso para editar este comentario.")
+    else:
+        if request.method == 'POST':
+            form = ComentarioForm(request.POST, instance=comentario)
+            if form.is_valid():
+                form.save()
+                messages.success(request, "Comentario editado correctamente.")
+            else:
+                messages.error(request, "Hubo un error al editar el comentario.")
+    return redirect('foro')
+
+@login_required
+def comment_delete(request, pk):
+    comentario = get_object_or_404(Comentario, pk=pk)
+    if comentario.usuario != request.user and not request.user.is_superuser:
+        messages.error(request, "No tienes permiso para borrar este comentario.")
+    else:
+        comentario.delete()
+        messages.success(request, "Comentario borrado.")
+    return redirect('foro')

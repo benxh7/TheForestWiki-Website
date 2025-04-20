@@ -3,6 +3,17 @@ html, body {
     font-size: 1.15em;
     font-weight: 500;
     font-style: normal;
+    margin: 0;
+}
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex: 1;
 }
 
 /*
@@ -13,7 +24,7 @@ html, body {
 
 /* Para navegadores basados en WebKit (Chrome, Safari, Opera) */
 ::-webkit-scrollbar {
-    width: 6px;  /* Ancho de la barra vertical, "finita" */
+    width: 6px; /* Ancho de la barra vertical, "finita" */
     height: 6px; /* Alto de la barra horizontal */
 }
 
@@ -50,7 +61,7 @@ h5 {
     text-align: center;
     margin-top: 20px;
     font-size: 35px;
-    margin-top: 70px;
+    margin-top: 100px;
 }
 
 
@@ -340,7 +351,7 @@ img {
     background: rgb(17, 6, 1);
     padding: 40px 0 20px;
     border-top: 1px solid rgb(15, 3, 3);
-    position: relative;
+    bottom: 100px;
 }
 
 .footer-brand {
@@ -497,4 +508,45 @@ img {
         margin-top: 50px;
         flex: 1;
     }
+}
+
+
+
+/* Color de la fecha y hora de las publicaciones */
+.text-muted {
+    color: #1d62ff !important;
+}
+
+/* Transicion para el dropdown de los comentarios */
+button[data-bs-toggle="collapse"] .fa-chevron-down {
+    transition: transform .3s ease;
+}
+
+button[aria-expanded="true"] .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+/* Ajustes para los hover de los botones */
+.reply-btn {
+  transition: background-color .2s, border-color .2s;
+}
+.reply-btn:hover {
+  background-color: #1d7731;    /* verde más oscuro */
+  border-color: #165d26;
+}
+
+.edit-btn {
+  transition: background-color .2s, border-color .2s;
+}
+.edit-btn:hover {
+  background-color: #0057b6;    /* azul más oscuro */
+  border-color: #004796;
+}
+
+.delete-btn {
+  transition: background-color .2s, border-color .2s;
+}
+.delete-btn:hover {
+  background-color: #941b26;
+  border-color: #70131a;
 }
