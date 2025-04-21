@@ -573,91 +573,6 @@ Copiar esto
 }
 
 
-
-/* === TÍTULO DEL MODAL === */
-#avatarModal .modal-header {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-#avatarModal .modal-title {
-    color: #ffc400;
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-/* === INPUT DE ARCHIVO === */
-#avatarModal input[type="file"] {
-    background-color: transparent;
-    border: 2px dashed #ffc400;
-    border-radius: 8px;
-    padding: 10px;
-    color: #ffc400;
-    font-weight: bold;
-    width: 100%;
-    cursor: pointer;
-    font-family: inherit;
-}
-
-/* Botón nativo del input */
-#avatarModal input[type="file"]::file-selector-button {
-    background-color: transparent;
-    border: none;
-    color: #ffc400;
-    font-weight: bold;
-    cursor: pointer;
-    font-family: inherit;
-}
-
-#avatarModal input[type="file"]:hover {
-    background-color: #141a14;
-}
-
-/* === ETIQUETAS Y ERRORES === */
-#avatarModal label.form-label {
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: #f8f8f8;
-}
-
-#avatarModal .text-danger {
-    color: #ff5c5c;
-    font-size: 0.9rem;
-    margin-top: 0.5rem;
-}
-
-/* === BOTONES === */
-#avatarModal .btn-secondary {
-    background-color: #3a3a3a;
-    border: none;
-    font-weight: bold;
-    color: #ccc;
-    transition: background 0.3s ease;
-}
-
-#avatarModal .btn-secondary:hover {
-    background-color: #555;
-}
-
-#avatarModal .btn-primary {
-    background-color: #ffc400;
-    border: none;
-    color: #000;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-#avatarModal .btn-primary:hover {
-    background-color: #e0a800;
-}
-
-/* === TEXTO DE ARCHIVO SELECCIONADO === */
-#nombre-archivo {
-    margin-top: 8px;
-    font-size: 0.9rem;
-    color: #ccc;
-}
-
-
 /* ========================================
    ESTILOS MODAL FOTO DE PERFIL - avatarModal
 ======================================== */
@@ -687,7 +602,7 @@ Copiar esto
     color: #f8f8f8;
 }
 
-/* ========== MODAL AVATAR - INPUT DE ARCHIVO ESTILIZADO ========== */
+/* ========== INPUT FILE ESTILIZADO CON BOTÓN "CHOOSE FILE" VISIBLE ========== */
 #avatarModal input[type="file"] {
     background-color: #0b0f0c;
     border: 2px dashed #ffc400;
@@ -700,7 +615,7 @@ Copiar esto
     cursor: pointer;
 }
 
-/* Botón "Choose File" visible y estilizado */
+/* Botón "Choose File" personalizado */
 #avatarModal input[type="file"]::file-selector-button {
     background-color: #ffc400;
     color: #000;
@@ -717,9 +632,53 @@ Copiar esto
     background-color: #e0a800;
 }
 
+/* Texto de error */
+#avatarModal .text-danger {
+    color: #ff5c5c;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+/* Footer del modal */
+#avatarModal .modal-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* Botón Cancelar */
+#avatarModal .btn-secondary {
+    background-color: #3a3a3a;
+    border: none;
+    font-weight: bold;
+    color: #ccc;
+    transition: background-color 0.3s ease;
+}
+
+#avatarModal .btn-secondary:hover {
+    background-color: #555;
+}
+
+/* Botón Guardar */
+#avatarModal .btn-primary {
+    background-color: #ffc400;
+    border: none;
+    color: #000;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+#avatarModal .btn-primary:hover {
+    background-color: #e0a800;
+}
+
 /* Texto del archivo seleccionado */
 #nombre-archivo {
     margin-top: 8px;
     font-size: 0.9rem;
     color: #ccc;
 }
+
+/
