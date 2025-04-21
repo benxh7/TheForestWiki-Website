@@ -700,19 +700,34 @@ Copiar esto
     font-family: inherit;
 }
 
-/* Botón del input file */
-#avatarModal input[type="file"]::file-selector-button {
+#avatarModal input[type="file"] {
     background-color: transparent;
-    border: none;
+    border: 2px dashed #ffc400;
+    border-radius: 8px;
+    padding: 8px;
     color: #ffc400;
     font-weight: bold;
+    width: 100%;
+    max-width: 100%;
     cursor: pointer;
     font-family: inherit;
 }
 
-/* Hover sobre el input */
-#avatarModal input[type="file"]:hover {
-    background-color: #141a14;
+/* Estilo del botón nativo de subir */
+#avatarModal input[type="file"]::file-selector-button {
+    background-color: #ffc400;
+    border: none;
+    color: #000;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#avatarModal input[type="file"]::file-selector-button:hover {
+    background-color: #e0a800;
 }
 
 /* Estilo errores */
