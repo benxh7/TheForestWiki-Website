@@ -126,13 +126,21 @@
                     <form method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="modal-body">
-                            <label for="id_imagen" class="form-label">Modificar:</label>
-                            <input type="file" name="imagen" id="id_imagen" class="form-control-file" required>
-                            <p id="nombre-archivo" class="mt-2">Ningún archivo seleccionado</p>
-                            {% if form.imagen.errors %}
-                                <div class="text-danger">{{ form.imagen.errors }}</div>
-                            {% endif %}
-                        </div>
+    <label class="form-label">Imagen actual:</label><br>
+    {% if request.user.imagen %}
+        <img src="{{ request.user.imagen.url }}" alt="Avatar actual" class="img-fluid mb-3" style="max-width: 120px; border-radius: 10px; border: 2px solid #ffc400;">
+    {% else %}
+        <img src="{% static 'core/img/foro/user.png' %}" alt="Avatar por defecto" class="img-fluid mb-3" style="max-width: 120px; border-radius: 10px; border: 2px solid #ffc400;">
+    {% endif %}
+
+    <label for="id_imagen" class="form-label">Modificar:</label>
+    <input type="file" name="imagen" id="id_imagen" class="form-control-file" required>
+    <p id="nombre-archivo" class="mt-2">Ningún archivo seleccionado</p>
+    {% if form.imagen.errors %}
+        <div class="text-danger">{{ form.imagen.errors }}</div>
+    {% endif %}
+</div>
+
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
