@@ -8,10 +8,9 @@ https://docs.djangoproject.com/en/5.2/howto/deployment/asgi/
 """
 
 import os
-import django
 from django.core.asgi import get_asgi_application
 from starlette.applications import Starlette
-from starlette.routing    import Mount
+from starlette.routing import Mount
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "TheForestWiki.settings")
 django_asgi_app = get_asgi_application()

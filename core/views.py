@@ -8,9 +8,11 @@ from .models import Comentario
 from datetime import datetime
 import requests
 
+
 def ver_cuentas_api(request):
     try:
-        response = requests.get("http://127.0.0.1:8003/api/usuarios/", timeout=5)
+        # IMPORTANTE LA OBTENCION DEL PUERTO AQUI PARA ACCEDER A LA API
+        response = requests.get("http://127.0.0.1:8001/usuarios/", timeout=5)
         response.raise_for_status()
         cuentas = response.json()
         for c in cuentas:
@@ -22,19 +24,21 @@ def ver_cuentas_api(request):
         print(f'Error al obtener las cuentas: {e}')
     return render(request, 'core/ver_cuentas_api.html', {'cuentas': cuentas})
 
+
 def register_view(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
-            user = form.save() # Se guarda el usuario en la DB con contraseña hasheada
-            login(request, user) # Si quieres que inicie sesión automáticamente tras registrarse
+            user = form.save()  # Se guarda el usuario en la DB con contraseña hasheada
+            login(request, user)  # Si quieres que inicie sesión automáticamente tras registrarse
             messages.success(request, f'Bienvenido, {user.username}!')
-            return redirect('home')   # Redirige a la url que desees
+            return redirect('home')  # Redirige a la url que desees
         else:
             messages.error(request, 'Corrige los errores en el formulario.')
     else:
         form = RegisterForm()
     return render(request, 'registration/register.html', {'form': form})
+
 
 def login_view(request):
     if request.method == 'POST':
@@ -63,33 +67,36 @@ def login_view(request):
 
     return render(request, 'registration/login.html')
 
+
 @login_required
 def mi_cuenta_view(request):
     # Formulario para cambiar imagen de perfil
     form = AvatarForm(request.POST or None, request.FILES or None, instance=request.user)
 
     if request.method == 'POST' and form.is_valid():
-        form.save() # Guarda la nueva imagen en el campo 'imagen'
+        form.save()  # Guarda la nueva imagen en el campo 'imagen'
         messages.success(request, "Avatar actualizado correctamente.")
-        return redirect('micuenta') # Refresca la misma página
+        return redirect('micuenta')  # Refresca la misma página
 
-    return render(request, 'registration/micuenta.html',{'form': form,})
+    return render(request, 'registration/micuenta.html', {'form': form, })
+
 
 @login_required
 def mi_cuenta_editar_view(request):
-    user = request.user # El usuario logueado actual
+    user = request.user  # El usuario logueado actual
     if request.method == 'POST':
         form = EditProfileForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
             messages.success(request, '¡Tu perfil se ha actualizado correctamente!')
-            return redirect('micuenta') # O la ruta que definas
+            return redirect('micuenta')  # O la ruta que definas
         else:
             messages.error(request, 'Por favor corrige los errores señalados.')
     else:
         form = EditProfileForm(instance=user)
 
     return render(request, 'registration/micuenta_editar.html', {'form': form})
+
 
 @login_required
 def cambiar_contraseña_view(request):
@@ -108,43 +115,56 @@ def cambiar_contraseña_view(request):
 
     return render(request, 'registration/cambiar_contraseña.html', {'form': form})
 
+
 def logout_view(request):
-    logout(request) # Cierra la sesión
+    logout(request)  # Cierra la sesión
     return redirect('core/home')
+
 
 def home(request):
     return render(request, 'core/home.html')
 
+
 def error_404(request):
     return render(request, 'core/error_404.html')
+
 
 def animales(request):
     return render(request, 'core/animales.html')
 
+
 def enemigos(request):
     return render(request, 'core/enemigos.html')
+
 
 def mapa(request):
     return render(request, 'core/mapa.html')
 
+
 def construcciones(request):
     return render(request, 'core/construcciones.html')
+
 
 def plantas(request):
     return render(request, 'core/plantas.html')
 
+
 def armas(request):
     return render(request, 'core/armas.html')
+
 
 def consumibles(request):
     return render(request, 'core/consumibles.html')
 
+
 def historia(request):
     return render(request, 'core/historia.html')
 
+
 @login_required
 def foro_view(request):
-    comentarios = Comentario.objects.filter(parent__isnull=True).select_related('usuario').prefetch_related('replies__usuario')
+    comentarios = Comentario.objects.filter(parent__isnull=True).select_related('usuario').prefetch_related(
+        'replies__usuario')
 
     form = ComentarioForm(request.POST or None)
     if request.method == "POST" and form.is_valid():
@@ -157,6 +177,7 @@ def foro_view(request):
         'comentarios': comentarios,
         'form': form,
     })
+
 
 @login_required
 def comment_edit(request, pk):
@@ -174,6 +195,7 @@ def comment_edit(request, pk):
                 messages.error(request, "Hubo un error al editar el comentario.")
     return redirect('foro')
 
+
 @login_required
 def comment_delete(request, pk):
     comentario = get_object_or_404(Comentario, pk=pk)
@@ -183,6 +205,7 @@ def comment_delete(request, pk):
         comentario.delete()
         messages.success(request, "Comentario borrado.")
     return redirect('foro')
+
 
 # Vista para obtener publicaciones externas sobre el juego mediante una API
 # de esta forma el usuario puede tener datos o informacion de otras fuentes
@@ -197,11 +220,11 @@ def external_posts(request):
         for child in data.get("data", {}).get("children", []):
             d = child["data"]
             posts.append({
-                "title":     d["title"],
-                "author":    d["author"],
-                "created":   datetime.utcfromtimestamp(d["created_utc"]),
+                "title": d["title"],
+                "author": d["author"],
+                "created": datetime.utcfromtimestamp(d["created_utc"]),
                 "permalink": "https://reddit.com" + d["permalink"],
-                "url":       d.get("url")
+                "url": d.get("url")
             })
     except requests.RequestException:
         posts = []
@@ -209,6 +232,7 @@ def external_posts(request):
 
 # El superuser va a poder eliminar cuentas desde su panel de ver_cuentas_api con ayuda de FastAPI
 User = get_user_model()
+
 @login_required
 @user_passes_test(lambda u: u.is_superuser)
 def user_delete(request, pk):
