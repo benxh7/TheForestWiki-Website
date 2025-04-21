@@ -7,7 +7,8 @@ def serialize_user(u) -> UserOut:
         username=u.username,
         email=u.email,
         date_joined=u.date_joined,
-        date_joined_ts=int(u.date_joined.timestamp())
+        date_joined_ts=int(u.date_joined.timestamp()),
+        is_superuser=u.is_superuser
     )
 
 def serialize_comment(c: Comentario) -> CommentaryOut:

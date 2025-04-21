@@ -8,6 +8,7 @@ class UserOut(BaseModel):
     email: str
     date_joined: datetime
     date_joined_ts: int
+    is_superuser: bool
 
 class CommentaryIn(BaseModel):
     content: str

@@ -88,12 +88,14 @@
                             <td>{{ cue.date_joined|date:"H:i, d/m/Y" }}</td>
                             {% if user.is_superuser %}
                                 <td>
-                                    <form method="post" action="{% url 'user_delete' cue.id %}">
-                                        {% csrf_token %}
-                                        <button type="submit" class="btn btn-danger btn-sm">
-                                            <i class="fas fa-user-times"></i> Eliminar
-                                        </button>
-                                    </form>
+                                    <form method="post" action="{% url 'user_delete' cue.id %}"
+      data-superuser="{{ cue.is_superuser|yesno:'true,false' }}"
+      data-username="{{ cue.username }}">
+    {% csrf_token %}
+    <button type="button" class="btn btn-danger btn-sm delete-btn">
+        <i class="fas fa-user-times"></i> Eliminar
+    </button>
+</form>
                                 </td>
                             {% endif %}
                         </tr>
@@ -147,5 +149,43 @@
         crossorigin="anonymous"></script>
 <script src="{% static 'core/js/app.js' %}"></script>
 <script src="{% static 'core/js/scroll.js' %}"></script>
+<!-- Mensaje de alerta borrar cuenta con sweetalert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const deleteButtons = document.querySelectorAll('.delete-btn');
+
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const form = this.closest('form');
+                const isSuperuser = form.getAttribute('data-superuser') === 'true';
+
+                if (isSuperuser) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Acción no permitida',
+                        text: 'No se puede eliminar esta cuenta.',
+                    });
+                    return;
+                }
+
+                Swal.fire({
+                    title: '¿Estás seguro?',
+                    text: 'Esta acción eliminará la cuenta seleccionada.',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Sí, eliminar',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
+                });
+            });
+        });
+    });
+</script>
 </body>
 </html>
