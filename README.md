@@ -61,11 +61,17 @@ Python 3.x
 
 Django 4.x
 
+FastAPI
+
+Pillow
+
+Requests
+
 Git & GitHub
 
 HTML5, CSS3, JavaScript
 
-Editor recomendado: VSCode
+Editor recomendado: PyCharm
 
 ---------------------------------------------------------------------------------------------------------------------------------------
 
