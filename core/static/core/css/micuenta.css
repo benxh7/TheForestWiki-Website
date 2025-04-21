@@ -657,3 +657,87 @@ body.modal-open {
   overflow: auto !important;
   padding-right: 0 !important;
 }
+
+/* Estilo personalizado para el modal de cambio de avatar */
+#avatarModal .modal-content {
+    background-color: var(--dark-x); /* Tono oscuro personalizado */
+    color: var(--light);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 196, 0, 0.2);
+    box-shadow: 0 0 15px rgba(255, 196, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Título del modal */
+#avatarModal .modal-title {
+    color: var(--rojo);
+    font-weight: 600;
+}
+
+/* Header sin borde duro */
+#avatarModal .modal-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Footer estilizado */
+#avatarModal .modal-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Botones personalizados */
+#avatarModal .btn-primary {
+    background-color: var(--rojo);
+    border: none;
+    font-weight: bold;
+    color: #000;
+    transition: background-color 0.3s ease;
+}
+
+#avatarModal .btn-primary:hover {
+    background-color: #ffae00;
+    color: #000;
+}
+
+#avatarModal .btn-secondary {
+    background-color: #444;
+    border: none;
+    font-weight: bold;
+    color: #ccc;
+    transition: background-color 0.3s ease;
+}
+
+#avatarModal .btn-secondary:hover {
+    background-color: #555;
+}
+
+/* Input de tipo archivo */
+#avatarModal input[type="file"] {
+    background-color: #1e1e1e;
+    border: 2px dashed var(--rojo);
+    padding: 0.6rem;
+    border-radius: 6px;
+    width: 100%;
+    color: var(--rojo);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#avatarModal input[type="file"]:hover {
+    background-color: #292929;
+}
+
+/* Etiqueta del input */
+#avatarModal label.form-label {
+    color: var(--light);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+/* Errores */
+#avatarModal .text-danger {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+
