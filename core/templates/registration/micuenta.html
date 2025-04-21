@@ -126,12 +126,14 @@
                     <form method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="modal-body">
-                            {{ form.imagen.label_tag }}
-                            {{ form.imagen }}
+                            <label for="id_imagen" class="form-label">Modificar:</label>
+                            <input type="file" name="imagen" id="id_imagen" class="form-control-file" required>
+                            <p id="nombre-archivo" class="mt-2">Ningún archivo seleccionado</p>
                             {% if form.imagen.errors %}
                                 <div class="text-danger">{{ form.imagen.errors }}</div>
                             {% endif %}
                         </div>
+
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                             <button type="submit" class="btn btn-primary">Guardar</button>
