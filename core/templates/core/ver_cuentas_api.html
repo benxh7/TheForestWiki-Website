@@ -3,7 +3,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Usuarios Registrados - The Forest Wiki</title>
+    <title>Usuarios - The Forest Wiki</title>
     <link rel="shortcut icon" href="{% static 'core/img/favicon/favicon.webp' %}"/>
     <link href="https://fonts.googleapis.com/css2?family=Rationale&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
@@ -63,48 +63,89 @@
     </nav>
 
     <div class="container content mt-5 external-posts">
-        <h2 class="mb-4 text-white">Usuarios registrados</h2>
-
+        <h2 class="mb-4 text-white">Superusuarios</h2>
         {% if cuentas %}
-            <div class="table-responsive">
-                <table class="table table-dark table-hover align-middle">
+            <div class="table-responsive mb-5">
+                <table class="table-custom align-middle">
                     <thead>
                     <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Usuario</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Registrado</th>
-                        {% if user.is_superuser %}
-                            <th scope="col">Acciones</th>
-                        {% endif %}
+                        <th>ID</th>
+                        <th>Usuario</th>
+                        <th>Email</th>
+                        <th>Registrado</th>
+                        <th>Acciones</th>
                     </tr>
                     </thead>
                     <tbody>
                     {% for cue in cuentas %}
-                        <tr>
-                            <td>{{ cue.id }}</td>
-                            <td>{{ cue.username }}</td>
-                            <td>{{ cue.email }}</td>
-                            <td>{{ cue.date_joined|date:"H:i, d/m/Y" }}</td>
-                            {% if user.is_superuser %}
+                        {% if cue.is_superuser %}
+                            <tr>
+                                <td>{{ cue.id }}</td>
+                                <td>{{ cue.username }}</td>
+                                <td>{{ cue.email }}</td>
+                                <td>{{ cue.date_joined|date:"H:i, d/m/Y" }}</td>
                                 <td>
-                                    <form method="post" action="{% url 'user_delete' cue.id %}"
-      data-superuser="{{ cue.is_superuser|yesno:'true,false' }}"
-      data-username="{{ cue.username }}">
-    {% csrf_token %}
-    <button type="button" class="btn btn-danger btn-sm delete-btn">
-        <i class="fas fa-user-times"></i> Eliminar
-    </button>
-</form>
+                                    <form method="post"
+                                          action="{% url 'user_delete' cue.id %}"
+                                          data-superuser="{{ cue.is_superuser|yesno:'true,false' }}"
+                                          data-username="{{ cue.username }}">
+                                        {% csrf_token %}
+                                        <button type="button" class="btn btn-danger btn-sm delete-btn">
+                                            <i class="fas fa-user-times"></i> Eliminar
+                                        </button>
+                                    </form>
                                 </td>
-                            {% endif %}
-                        </tr>
+                            </tr>
+                        {% endif %}
                     {% endfor %}
                     </tbody>
                 </table>
             </div>
         {% else %}
             <p class="text-white">No hay cuentas disponibles.</p>
+        {% endif %}
+
+        <h2 class="mb-4 text-white">Usuarios</h2>
+        {% if cuentas %}
+            <div class="table-responsive">
+                <table class="table-custom align-middle">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Usuario</th>
+                        <th>Email</th>
+                        <th>Registrado</th>
+                        {% if user.is_superuser %}
+                            <th>Acciones</th>{% endif %}
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for cue in cuentas %}
+                        {% if not cue.is_superuser %}
+                            <tr>
+                                <td>{{ cue.id }}</td>
+                                <td>{{ cue.username }}</td>
+                                <td>{{ cue.email }}</td>
+                                <td>{{ cue.date_joined|date:"H:i, d/m/Y" }}</td>
+                                {% if user.is_superuser %}
+                                    <td>
+                                        <form method="post"
+                                              action="{% url 'user_delete' cue.id %}"
+                                              data-superuser="{{ cue.is_superuser|yesno:'true,false' }}"
+                                              data-username="{{ cue.username }}">
+                                            {% csrf_token %}
+                                            <button type="button" class="btn btn-danger btn-sm delete-btn">
+                                                <i class="fas fa-user-times"></i> Eliminar
+                                            </button>
+                                        </form>
+                                    </td>
+                                {% endif %}
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         {% endif %}
     </div>
 
@@ -164,7 +205,7 @@
                     Swal.fire({
                         icon: 'error',
                         title: 'Acción no permitida',
-                        text: 'No se puede eliminar esta cuenta.',
+                        text: 'No se puede eliminar esta cuenta. Ya que es un superusuario.',
                     });
                     return;
                 }

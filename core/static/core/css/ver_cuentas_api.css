@@ -551,3 +551,46 @@ h2 {
     margin-top: 50px;
     font-size: 35px;
 }
+
+.table-custom {
+    width: 100%;
+    border-collapse: separate;
+    border: 2px solid #ffc400;
+    border-spacing: 0;
+}
+
+.table-custom thead th {
+    background-color: #0b0f0c;
+    color: #ffc400;
+    border-bottom: none;
+    padding: .75rem 1rem;
+    font-weight: bold;
+}
+
+.table-custom:has(tbody tr) thead th {
+    border-bottom: 2px dashed #ffc400;
+}
+
+.table-custom tbody tr {
+    background-color: #111712;
+    color: rgb(255, 255, 255);
+    transition: background-color .2s;
+}
+
+.table-custom tbody tr:hover {
+    background-color: #23272a;
+}
+
+.table-custom td {
+    padding: .75rem 1rem;
+    border-top: 1px solid rgba(255, 196, 0, 0.2);
+}
+
+.table-custom .btn-danger {
+    background-color: #ff5c5c;
+    border: none;
+}
+
+.table-custom .btn-danger:hover {
+    background-color: #e04848;
+}
