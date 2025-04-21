@@ -103,13 +103,15 @@ def cambiar_contraseña_view(request):
     if request.method == 'POST':
         form = PasswordChangeForm(user=request.user, data=request.POST)
         if form.is_valid():
-            user = form.save()  # Actualiza la contraseña
-            # Mantener la sesión iniciada después del cambio de contraseña:
+            user = form.save()
             update_session_auth_hash(request, user)
             messages.success(request, '¡Tu contraseña se ha cambiado exitosamente!')
             return redirect('micuenta')
         else:
-            messages.error(request, 'Por favor corrige los errores.')
+            if 'old_password' in form.errors:
+                messages.error(request, 'Contraseña antigua incorrecta.')
+            else:
+                messages.error(request, 'Por favor corrige los errores del formulario.')
     else:
         form = PasswordChangeForm(user=request.user)
 
