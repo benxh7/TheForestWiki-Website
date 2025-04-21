@@ -69,13 +69,6 @@
         <form method="POST" action="">
             {% csrf_token %}
             {{ form.as_p }}
-
-            <!-- Muestra errores detallados del formulario -->
-            {% if form.errors %}
-                <div style="color:red;">
-                    {{ form.errors }}
-                </div>
-            {% endif %}
             <button type="submit" class="btn btn-primary">Cambiar Contraseña</button>
         </form>
 

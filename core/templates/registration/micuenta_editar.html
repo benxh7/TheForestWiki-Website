@@ -71,15 +71,6 @@
 
     <h1>Actualizar Perfil</h1>
     <div class="form-container">
-        <!-- Mensajes de error / éxito -->
-        {% if messages %}
-            <div>
-                {% for message in messages %}
-                    <p>{{ message }}</p>
-                {% endfor %}
-            </div>
-        {% endif %}
-
         <form method="POST" action="">
             {% csrf_token %}
             {{ form.as_p }}
