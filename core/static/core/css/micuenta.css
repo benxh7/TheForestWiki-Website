@@ -687,85 +687,33 @@ Copiar esto
     color: #f8f8f8;
 }
 
-/* Input file estilizado */
+/* ========== MODAL AVATAR - INPUT DE ARCHIVO ESTILIZADO ========== */
 #avatarModal input[type="file"] {
-    background-color: transparent;
+    background-color: #0b0f0c;
     border: 2px dashed #ffc400;
     border-radius: 8px;
     padding: 10px;
     color: #ffc400;
     font-weight: bold;
     width: 100%;
-    cursor: pointer;
     font-family: inherit;
+    cursor: pointer;
 }
 
-#avatarModal input[type="file"] {
-    background-color: transparent;
-    border: 2px dashed #ffc400;
-    border-radius: 8px;
-    padding: 8px;
-    color: #ffc400;
-    font-weight: bold;
-    width: 100%;
-    max-width: 100%;
-    cursor: pointer;
-    font-family: inherit;
-}
-
-/* Estilo del botón nativo de subir */
+/* Botón "Choose File" visible y estilizado */
 #avatarModal input[type="file"]::file-selector-button {
     background-color: #ffc400;
-    border: none;
     color: #000;
     font-weight: bold;
-    padding: 8px 12px;
+    padding: 8px 14px;
+    border: none;
     border-radius: 4px;
-    margin-right: 10px;
+    margin-right: 12px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 #avatarModal input[type="file"]::file-selector-button:hover {
-    background-color: #e0a800;
-}
-
-/* Estilo errores */
-#avatarModal .text-danger {
-    color: #ff5c5c;
-    font-size: 0.9rem;
-    margin-top: 0.5rem;
-}
-
-/* Footer del modal */
-#avatarModal .modal-footer {
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 1rem 1.5rem;
-}
-
-/* Botón Cancelar */
-#avatarModal .btn-secondary {
-    background-color: #3a3a3a;
-    border: none;
-    font-weight: bold;
-    color: #ccc;
-    transition: background-color 0.3s ease;
-}
-
-#avatarModal .btn-secondary:hover {
-    background-color: #555;
-}
-
-/* Botón Guardar */
-#avatarModal .btn-primary {
-    background-color: #ffc400;
-    border: none;
-    color: #000;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-#avatarModal .btn-primary:hover {
     background-color: #e0a800;
 }
 
@@ -775,4 +723,3 @@ Copiar esto
     font-size: 0.9rem;
     color: #ccc;
 }
-
