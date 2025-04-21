@@ -58,6 +58,7 @@ class AvatarForm(forms.ModelForm):
             })
         }
 
+# Formulario para crear un nuevo comentario en el foro
 class ComentarioForm(forms.ModelForm):
     class Meta:
         model = Comentario

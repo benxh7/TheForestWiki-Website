@@ -1,23 +1,26 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash, get_user_model
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.forms import PasswordChangeForm
 from .forms import RegisterForm, EditProfileForm, AvatarForm, ComentarioForm
 from .models import Comentario
+from datetime import datetime
 import requests
 
 def ver_cuentas_api(request):
     try:
-        response = requests.get("http://127.0.0.1:8000/cuenta")
+        response = requests.get("http://127.0.0.1:8003/api/usuarios/", timeout=5)
         response.raise_for_status()
         cuentas = response.json()
-
-    except request.RequestException as e:
+        for c in cuentas:
+            ts = c.get("date_joined_ts")  # p.ej. 1713656700
+            if ts is not None:
+                c["date_joined"] = datetime.utcfromtimestamp(ts)
+    except requests.RequestException as e:  # usa el módulo 'requests'
         cuentas = []
         print(f'Error al obtener las cuentas: {e}')
     return render(request, 'core/ver_cuentas_api.html', {'cuentas': cuentas})
-
 
 def register_view(request):
     if request.method == 'POST':
@@ -180,3 +183,43 @@ def comment_delete(request, pk):
         comentario.delete()
         messages.success(request, "Comentario borrado.")
     return redirect('foro')
+
+# Vista para obtener publicaciones externas sobre el juego mediante una API
+# de esta forma el usuario puede tener datos o informacion de otras fuentes
+def external_posts(request):
+    url = "https://www.reddit.com/r/theforest/new.json?limit=12"
+    headers = {"User-Agent": "TheForestWikiApp/0.1"}
+    try:
+        resp = requests.get(url, headers=headers, timeout=5)
+        resp.raise_for_status()
+        data = resp.json()
+        posts = []
+        for child in data.get("data", {}).get("children", []):
+            d = child["data"]
+            posts.append({
+                "title":     d["title"],
+                "author":    d["author"],
+                "created":   datetime.utcfromtimestamp(d["created_utc"]),
+                "permalink": "https://reddit.com" + d["permalink"],
+                "url":       d.get("url")
+            })
+    except requests.RequestException:
+        posts = []
+    return render(request, "core/posts_externos.html", {"posts": posts})
+
+# El superuser va a poder eliminar cuentas desde su panel de ver_cuentas_api con ayuda de FastAPI
+User = get_user_model()
+@login_required
+@user_passes_test(lambda u: u.is_superuser)
+def user_delete(request, pk):
+    if request.method == 'POST':
+        try:
+            target = User.objects.get(pk=pk)
+            if target == request.user:
+                messages.error(request, "No puedes eliminar tu propia cuenta aquí.")
+            else:
+                target.delete()
+                messages.success(request, f"Cuenta de {target.username} eliminada.")
+        except User.DoesNotExist:
+            messages.error(request, "Usuario no encontrado.")
+    return redirect('ver_cuentas_api')

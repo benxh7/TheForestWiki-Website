@@ -1,19 +1,21 @@
+{# core/templates/core/posts_externos.html #}
 {% load static %}
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Usuarios Registrados - The Forest Wiki</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticias Externas - The Forest Wiki</title>
     <link rel="shortcut icon" href="{% static 'core/img/favicon/favicon.webp' %}"/>
     <link href="https://fonts.googleapis.com/css2?family=Rationale&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="{% static 'core/css/ver_cuentas_api.css' %}" rel="stylesheet">
+    <link href="{% static 'core/css/posts_externos.css' %}" rel="stylesheet">
     <link rel="icon" type="image/jpg" href="{% static 'core/img/favicon/favicon.webp' %}"/>
 </head>
-<body id="fondo1"
-      style="background-image: url('{% static "core/img/background/Fondo3.jpg" %}');
-              background-size: cover; background-attachment: fixed;">
+<body id="fondo1" style="background-image: url('{% static "core/img/background/Fondo3.jpg" %}'); 
+        background-size: cover; background-attachment: fixed;">
 <div class="page-wrapper">
     <!-- Menú de navegación -->
     <nav class="navbar d-flex justify-content-between align-items-center">
@@ -45,12 +47,12 @@
                             {% csrf_token %}
                             <button type="submit" class="logout-link">Cerrar Sesión</button>
                         </form>
-                        <!-- Si el usuario es superuser le mostramos esta categoria de administrador -->
-                        {% if user.is_superuser %}
-                            <li class="menu">
-                                <a href="{% url 'ver_cuentas_api' %}">Administrar Cuentas</a>
-                            </li>
-                        {% endif %}
+                    <!-- Si el usuario es superuser le mostramos esta categoria de administrador -->
+                    {% if user.is_superuser %}
+                        <li class="menu">
+                            <a href="{% url 'ver_cuentas_api' %}">Administrar Cuentas</a>
+                        </li>
+                    {% endif %}
                     <li class="menu" style="color: #ffc400">
                         <span>Bienvenido, {{ user.username }}</span>
                     </li>
@@ -63,46 +65,25 @@
     </nav>
 
     <div class="container content mt-5 external-posts">
-        <h2 class="mb-4 text-white">Usuarios registrados</h2>
+        <h2 class="mb-4">
+            Últimos posts en r/theforestgame<br>
+            Infórmate de los últimos posts de la comunidad de The Forest en Reddit<br><br>
+            ¡Has click en los Post para leerlos!
+        </h2>
 
-        {% if cuentas %}
-            <div class="table-responsive">
-                <table class="table table-dark table-hover align-middle">
-                    <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Usuario</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Registrado</th>
-                        {% if user.is_superuser %}
-                            <th scope="col">Acciones</th>
-                        {% endif %}
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for cue in cuentas %}
-                        <tr>
-                            <td>{{ cue.id }}</td>
-                            <td>{{ cue.username }}</td>
-                            <td>{{ cue.email }}</td>
-                            <td>{{ cue.date_joined|date:"H:i, d/m/Y" }}</td>
-                            {% if user.is_superuser %}
-                                <td>
-                                    <form method="post" action="{% url 'user_delete' cue.id %}">
-                                        {% csrf_token %}
-                                        <button type="submit" class="btn btn-danger btn-sm">
-                                            <i class="fas fa-user-times"></i> Eliminar
-                                        </button>
-                                    </form>
-                                </td>
-                            {% endif %}
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
+        {% if posts %}
+            <div class="list-group">
+                {% for post in posts %}
+                    <a href="{{ post.permalink }}"
+                       target="_blank"
+                       class="external-post-item list-group-item list-group-item-action mb-2">
+                        <h5 class="mb-1">{{ post.title }}</h5>
+                        <small>por {{ post.author }} • {{ post.created|date:"H:i, d/m/Y" }} UTC</small>
+                    </a>
+                {% endfor %}
             </div>
         {% else %}
-            <p class="text-white">No hay cuentas disponibles.</p>
+            <p>No se pudieron cargar los posts. Intenta de nuevo más tarde.</p>
         {% endif %}
     </div>
 

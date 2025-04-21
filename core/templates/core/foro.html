@@ -17,32 +17,48 @@
 <div class="page-wrapper">
     <!-- Menú de navegación -->
     <nav class="navbar d-flex justify-content-between align-items-center">
+        <!-- Menú hamburguesa y enlaces -->
         <div class="nav-left d-flex align-items-center">
+            <!-- Checkbox oculto para el menú hamburguesa -->
             <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <!-- Botón de menú hamburguesa -->
             <label for="menu-toggle" class="menu-icon">
-                <span></span><span></span><span></span>
+                <span></span>
+                <span></span>
+                <span></span>
             </label>
+            <!-- Lista de navegación -->
             <ul class="nav-list d-flex align-items-center">
                 <li class="menu"><a href="{% url 'home' %}">Inicio</a></li>
+                <li class="menu"><a href="{% url 'external_posts' %}">Comunidad</a></li>
                 <li class="menu"><a href="{% url 'foro' %}">Foro</a></li>
-                <li class="menu"><a href="https://goo.gl/maps/…">Dirección</a></li>
+                <li class="menu">
+                    <a href="https://www.google.com/maps/place/…">Dirección</a>
+                </li>
+                <!-- Si inicio sesion el usuario mostraremos las siguientes categorias -->
                 {% if user.is_authenticated %}
-                    <li class="menu"><a href="{% url 'micuenta' %}">Mi Cuenta</a></li>
                     <li class="menu">
-                        <form method="post" action="{% url 'logout' %}">{% csrf_token %}
+                        <a href="{% url 'micuenta' %}">Mi Cuenta</a>
+                    </li>
+                    <li class="menu">
+                        <form method="post" action="{% url 'logout' %}">
+                            {% csrf_token %}
                             <button type="submit" class="logout-link">Cerrar Sesión</button>
                         </form>
+                    <!-- Si el usuario es superuser le mostramos esta categoria de administrador -->
+                    {% if user.is_superuser %}
+                        <li class="menu">
+                            <a href="{% url 'ver_cuentas_api' %}">Administrar Cuentas</a>
+                        </li>
+                    {% endif %}
+                    <li class="menu" style="color: #ffc400">
+                        <span>Bienvenido, {{ user.username }}</span>
                     </li>
-                    <li class="menu" style="color:#ffc400">Bienvenido, {{ user.username }}</li>
                 {% else %}
                     <li class="menu"><a href="{% url 'registrarse' %}">Registrarse</a></li>
                     <li class="menu"><a href="{% url 'login' %}">Iniciar Sesión</a></li>
                 {% endif %}
             </ul>
-            <form class="d-flex d-none d-md-flex" id="separar-derecha">
-                <input class="form-control me-2" type="search" placeholder="Search">
-                <button class="btn btn-outline-success">Buscar</button>
-            </form>
         </div>
     </nav>
 
